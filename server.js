@@ -666,15 +666,11 @@ function buildPDF(productName, formData, claudeContent, customerName) {
     ];
 
     bullets.forEach(b => {
-      doc
-        .fillColor(GOLD)
-        .font('Bold')
-        .fontSize(11)
-        .text('▸', 65, doc.y, { continued: true })
-        .fillColor(TEXT)
-        .font('Regular')
-        .fontSize(10)
-        .text('  ' + b, { width: PW - 140 });
+      const bY = doc.y;
+      doc.fillColor(GOLD).font('Bold').fontSize(11)
+         .text('▸', 65, bY, { lineBreak: false });
+      doc.fillColor(TEXT).font('Regular').fontSize(10)
+         .text(b, 84, bY, { width: PW - 150 });
       doc.moveDown(0.4);
     });
 
@@ -795,29 +791,15 @@ function buildPDF(productName, formData, claudeContent, customerName) {
           }
           // Bullet point
           else if (/^[-•*]\s/.test(line)) {
-            const content = line.replace(/^[-•*]\s*/, '');
-            // Check for bold (**text**)
-            if (/\*\*/.test(content)) {
-              doc
-                .fillColor(GOLD)
-                .font('Bold')
-                .fontSize(10)
-                .text('▸', 67, doc.y, { continued: true, width: 12 })
-                .fillColor(TEXT)
-                .font('Regular')
-                .text('  ' + content.replace(/\*\*/g, ''), { width: PW - 145 });
-            } else {
-              doc
-                .fillColor(GOLD)
-                .font('Bold')
-                .fontSize(10)
-                .text('▸', 67, doc.y, { continued: true, width: 12 })
-                .fillColor(TEXT)
-                .font('Regular')
-                .fontSize(10)
-                .text('  ' + content, { width: PW - 145 });
-            }
-            doc.moveDown(0.3);
+            const content = line.replace(/^[-•*]\s*/, '').replace(/\*\*/g, '');
+            const bulletY = doc.y;
+            // Draw gold bullet marker at explicit position (lineBreak:false keeps doc.y from jumping)
+            doc.fillColor(GOLD).font('Bold').fontSize(10)
+               .text('▸', 67, bulletY, { lineBreak: false });
+            // Draw content text at same Y, indented — explicit x,y avoids inheriting narrow width
+            doc.fillColor(TEXT).font('Regular').fontSize(10)
+               .text(content, 86, bulletY, { width: PW - 150 });
+            doc.moveDown(0.2);
           }
           // Regular paragraph
           else {
