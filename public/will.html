@@ -24,11 +24,18 @@
       <li><a href="/will" class="active">WillSimple</a></li>
       <li><a href="/divorce">DivorceSimple</a></li>
       <li><a href="/marriage">MarriageSimple</a></li>
+      <li><a href="/prenup">PrenupSimple</a></li>
       <li><a href="/obituary">ObituarySimple</a></li>
       <li><a href="/separation">SeparationSimple</a></li>
     </ul>
   </nav>
 </header>
+
+<!-- ── Legal Notice Bar ──────────────────────────────────── -->
+<div class="legal-notice-bar">
+  ⚖️ Το περιεχόμενο δεν αποτελεί νομική συμβουλή. Για επίσημες ενέργειες απευθυνθείτε σε δικηγόρο ή συμβολαιογράφο. ·
+  <a href="/terms">Όροι Χρήσης</a>
+</div>
 
 <!-- ── Product Hero ──────────────────────────────────────── -->
 <section class="product-hero">
@@ -109,11 +116,18 @@
         <input type="hidden" name="price" value="2900" />
         <input type="hidden" name="productName" value="WillSimple — Οδηγός Διαθήκης" />
 
-        <!-- Full Name -->
-        <div class="form-group">
-          <label>Ονοματεπώνυμο <span class="required">*</span></label>
-          <input type="text" name="fullName" class="form-control" placeholder="π.χ. Γεώργιος Παπαδόπουλος" required />
+        <!-- Name fields -->
+        <div class="form-name-row">
+          <div class="form-group" style="margin-bottom:0;">
+            <label>Όνομα <span class="required">*</span></label>
+            <input type="text" name="firstName" class="form-control" placeholder="π.χ. Γεώργιος" required />
+          </div>
+          <div class="form-group" style="margin-bottom:0;">
+            <label>Επώνυμο <span style="color:#9aabba;font-weight:400;">(προαιρετικό)</span></label>
+            <input type="text" name="lastName" class="form-control" placeholder="π.χ. Παπαδόπουλος" />
+          </div>
         </div>
+        <div style="margin-bottom:1.25rem;"></div>
 
         <!-- Email -->
         <div class="form-group">
@@ -242,7 +256,7 @@
   </div>
   <div class="footer-bottom">
     <span>© 2024 LifeSimple. Με επιφύλαξη παντός δικαιώματος.</span>
-    <span>Δεν παρέχουμε νομική συμβουλή · Πληροφοριακό περιεχόμενο</span>
+    <span>Δεν παρέχουμε νομική συμβουλή · Το περιεχόμενο δεν αποτελεί νομική συμβουλή</span>
   </div>
 </footer>
 
