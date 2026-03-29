@@ -524,20 +524,39 @@ function buildPDF(productName, formData, claudeContent, customerName) {
 
     // ── Helper: add page numbers to all pages ──
     function addPageNumbers() {
-      const pages = doc.bufferedPageRange();
-      for (let i = 0; i < pages.count; i++) {
-        doc.switchToPage(pages.start + i);
-        // Footer bar
+      const range = doc.bufferedPageRange();
+      for (let i = 0; i < range.count; i++) {
+        doc.switchToPage(range.start + i);
+
+        // Save cursor position
+        const savedX = doc.x;
+        const savedY = doc.y;
+
+        // Footer bar — rects never trigger pdfkit's overflow/page-add logic
         doc.rect(0, PH - 36, PW, 36).fill('#1a2744');
+
+        // Footer text sits at y = PH - 22, which is past pdfkit's effective maxY
+        // (maxY = PH - bottomMargin = PH - 55).  pdfkit checks doc.y > maxY at
+        // the START of every text call and auto-adds a blank page if true.
+        // Fix: zero the bottom margin for this page while we write the footer,
+        // then restore it. This raises maxY to PH so no overflow is detected.
+        const savedBottomMargin = doc.page.margins.bottom;
+        doc.page.margins.bottom = 0;
+
         doc
           .fillColor('#8fa3c8')
           .font('Regular')
           .fontSize(8)
           .text(
-            `LifeSimple · lifesimple.gr — Σελίδα ${i + 1} από ${pages.count}`,
+            `LifeSimple · lifesimple.gr — Σελίδα ${i + 1} από ${range.count}`,
             55, PH - 22,
-            { width: PW - 110, align: 'center' }
+            { width: PW - 110, align: 'center', lineBreak: false }
           );
+
+        // Restore margin and cursor
+        doc.page.margins.bottom = savedBottomMargin;
+        doc.x = savedX;
+        doc.y = savedY;
       }
     }
 
