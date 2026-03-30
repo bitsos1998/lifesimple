@@ -1687,3 +1687,250 @@ textarea.form-control {
 .section-header h2 { color: #1a2744; }
 .section-header .section-label { display: block; margin-bottom: 0.5rem; }
 .section-header p { color: #5a6b8a; margin-top: 0.5rem; max-width: 580px; margin-left: auto; margin-right: auto; }
+
+/* ── In-Form PDF Preview (Task 1 — after form fields, before pay button) ── */
+.form-pdf-preview {
+  background: #f7f5f0;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin: 1.75rem 0 1.25rem;
+  border: 1px solid #e3e0da;
+}
+
+.form-pdf-heading {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1a2744;
+  margin-bottom: 1rem;
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+
+.pdf-mockup-compact {
+  transform: rotate(0deg) !important;
+  box-shadow: 0 4px 20px rgba(26,39,68,0.15) !important;
+  margin-bottom: 0.75rem;
+}
+
+.pdf-mockup-compact .pdf-mockup-body { padding: 1rem 1.25rem; }
+.pdf-mockup-compact .pdf-blur-line { height: 0.7rem; margin-bottom: 0.5rem; }
+.pdf-mockup-compact .pdf-overlay { padding: 0.65rem 1rem; font-size: 0.82rem; }
+
+.form-pdf-caption {
+  font-size: 0.82rem;
+  color: #7a8fa8;
+  font-style: italic;
+  text-align: center;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+
+/* ── Textarea encouraging helper text (Task 2) ──────────────── */
+.form-textarea-help {
+  font-size: 0.82rem;
+  color: #9aabba;
+  font-style: italic;
+  margin-top: 0.4rem;
+  line-height: 1.6;
+}
+
+/* ── Article Template Layout Fixes ───────────────────────── */
+.article-layout .container {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 3.5rem;
+  align-items: start;
+  max-width: 1100px;
+}
+
+@media (max-width: 900px) {
+  .article-layout .container {
+    grid-template-columns: 1fr;
+  }
+  .article-sidebar { order: -1; }
+}
+
+.article-hero-top {
+  margin-bottom: 1rem;
+}
+
+.article-meta {
+  margin-top: 1rem;
+  color: #8fa3c8;
+  font-size: 0.9rem;
+}
+
+.related-articles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.related-article-mini {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.75rem;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e3e0da;
+  transition: border-color 0.2s;
+}
+
+.related-article-mini:hover {
+  border-color: #c9a84c;
+}
+
+.ram-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1a2744;
+  line-height: 1.35;
+}
+
+.ram-date {
+  font-size: 0.78rem;
+  color: #9aabba;
+}
+
+/* Article featured image with custom SVG */
+.article-featured-img {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 0;
+}
+
+.article-featured-placeholder {
+  background: #1a2744;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.article-svg-illustration {
+  width: 100%;
+  display: block;
+}
+
+/* Article body typography */
+.article-body h2 {
+  font-size: 1.4rem;
+  color: #1a2744;
+  margin: 2.5rem 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #f0ede7;
+}
+
+.article-body h2:first-child { margin-top: 0; }
+
+.article-body p {
+  color: #3a4a65;
+  line-height: 1.85;
+  margin-bottom: 1.1rem;
+  font-size: 1.02rem;
+}
+
+.article-body strong { color: #1a2744; }
+
+.article-body blockquote {
+  border-left: 3px solid #c9a84c;
+  padding: 0.75rem 1.25rem;
+  background: #fdf9f0;
+  border-radius: 0 8px 8px 0;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: #5a6b8a;
+}
+
+/* ── Product Card SVG Icons ───────────────────────────── */
+.product-card-svg {
+  width: 52px;
+  height: 52px;
+  display: block;
+  margin: 0 auto;
+}
+.product-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+/* ── Product Page H1 Icon ─────────────────────────────── */
+.product-h1-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.product-h1-icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+/* ── FAQ Section Icons ────────────────────────────────── */
+.faq-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.faq-section-heading svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: #c9a84c;
+}
+
+/* ── About Page Icons ─────────────────────────────────── */
+.hw-icon {
+  width: 36px;
+  height: 36px;
+  margin: 0 auto 0.5rem;
+  display: block;
+  color: #c9a84c;
+}
+.apc-icon svg {
+  width: 36px;
+  height: 36px;
+}
+
+/* ── Blog Teaser SVG img ──────────────────────────────── */
+.blog-teaser-img {
+  overflow: hidden;
+}
+.blog-teaser-img svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.blog-teaser-cat {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #c9a84c;
+  background: rgba(201,168,76,0.12);
+  border-radius: 20px;
+  padding: 2px 10px;
+  margin-bottom: 0.5rem;
+}
+
+/* ── FAQ section title icon alignment ────────────────── */
+.faq-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.faq-section-heading svg {
+  color: #c9a84c;
+  flex-shrink: 0;
+}
+
+/* ── About how-works-card icon ────────────────────────── */
+.how-works-card .hw-icon {
+  display: block;
+  margin: 0 auto 0.4rem;
+  color: #c9a84c;
+}

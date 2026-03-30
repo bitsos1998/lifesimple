@@ -40,7 +40,7 @@
 <section class="product-hero">
   <div class="container">
     <p class="breadcrumb"><a href="/">LifeSimple</a> › WillSimple</p>
-    <h1>Will<em>Simple</em></h1>
+    <h1 class="product-h1-wrap"><svg class="product-h1-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="3" width="24" height="33" rx="2" stroke="#c9a84c" stroke-width="2" fill="none"/><path d="M8 8 Q6 9 6 11 Q6 13 8 14" stroke="#c9a84c" stroke-width="1.5" fill="none"/><line x1="13" y1="13" x2="26" y2="13" stroke="#c9a84c" stroke-width="1.5"/><line x1="13" y1="18" x2="26" y2="18" stroke="#c9a84c" stroke-width="1.5"/><line x1="13" y1="23" x2="21" y2="23" stroke="#c9a84c" stroke-width="1.5"/><line x1="13" y1="28" x2="26" y2="28" stroke="#c9a84c" stroke-width="1.2" opacity="0.6"/></svg>Will<em>Simple</em></h1>
     <p class="product-tagline">
       Ο πλήρης οδηγός για τη σύνταξη διαθήκης στην Ελλάδα — εξατομικευμένος για εσάς
     </p>
@@ -52,33 +52,6 @@
   </div>
 </section>
 
-<!-- ── PDF Preview Mockup ────────────────────────────────── -->
-<section class="pdf-preview-section">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-label">Δείγμα Οδηγού</span>
-      <h2>Τι θα λάβεις</h2>
-      <hr class="divider">
-    </div>
-    <div class="pdf-mockup-wrapper">
-      <div class="pdf-mockup">
-        <div class="pdf-mockup-header">
-          <span class="pdf-mockup-logo">Life<span>Simple</span></span>
-          <span class="pdf-mockup-title">Οδηγός Διαθήκης</span>
-        </div>
-        <div class="pdf-mockup-body">
-          <p class="pdf-greeting">Γεία σου, Μαρία</p>
-          <div class="pdf-blur-line"></div>
-          <div class="pdf-blur-line"></div>
-          <div class="pdf-blur-line"></div>
-          <div class="pdf-blur-line"></div>
-          <div class="pdf-overlay">Το πλήρες περιεχόμενο ξεκλειδώνεται μετά την αγορά</div>
-        </div>
-      </div>
-    </div>
-    <p class="pdf-preview-caption">Ο οδηγός δημιουργείται με βάση τις δικές σου απαντήσεις — εξατομικευμένος για την κατάστασή σου.</p>
-  </div>
-</section>
 
 <!-- ── Product Content ───────────────────────────────────── -->
 <div class="product-content">
@@ -229,8 +202,9 @@
 
         <!-- Special Wishes -->
         <div class="form-group">
-          <label>Ειδικές επιθυμίες ή οδηγίες <span style="color:#9aabba;font-weight:400;">(προαιρετικό)</span></label>
+          <label>Επιπλέον Πληροφορίες <span style="color:#9aabba;font-weight:400;">(προαιρετικό)</span></label>
           <textarea name="specialWishes" class="form-control" rows="3" placeholder="π.χ. Θέλω να αφήσω το εξοχικό στον μεγαλύτερο γιο μου, να δωρίσω €5.000 σε φιλανθρωπία, κ.λπ."></textarea>
+          <p class="form-textarea-help">Όσο περισσότερες λεπτομέρειες μας δώσεις για την κατάστασή σου, τόσο πιο εξατομικευμένος και χρήσιμος θα είναι ο οδηγός που θα λάβεις. Μπορείς να αναφέρεις παιδιά, ακίνητα, χρέη, ή οτιδήποτε άλλο θεωρείς σημαντικό.</p>
         </div>
 
         <!-- Age (for legal minimum check) -->
@@ -238,6 +212,25 @@
           <label>Ηλικία <span class="required">*</span></label>
           <input type="number" name="age" class="form-control" placeholder="π.χ. 45" min="18" max="120" required />
           <p class="form-help">Νομικά, η ελάχιστη ηλικία σύνταξης διαθήκης είναι 18 έτη</p>
+        </div>
+
+        <!-- ── In-form PDF Preview ──────────────────────────── -->
+        <div class="form-pdf-preview">
+          <h3 class="form-pdf-heading">Ο οδηγός σου είναι σχεδόν έτοιμος</h3>
+          <div class="pdf-mockup pdf-mockup-compact">
+            <div class="pdf-mockup-header">
+              <span class="pdf-mockup-logo">Life<span>Simple</span></span>
+              <span class="pdf-mockup-title">Οδηγός Διαθήκης</span>
+            </div>
+            <div class="pdf-mockup-body">
+              <div class="pdf-blur-line"></div>
+              <div class="pdf-blur-line"></div>
+              <div class="pdf-blur-line"></div>
+              <div class="pdf-blur-line"></div>
+              <div class="pdf-overlay">Το πλήρες περιεχόμενο ξεκλειδώνεται μετά την αγορά</div>
+            </div>
+          </div>
+          <p class="form-pdf-caption">Βασισμένος στις απαντήσεις σου, ο οδηγός σου θα περιλαμβάνει τα βήματα, τα έγγραφα και τις προθεσμίες που αφορούν ακριβώς την κατάστασή σου.</p>
         </div>
 
         <!-- Submit -->

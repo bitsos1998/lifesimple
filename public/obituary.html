@@ -37,7 +37,7 @@
 <section class="product-hero">
   <div class="container">
     <p class="breadcrumb"><a href="/">LifeSimple</a> › ObituarySimple</p>
-    <h1>Obituary<em>Simple</em></h1>
+    <h1 class="product-h1-wrap"><svg class="product-h1-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="22" y1="38" x2="22" y2="16" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/><ellipse cx="22" cy="12" rx="4" ry="6" stroke="#c9a84c" stroke-width="1.8" fill="none"/><path d="M19,12 Q22,7 25,12 Q22,17 19,12 Z" fill="#c9a84c" opacity="0.75"/><ellipse cx="22" cy="39" rx="7" ry="2.5" stroke="#c9a84c" stroke-width="1.5" fill="none" opacity="0.5"/></svg>Obituary<em>Simple</em></h1>
     <p class="product-tagline">Ένας δύσκολος χρόνος — χωρίς επιπλέον γραφειοκρατικό άγχος</p>
     <div class="product-badge-row">
       <div class="product-badge">🕊️ <strong>Πλήρης οδηγός</strong> μετά τον θάνατο</div>
@@ -47,33 +47,6 @@
   </div>
 </section>
 
-<!-- ── PDF Preview Mockup ────────────────────────────────── -->
-<section class="pdf-preview-section">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-label">Δείγμα Οδηγού</span>
-      <h2>Τι θα λάβεις</h2>
-      <hr class="divider">
-    </div>
-    <div class="pdf-mockup-wrapper">
-      <div class="pdf-mockup">
-        <div class="pdf-mockup-header">
-          <span class="pdf-mockup-logo">Life<span>Simple</span></span>
-          <span class="pdf-mockup-title">Οδηγός Κληρονομιάς</span>
-        </div>
-        <div class="pdf-mockup-body">
-          <p class="pdf-greeting">Γεία σου, Μαρία</p>
-          <div class="pdf-blur-line"></div>
-          <div class="pdf-blur-line"></div>
-          <div class="pdf-blur-line"></div>
-          <div class="pdf-blur-line"></div>
-          <div class="pdf-overlay">Το πλήρες περιεχόμενο ξεκλειδώνεται μετά την αγορά</div>
-        </div>
-      </div>
-    </div>
-    <p class="pdf-preview-caption">Ο οδηγός δημιουργείται με βάση τις δικές σου απαντήσεις — εξατομικευμένος για την κατάστασή σου.</p>
-  </div>
-</section>
 
 <div class="product-content">
   <div class="product-info">
@@ -185,11 +158,31 @@
         </div>
 
         <div class="form-group">
-          <label>Επιπλέον πληροφορίες <span style="color:#9aabba;font-weight:400;">(προαιρετικό)</span></label>
+          <label>Επιπλέον Πληροφορίες <span style="color:#9aabba;font-weight:400;">(προαιρετικό)</span></label>
           <textarea name="additionalInfo" class="form-control" rows="2" placeholder="π.χ. Ο αποθανών είχε εισοδήματα από ενοίκια, υπάρχουν διαφωνίες μεταξύ κληρονόμων..."></textarea>
+          <p class="form-textarea-help">Όσο περισσότερες λεπτομέρειες μας δώσεις για την κατάστασή σου, τόσο πιο εξατομικευμένος και χρήσιμος θα είναι ο οδηγός που θα λάβεις. Μπορείς να αναφέρεις παιδιά, ακίνητα, χρέη, ή οτιδήποτε άλλο θεωρείς σημαντικό.</p>
         </div>
 
-        <button type="submit" class="pay-btn" id="payBtn">
+
+        <!-- ── In-form PDF Preview ──────────────────────────── -->
+        <div class="form-pdf-preview">
+          <h3 class="form-pdf-heading">Ο οδηγός σου είναι σχεδόν έτοιμος</h3>
+          <div class="pdf-mockup pdf-mockup-compact">
+            <div class="pdf-mockup-header">
+              <span class="pdf-mockup-logo">Life<span>Simple</span></span>
+              <span class="pdf-mockup-title">Οδηγός Κληρονομιάς</span>
+            </div>
+            <div class="pdf-mockup-body">
+              <div class="pdf-blur-line"></div>
+              <div class="pdf-blur-line"></div>
+              <div class="pdf-blur-line"></div>
+              <div class="pdf-blur-line"></div>
+              <div class="pdf-overlay">Το πλήρες περιεχόμενο ξεκλειδώνεται μετά την αγορά</div>
+            </div>
+          </div>
+          <p class="form-pdf-caption">Βασισμένος στις απαντήσεις σου, ο οδηγός σου θα περιλαμβάνει τα βήματα, τα έγγραφα και τις προθεσμίες που αφορούν ακριβώς την κατάστασή σου.</p>
+        </div>
+                <button type="submit" class="pay-btn" id="payBtn">
           <div class="spinner"></div>
           <span class="btn-text">🔒 Πληρωμή €19 &amp; Λήψη PDF</span>
         </button>
