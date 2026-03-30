@@ -46,11 +46,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 // PRODUCT PAGE ROUTES  (clean URLs without .html)
 // ────────────────────────────────────────────────────────────
 
-const pages = ['will', 'divorce', 'marriage', 'obituary', 'separation', 'prenup', 'success', 'terms', 'privacy'];
+const pages = ['will', 'divorce', 'marriage', 'obituary', 'separation', 'prenup', 'success', 'terms', 'privacy', 'about', 'faq', 'blog'];
 pages.forEach(page => {
   app.get(`/${page}`, (req, res) => {
     res.sendFile(path.join(__dirname, 'public', `${page}.html`));
   });
+});
+
+// Blog article template route
+app.get('/blog/article-template', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'blog', 'article-template.html'));
 });
 
 // ────────────────────────────────────────────────────────────
