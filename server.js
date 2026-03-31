@@ -8,6 +8,7 @@
  *        /obituary, /separation         → serve product HTML pages
  *   GET  /terms, /privacy               → legal pages
  *   GET  /success                       → success page
+ *   GET  /sitemap.xml                   → XML sitemap for search engines
  *   GET  /*                             → serve static files
  * ─────────────────────────────────────────────────────────────
  */
@@ -79,6 +80,15 @@ app.get('/blog/:slug', (req, res) => {
       res.status(404).sendFile(path.join(__dirname, 'public', 'blog.html'));
     }
   });
+});
+
+// ────────────────────────────────────────────────────────────
+// SITEMAP
+// ────────────────────────────────────────────────────────────
+
+app.get('/sitemap.xml', (req, res) => {
+  res.setHeader('Content-Type', 'application/xml');
+  res.sendFile(path.join(__dirname, 'sitemap.xml'));
 });
 
 // ────────────────────────────────────────────────────────────
