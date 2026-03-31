@@ -839,6 +839,49 @@ function buildPDF(productName, formData, claudeContent, customerName) {
         .text(claudeContent, 55, doc.y, { width: PW - 110, lineGap: 3 });
     }
 
+    // ── Contact / Upsell Section ──
+    // Determine the appropriate professional type per product
+    const isLawyer = /Divorce|Separation/i.test(productName);
+    const professional = isLawyer ? 'δικηγόρο' : 'συμβολαιογράφο';
+    const contactText =
+      `Αν θέλεις να προχωρήσεις στο επόμενο βήμα με τη βοήθεια ειδικού, ` +
+      `μπορούμε να σε συνδέσουμε με έναν ανεξάρτητο ${professional}. ` +
+      `Επικοινώνησε μαζί μας στο `;
+    const contactEmail = 'hello@lifesimple.gr';
+    const contactSuffix = ' και θα σε κατευθύνουμε.';
+
+    // Shrink spacing above if we're running low on page real estate
+    const CONTACT_HEIGHT = 42; // approx pts needed for divider + text
+    const PAGE_BOTTOM    = PH - 80; // leave margin for footer/page-number area
+    if (doc.y + CONTACT_HEIGHT > PAGE_BOTTOM) {
+      // Claw back up to 20pt of trailing space to fit the section
+      doc.y = Math.max(doc.y - 20, doc.y);
+    }
+
+    doc.moveDown(0.8);
+    // Thin gold horizontal rule
+    const contactLineY = doc.y;
+    doc.moveTo(55, contactLineY).lineTo(PW - 55, contactLineY)
+       .strokeColor(GOLD).lineWidth(0.8).stroke();
+    doc.moveDown(0.7);
+
+    // Contact paragraph — email in gold, rest in normal text colour
+    doc
+      .fillColor(SUB)
+      .font('Regular')
+      .fontSize(9.5)
+      .text(contactText, 55, doc.y, { continued: true, width: PW - 110, lineGap: 2 });
+    doc
+      .fillColor(GOLD)
+      .font('Bold')
+      .text(contactEmail, { continued: true });
+    doc
+      .fillColor(SUB)
+      .font('Regular')
+      .text(contactSuffix);
+
+    doc.moveDown(1.2);
+
     // ── Final Disclaimer Page ──
     // Only add a new page if current page already has content (avoids blank pages)
     const TOP_MARGIN = 80; // approximate top of usable area
