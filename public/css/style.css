@@ -236,12 +236,20 @@ p  { font-size: 1.05rem; }
   line-height: 1.7;
 }
 
+.hero-social-proof {
+  margin: 1.2rem 0 0;
+  font-size: 0.88rem;
+  color: #c9a84c;
+  opacity: 0.9;
+  letter-spacing: 0.01em;
+}
+
 .hero-badges {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
   flex-wrap: wrap;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
 }
 
 .badge {
@@ -1934,3 +1942,72 @@ textarea.form-control {
   margin: 0 auto 0.4rem;
   color: #c9a84c;
 }
+
+/* ── Conversion audit additions ─────────────────────── */
+
+/* Price anchor — comparison line under form-card-header */
+.price-anchor {
+  font-size: 0.82rem;
+  color: #5a6b8a;
+  margin: 0.25rem 0 0;
+  font-style: italic;
+}
+.price-anchor strong { color: #1a2744; font-style: normal; }
+
+/* Contact hint above pay button */
+.form-contact-hint {
+  font-size: 0.82rem;
+  color: #8fa3c8;
+  text-align: center;
+  margin-bottom: 0.6rem;
+}
+.form-contact-hint a { color: #c9a84c; font-weight: 600; text-decoration: none; }
+.form-contact-hint a:hover { text-decoration: underline; }
+
+/* Guarantee line below form-security */
+.form-guarantee {
+  font-size: 0.80rem;
+  color: #7a8fa8;
+  text-align: center;
+  margin-top: 0.6rem;
+  line-height: 1.5;
+}
+.form-guarantee a { color: #c9a84c; font-weight: 600; text-decoration: none; }
+.form-guarantee a:hover { text-decoration: underline; }
+
+/* Legal basis badge */
+.legal-basis {
+  display: inline-block;
+  font-size: 0.80rem;
+  color: #5a6b8a;
+  background: #f0f4fa;
+  border: 1px solid #d0dcea;
+  border-radius: 4px;
+  padding: 0.3rem 0.7rem;
+  margin-bottom: 1.2rem;
+}
+
+/* Testimonials mini block */
+.testimonials-mini {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5eaf2;
+}
+.testimonials-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8fa3c8;
+  margin-bottom: 0.9rem;
+}
+.testimonial-item {
+  background: #f7f9fc;
+  border-left: 3px solid #c9a84c;
+  border-radius: 0 6px 6px 0;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+}
+.testimonial-stars { color: #c9a84c; font-size: 0.9rem; display: block; margin-bottom: 0.3rem; }
+.testimonial-item p { font-size: 0.88rem; color: #3a4a5c; margin: 0 0 0.3rem; line-height: 1.55; font-style: italic; }
+.testimonial-author { font-size: 0.78rem; color: #8fa3c8; font-weight: 600; }
