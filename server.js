@@ -32,6 +32,17 @@ const pendingOrders = new Map();
 
 app.use(cors());
 
+// www → non-www redirect (301 permanent)
+// Handles SSL cert issues on www subdomain by redirecting to the bare domain
+app.use((req, res, next) => {
+  const host = req.headers.host || '';
+  if (host.startsWith('www.')) {
+    const bareHost = host.slice(4); // strip "www."
+    return res.redirect(301, `https://${bareHost}${req.url}`);
+  }
+  next();
+});
+
 // Stripe webhook MUST receive raw body — set up before json parser
 app.use('/api/webhook', bodyParser.raw({ type: 'application/json' }));
 
