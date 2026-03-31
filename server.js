@@ -58,6 +58,18 @@ app.get('/blog/article-template', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'blog', 'article-template.html'));
 });
 
+// Blog article dynamic route — serves /blog/:slug from public/blog/{slug}.html
+app.get('/blog/:slug', (req, res) => {
+  const slug = req.params.slug;
+  const filePath = path.join(__dirname, 'public', 'blog', `${slug}.html`);
+  res.sendFile(filePath, (err) => {
+    if (err) {
+      // Article not found — fall back to blog listing
+      res.status(404).sendFile(path.join(__dirname, 'public', 'blog.html'));
+    }
+  });
+});
+
 // ────────────────────────────────────────────────────────────
 // STRIPE — Create Checkout Session
 // ────────────────────────────────────────────────────────────
