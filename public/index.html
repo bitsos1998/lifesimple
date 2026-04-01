@@ -387,5 +387,58 @@
 </footer>
 
 <script src="/js/main.js"></script>
+
+<!-- ── GDPR Cookie Consent Banner ─────────────────────────── -->
+<div id="cookie-banner" style="
+  display:none;
+  position:fixed;
+  bottom:0; left:0; right:0;
+  background:#1a2744;
+  color:#f7f5f0;
+  padding:1.2rem 1.5rem;
+  z-index:9999;
+  box-shadow:0 -4px 24px rgba(0,0,0,0.18);
+  font-family:'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  font-size:0.95rem;
+  line-height:1.5;
+">
+  <div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:1rem;">
+    <p style="flex:1;min-width:220px;margin:0;">
+      Χρησιμοποιούμε cookies για τη σωστή λειτουργία του ιστότοπου και, εάν συναινέσεις, για ανάλυση επισκεψιμότητας.
+      <a href="/privacy" style="color:#c9a84c;text-decoration:underline;">Πολιτική Απορρήτου</a>
+    </p>
+    <div style="display:flex;gap:0.75rem;flex-wrap:wrap;flex-shrink:0;">
+      <button onclick="acceptCookies()" style="
+        background:#c9a84c;color:#1a2744;border:none;
+        padding:0.6rem 1.4rem;border-radius:6px;
+        font-weight:700;font-size:0.95rem;cursor:pointer;
+      ">Αποδοχή όλων</button>
+      <button onclick="rejectCookies()" style="
+        background:transparent;color:#f7f5f0;
+        border:2px solid #c9a84c;
+        padding:0.6rem 1.4rem;border-radius:6px;
+        font-weight:600;font-size:0.95rem;cursor:pointer;
+      ">Μόνο απαραίτητα</button>
+    </div>
+  </div>
+</div>
+<script>
+(function() {
+  var consent = localStorage.getItem('ls_cookie_consent');
+  if (!consent) {
+    document.getElementById('cookie-banner').style.display = 'block';
+  }
+})();
+function acceptCookies() {
+  localStorage.setItem('ls_cookie_consent', 'all');
+  document.getElementById('cookie-banner').style.display = 'none';
+}
+function rejectCookies() {
+  localStorage.setItem('ls_cookie_consent', 'necessary');
+  document.getElementById('cookie-banner').style.display = 'none';
+}
+</script>
+<!-- ── End Cookie Banner ───────────────────────────────────── -->
+
 </body>
 </html>
