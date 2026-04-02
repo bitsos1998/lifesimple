@@ -5,6 +5,7 @@
  *   - FAQ accordion
  *   - Conditional form fields
  *   - Form validation
+ *   - Pre-payment overlay with PDF preview
  *   - Stripe checkout redirect (via backend)
  */
 
@@ -52,7 +53,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const payBtn  = document.getElementById('payBtn');
 
   if (form && payBtn) {
-    form.addEventListener('submit', handleFormSubmit);
+    // Intercept pay button click → validate → show overlay
+    payBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const isValid = validateForm(form);
+      if (!isValid) return;
+      showPrePaymentOverlay(form);
+    });
   }
 
   // ── Cancelled Payment Notice ────────────────────────────
@@ -82,39 +90,221 @@ function setupConditional({ trigger, targetId, condition }) {
   });
 }
 
-// ── Form Submit → Stripe Checkout ───────────────────────
-async function handleFormSubmit(e) {
-  e.preventDefault();
+// ── Pre-Payment Overlay ──────────────────────────────────
+function showPrePaymentOverlay(form) {
+  const productNameFull = (form.querySelector('input[name="productName"]') || {}).value || 'Οδηγός';
+  const priceVal        = (form.querySelector('input[name="price"]') || {}).value || '0';
+  const priceEuros      = (parseInt(priceVal, 10) / 100).toFixed(0);
 
-  const form   = e.target;
-  const payBtn = document.getElementById('payBtn');
+  // Extract short guide title (after "—" if present)
+  const guideTitle = productNameFull.includes('—')
+    ? productNameFull.split('—')[1].trim()
+    : productNameFull;
 
-  // Validate required fields
-  const isValid = validateForm(form);
-  if (!isValid) return;
+  // Determine PDF preview content based on product
+  const productKey = (form.querySelector('input[name="product"]') || {}).value || '';
+  const previewContent = getPDFPreviewContent(productKey);
+
+  // Create backdrop
+  const backdrop = document.createElement('div');
+  backdrop.className = 'ppo-backdrop';
+  backdrop.setAttribute('role', 'dialog');
+  backdrop.setAttribute('aria-modal', 'true');
+  backdrop.setAttribute('aria-label', 'Επιβεβαίωση αγοράς');
+
+  backdrop.innerHTML = `
+    <div class="ppo-sheet">
+      <div class="ppo-card">
+
+        <!-- LEFT: Payment summary + confirm -->
+        <div class="ppo-left">
+          <button class="ppo-back-btn" type="button" aria-label="Επιστροφή">
+            ← Επιστροφή
+          </button>
+          <div class="ppo-heading">Επιβεβαίωση Αγοράς</div>
+          <div class="ppo-product-name">${productNameFull}</div>
+          <div class="ppo-price-row">
+            <span class="ppo-price-amount">€${priceEuros}</span>
+            <span class="ppo-price-note">εφάπαξ · άμεση παράδοση</span>
+          </div>
+
+          <ul class="ppo-includes">
+            <li>✅ Πλήρης οδηγός σε PDF — ${previewContent.pages} σελίδες</li>
+            <li>✅ Εξατομικευμένος βάσει των απαντήσεών σας</li>
+            <li>✅ Αποστολή στο email σας εντός 2-5 λεπτών</li>
+            <li>✅ Ισχύει για το ελληνικό δίκαιο (2026)</li>
+          </ul>
+
+          <button class="ppo-confirm-btn" type="button" id="ppoConfirmBtn">
+            🔒 Πληρωμή με ασφάλεια — €${priceEuros}
+          </button>
+
+          <p class="ppo-secure-note">
+            Πληρωμή μέσω Stripe · Visa · Mastercard · Apple Pay
+          </p>
+
+          <div class="ppo-guarantee">
+            <span class="ppo-guarantee-icon">🛡️</span>
+            <span>Εγγύηση επιστροφής χρημάτων 14 ημερών</span>
+          </div>
+        </div>
+
+        <!-- RIGHT: PDF mockup preview -->
+        <div class="ppo-right">
+          <div class="ppo-preview-label">Δείγμα Οδηγού</div>
+          <div class="ppo-pdf-mockup">
+            <div class="ppo-pdf-header">
+              <div class="ppo-pdf-logo">Life<span>Simple</span></div>
+              <div class="ppo-pdf-title">${guideTitle}</div>
+              <div class="ppo-pdf-subtitle">Πλήρης Οδηγός · ${new Date().getFullYear()}</div>
+            </div>
+            <div class="ppo-pdf-body">
+              ${previewContent.sections.map(s => `
+                <div class="ppo-pdf-section">
+                  <div class="ppo-pdf-section-title">${s.title}</div>
+                  ${s.lines.map(() => '<div class="ppo-pdf-line"></div>').join('')}
+                  ${s.shortLine ? '<div class="ppo-pdf-line ppo-pdf-line-short"></div>' : ''}
+                </div>
+              `).join('')}
+            </div>
+            <div class="ppo-pdf-watermark">ΔΕΙΓΜΑ</div>
+          </div>
+          <p class="ppo-preview-note">
+            Ο πλήρης οδηγός αποστέλλεται αμέσως μετά την πληρωμή.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(backdrop);
+
+  // Animate in
+  requestAnimationFrame(() => backdrop.classList.add('ppo-visible'));
+
+  // Close on backdrop click (outside sheet)
+  backdrop.addEventListener('click', (e) => {
+    if (e.target === backdrop) closeOverlay(backdrop);
+  });
+
+  // Back button closes overlay
+  backdrop.querySelector('.ppo-back-btn').addEventListener('click', () => {
+    closeOverlay(backdrop);
+  });
+
+  // Confirm button → proceed to Stripe
+  backdrop.querySelector('#ppoConfirmBtn').addEventListener('click', () => {
+    const confirmBtn = backdrop.querySelector('#ppoConfirmBtn');
+    performCheckout(form, confirmBtn, backdrop);
+  });
+
+  // ESC key closes overlay
+  const escHandler = (e) => {
+    if (e.key === 'Escape') {
+      closeOverlay(backdrop);
+      document.removeEventListener('keydown', escHandler);
+    }
+  };
+  document.addEventListener('keydown', escHandler);
+}
+
+function closeOverlay(backdrop) {
+  backdrop.classList.remove('ppo-visible');
+  setTimeout(() => backdrop.remove(), 300);
+}
+
+function getPDFPreviewContent(productKey) {
+  const defaults = {
+    pages: 28,
+    sections: [
+      { title: '1. Εισαγωγή & Νομικό Πλαίσιο', lines: [1,2,3], shortLine: true },
+      { title: '2. Βήμα-βήμα Διαδικασία', lines: [1,2,3,4], shortLine: false },
+      { title: '3. Έγγραφα & Χαρτιά', lines: [1,2,3], shortLine: true },
+      { title: '4. Κόστη & Χρονοδιαγράμματα', lines: [1,2], shortLine: false },
+    ]
+  };
+
+  const map = {
+    divorce: {
+      pages: 32,
+      sections: [
+        { title: '1. Τύποι Διαζυγίου στην Ελλάδα', lines: [1,2,3], shortLine: true },
+        { title: '2. Κοινή Συναίνεση — Βήματα', lines: [1,2,3,4], shortLine: false },
+        { title: '3. Απαιτούμενα Έγγραφα', lines: [1,2,3], shortLine: true },
+        { title: '4. Επιμέλεια & Διατροφή', lines: [1,2], shortLine: false },
+      ]
+    },
+    will: {
+      pages: 26,
+      sections: [
+        { title: '1. Είδη Διαθήκης', lines: [1,2,3], shortLine: true },
+        { title: '2. Ιδιόγραφη Διαθήκη — Οδηγίες', lines: [1,2,3,4], shortLine: false },
+        { title: '3. Νόμιμη Μοίρα & Κληρονόμοι', lines: [1,2,3], shortLine: true },
+        { title: '4. Συχνά Λάθη & Πώς να τα Αποφύγετε', lines: [1,2], shortLine: false },
+      ]
+    },
+    marriage: {
+      pages: 22,
+      sections: [
+        { title: '1. Πολιτικός vs Θρησκευτικός Γάμος', lines: [1,2,3], shortLine: true },
+        { title: '2. Απαιτούμενα Έγγραφα', lines: [1,2,3,4], shortLine: false },
+        { title: '3. Χρόνοι & Κόστη', lines: [1,2,3], shortLine: true },
+        { title: '4. Συχνές Ερωτήσεις', lines: [1,2], shortLine: false },
+      ]
+    },
+    obituary: {
+      pages: 30,
+      sections: [
+        { title: '1. Αποδοχή ή Αποποίηση Κληρονομιάς', lines: [1,2,3], shortLine: true },
+        { title: '2. Φορολογικές Υποχρεώσεις', lines: [1,2,3,4], shortLine: false },
+        { title: '3. Μεταβίβαση Ακινήτων', lines: [1,2,3], shortLine: true },
+        { title: '4. Χρονοδιάγραμμα Διαδικασίας', lines: [1,2], shortLine: false },
+      ]
+    },
+    separation: {
+      pages: 24,
+      sections: [
+        { title: '1. Χωριστή Διαβίωση vs Διαζύγιο', lines: [1,2,3], shortLine: true },
+        { title: '2. Νομική Διαδικασία', lines: [1,2,3,4], shortLine: false },
+        { title: '3. Διατροφή & Επιμέλεια', lines: [1,2,3], shortLine: true },
+        { title: '4. Επόμενα Βήματα', lines: [1,2], shortLine: false },
+      ]
+    },
+    prenup: {
+      pages: 28,
+      sections: [
+        { title: '1. Τι Καλύπτει η Προγαμιαία Συμφωνία', lines: [1,2,3], shortLine: true },
+        { title: '2. Νομικές Προϋποθέσεις', lines: [1,2,3,4], shortLine: false },
+        { title: '3. Δείγμα Ρητρών', lines: [1,2,3], shortLine: true },
+        { title: '4. Κόστος Συμβολαιογράφου', lines: [1,2], shortLine: false },
+      ]
+    },
+  };
+
+  return map[productKey] || defaults;
+}
+
+// ── Perform Checkout (API call → Stripe redirect) ────────
+async function performCheckout(form, btn, backdrop) {
+  btn.classList.add('loading');
+  btn.disabled = true;
+  btn.textContent = '⏳ Σύνδεση με Stripe...';
 
   // Collect all form data
   const rawData = new FormData(form);
   const formData = {};
-  const multiFields = {}; // for checkboxes with multiple values
+  const multiFields = {};
 
   for (const [key, value] of rawData.entries()) {
     if (key in formData) {
-      // Already seen — convert to array
-      if (!multiFields[key]) {
-        multiFields[key] = [formData[key]];
-      }
+      if (!multiFields[key]) multiFields[key] = [formData[key]];
       multiFields[key].push(value);
     } else {
       formData[key] = value;
     }
   }
-  // Merge multi-value fields
   Object.assign(formData, multiFields);
-
-  // Show loading state
-  payBtn.classList.add('loading');
-  payBtn.disabled = true;
 
   try {
     const response = await fetch('/api/create-checkout-session', {
@@ -142,12 +332,12 @@ async function handleFormSubmit(e) {
     }
   } catch (err) {
     console.error('[checkout]', err);
+    // Close overlay and show error toast
+    closeOverlay(backdrop);
     showToast(
       `Σφάλμα σύνδεσης: ${err.message}. Παρακαλώ δοκιμάστε ξανά ή επικοινωνήστε με την υποστήριξη.`,
       'error'
     );
-    payBtn.classList.remove('loading');
-    payBtn.disabled = false;
   }
 }
 
