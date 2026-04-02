@@ -179,5 +179,12 @@ function rejectCookies() {
 </script>
 <!-- ── End Cookie Banner ───────────────────────────────────── -->
 
+<script>
+  // Clean up the URL — remove ?session_id=... so the address bar shows /success
+  if (window.location.search) {
+    window.history.replaceState(null, '', '/success');
+  }
+</script>
+
 </body>
 </html>
