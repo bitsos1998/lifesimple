@@ -2458,3 +2458,44 @@ textarea.form-control {
   color: #6b7280;
   font-weight: 600;
 }
+
+/* ── Hero badges: 2x2 grid on mobile, single row on desktop ─ */
+.hero-badges {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem 1.5rem;
+  margin-top: 1.5rem;
+  justify-items: center;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-badge-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  color: #8fa3c8;
+  font-size: 0.82rem;
+  text-align: center;
+  line-height: 1.35;
+}
+
+.hero-badge-icon {
+  font-size: 1.3rem;
+  color: #c9a84c;
+}
+
+@media (max-width: 767px) {
+  .hero-badges {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    max-width: 320px;
+  }
+}
+
+/* ── Hide "Πώς Λειτουργεί" section on mobile ──────────────── */
+@media (max-width: 767px) {
+  .how-works-section { display: none; }
+}
