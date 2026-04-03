@@ -226,7 +226,7 @@ function getPDFPreviewContent(productKey) {
   };
 
   const map = {
-    divorce: {
+    divorcesimple: {
       pages: 32,
       sections: [
         { title: '1. Τύποι Διαζυγίου στην Ελλάδα', lines: [1,2,3], shortLine: true },
@@ -235,7 +235,7 @@ function getPDFPreviewContent(productKey) {
         { title: '4. Επιμέλεια & Διατροφή', lines: [1,2], shortLine: false },
       ]
     },
-    will: {
+    willsimple: {
       pages: 26,
       sections: [
         { title: '1. Είδη Διαθήκης', lines: [1,2,3], shortLine: true },
@@ -244,7 +244,7 @@ function getPDFPreviewContent(productKey) {
         { title: '4. Συχνά Λάθη & Πώς να τα Αποφύγετε', lines: [1,2], shortLine: false },
       ]
     },
-    marriage: {
+    marriagesimple: {
       pages: 22,
       sections: [
         { title: '1. Πολιτικός vs Θρησκευτικός Γάμος', lines: [1,2,3], shortLine: true },
@@ -253,7 +253,7 @@ function getPDFPreviewContent(productKey) {
         { title: '4. Συχνές Ερωτήσεις', lines: [1,2], shortLine: false },
       ]
     },
-    obituary: {
+    inheritsimple: {
       pages: 30,
       sections: [
         { title: '1. Αποδοχή ή Αποποίηση Κληρονομιάς', lines: [1,2,3], shortLine: true },
@@ -262,7 +262,7 @@ function getPDFPreviewContent(productKey) {
         { title: '4. Χρονοδιάγραμμα Διαδικασίας', lines: [1,2], shortLine: false },
       ]
     },
-    separation: {
+    separationsimple: {
       pages: 24,
       sections: [
         { title: '1. Χωριστή Διαβίωση vs Διαζύγιο', lines: [1,2,3], shortLine: true },
