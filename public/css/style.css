@@ -2381,3 +2381,80 @@ textarea.form-control {
   user-select: none;
   white-space: nowrap;
 }
+
+/* ── Sticky mobile CTA ──────────────────────────────────── */
+.sticky-cta {
+  display: none; /* hidden by default; shown on mobile below */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: #c9a84c;
+  color: #1b2b4b;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-align: center;
+  height: 56px;
+  line-height: 56px;
+  cursor: pointer;
+  box-shadow: 0 -3px 12px rgba(0,0,0,0.18);
+  border: none;
+  width: 100%;
+  font-family: inherit;
+  letter-spacing: 0.01em;
+  transition: opacity 0.25s;
+  padding: 0;
+}
+.sticky-cta:hover { background: #b8943d; }
+.sticky-cta.hidden { opacity: 0; pointer-events: none; }
+
+@media (min-width: 768px) {
+  .sticky-cta { display: none !important; }
+}
+@media (max-width: 767px) {
+  .sticky-cta { display: block; }
+  /* give the page bottom padding so content isn't hidden behind sticky CTA */
+  body { padding-bottom: 56px; }
+}
+
+/* ── In-form reviews block ──────────────────────────────── */
+.form-reviews {
+  margin: 1.25rem 0 1rem;
+  padding: 1rem 0 0;
+  border-top: 1px solid #e8e6e0;
+}
+.form-reviews-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #8fa3c8;
+  margin: 0 0 0.75rem;
+}
+.form-review-card {
+  background: #fff;
+  border: 1px solid #e8e6e0;
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  margin-bottom: 0.6rem;
+}
+.form-review-card:last-child { margin-bottom: 0; }
+.form-review-stars {
+  color: #c9a84c;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.35rem;
+}
+.form-review-text {
+  font-size: 0.87rem;
+  color: #374151;
+  line-height: 1.55;
+  margin: 0 0 0.35rem;
+  font-style: italic;
+}
+.form-review-author {
+  font-size: 0.78rem;
+  color: #6b7280;
+  font-weight: 600;
+}

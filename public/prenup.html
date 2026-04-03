@@ -150,22 +150,9 @@
         <li><span class="check">✓</span><span>Επαγγελματικά διαμορφωμένο <strong>PDF</strong> στο email σας</span></li>
       </ul>
     </div>
-
-    <div class="testimonials-mini">
-      <p class="testimonials-label">Τι λένε οι χρήστες μας</p>
-            <div class="testimonial-item">
-        <span class="testimonial-stars">★★★★★</span>
-        <p>"Είχαμε πολλές απορίες για το προγαμιαίο. Ο οδηγός απάντησε σε όλες και μας βοήθησε να πάμε στο συμβολαιογράφο έτοιμοι."</p>
-        <span class="testimonial-author">— Ε.Π., Αθήνα</span>
-      </div>
-      <div class="testimonial-item">
-        <span class="testimonial-stars">★★★★★</span>
-        <p>"Δεν ήξερα καν ότι υπάρχει προγαμιαία στην Ελλάδα. Τώρα ξέρω ακριβώς τι να κάνω και αν μας συμφέρει."</p>
-        <span class="testimonial-author">— Β.Χ., Θεσσαλονίκη</span>
-      </div>
-    </div>
-
   </div>
+
+</div>
 
   <div>
     <div class="form-card">
@@ -246,6 +233,25 @@
           <textarea name="specificWishes" class="form-control" rows="4" placeholder="π.χ. Το σπίτι στη Θεσσαλονίκη να παραμείνει στο όνομά μου, να χωρίσουμε τα μελλοντικά έσοδα 50/50, να προστατευτεί η οικογενειακή επιχείρηση..."></textarea>
           <p class="form-textarea-help">Όσο περισσότερες λεπτομέρειες μας δώσεις για την κατάστασή σου, τόσο πιο εξατομικευμένος και χρήσιμος θα είναι ο οδηγός που θα λάβεις. Μπορείς να αναφέρεις παιδιά, ακίνητα, χρέη, ή οτιδήποτε άλλο θεωρείς σημαντικό.</p>
         </div>
+        <div class="form-reviews">
+          <p class="form-reviews-label">Τι λένε οι χρήστες μας</p>
+        <div class="form-review-card">
+          <div class="form-review-stars">★★★★★</div>
+          <p class="form-review-text">"Ήμουν σκεπτική για την προγαμιαία, αλλά ο οδηγός εξήγησε τι καλύπτει και τι δεν καλύπτει στην Ελλάδα. Πήραμε την απόφαση ενημερωμένα."</p>
+          <div class="form-review-author">— Κατερίνα Β., Αθήνα</div>
+        </div>
+        <div class="form-review-card">
+          <div class="form-review-stars">★★★★★</div>
+          <p class="form-review-text">"Το κόστος του συμβολαιογράφου ήταν μυστήριο για μένα. Ο οδηγός με βοήθησε να καταλάβω τι να περιμένω οικονομικά."</p>
+          <div class="form-review-author">— Δημήτρης Α., Θεσσαλονίκη</div>
+        </div>
+        <div class="form-review-card">
+          <div class="form-review-stars">★★★★★</div>
+          <p class="form-review-text">"Ο αρραβωνιαστικός μου έχει επιχείρηση. Ο οδηγός ανέλυσε ακριβώς πώς να προστατέψουμε τα συμφέροντά μας νόμιμα."</p>
+          <div class="form-review-author">— Αλεξάνδρα Ν., Αθήνα</div>
+        </div>
+        </div>
+
                 <div class="form-contact-hint">Έχεις ερώτηση; <a href="mailto:hello@lifesimple.gr">hello@lifesimple.gr</a> · <a href="/faq" style="color:#c9a84c;">Συχνές Ερωτήσεις</a></div>
         <p style="font-size:0.85rem;color:#4b5563;text-align:center;margin-bottom:0.5rem;">⚡ Λαμβάνετε τον οδηγό σας αμέσως μετά την πληρωμή — στο email σας σε λίγα λεπτά.</p>
         <button type="submit" class="pay-btn" id="payBtn">
@@ -349,5 +355,24 @@ function rejectCookies() {
 </script>
 <!-- ── End Cookie Banner ───────────────────────────────────── -->
 
+  <button class="sticky-cta" id="stickyCta" aria-label="Λήψη Οδηγού">
+    Λήψη Οδηγού — €29
+  </button>
+  <script>
+    (function() {
+      var btn = document.getElementById('stickyCta');
+      var payBtn = document.getElementById('payBtn');
+      if (!btn || !payBtn) return;
+      btn.addEventListener('click', function() {
+        payBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+      if ('IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function(entries) {
+          btn.classList.toggle('hidden', entries[0].isIntersecting);
+        }, { threshold: 0.1 });
+        obs.observe(payBtn);
+      }
+    })();
+  </script>
 </body>
 </html>

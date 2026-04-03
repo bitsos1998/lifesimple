@@ -159,22 +159,9 @@
         <li><span class="check">✓</span><span>Επαγγελματικά διαμορφωμένο <strong>PDF</strong> στο email σας</span></li>
       </ul>
     </div>
-
-    <div class="testimonials-mini">
-      <p class="testimonials-label">Τι λένε οι χρήστες μας</p>
-            <div class="testimonial-item">
-        <span class="testimonial-stars">★★★★★</span>
-        <p>"Δεν ήξερα από πού να αρχίσω. Σε λίγα λεπτά είχα στο email μου ό,τι χρειαζόμουν — βήμα-βήμα, για τη δική μου κατάσταση."</p>
-        <span class="testimonial-author">— Κ.Π., Αθήνα</span>
-      </div>
-      <div class="testimonial-item">
-        <span class="testimonial-stars">★★★★★</span>
-        <p>"Χρήσιμο, γρήγορο και πολύ πιο κατανοητό από ό,τι μου εξήγησε ο δικηγόρος μου στη μισή ώρα."</p>
-        <span class="testimonial-author">— Μ.Α., Θεσσαλονίκη</span>
-      </div>
-    </div>
-
   </div>
+
+</div>
 
   <div>
     <div class="form-card">
@@ -266,6 +253,25 @@
           <textarea name="additionalInfo" class="form-control" rows="3" placeholder="π.χ. Ο σύζυγος δεν συνεργάζεται, υπάρχουν χρέη, κ.λπ."></textarea>
           <p class="form-textarea-help">Όσο περισσότερες λεπτομέρειες μας δώσεις για την κατάστασή σου, τόσο πιο εξατομικευμένος και χρήσιμος θα είναι ο οδηγός που θα λάβεις. Μπορείς να αναφέρεις παιδιά, ακίνητα, χρέη, ή οτιδήποτε άλλο θεωρείς σημαντικό.</p>
         </div>
+        <div class="form-reviews">
+          <p class="form-reviews-label">Τι λένε οι χρήστες μας</p>
+        <div class="form-review-card">
+          <div class="form-review-stars">★★★★★</div>
+          <p class="form-review-text">"Ήμουν εντελώς χαμένη. Ο οδηγός μου εξήγησε βήμα-βήμα ποια έγγραφα χρειάζομαι για το συναινετικό και τι να περιμένω από τον δικηγόρο."</p>
+          <div class="form-review-author">— Ελένη Σ., Αθήνα</div>
+        </div>
+        <div class="form-review-card">
+          <div class="form-review-stars">★★★★★</div>
+          <p class="form-review-text">"Πήγα σε δικηγόρο που μου ζήτησε €800 και δεν μου είπε τίποτα ουσιαστικό. Εδώ, με €19, κατάλαβα ακριβώς τι με περιμένει."</p>
+          <div class="form-review-author">— Νίκος Κ., Θεσσαλονίκη</div>
+        </div>
+        <div class="form-review-card">
+          <div class="form-review-stars">★★★★★</div>
+          <p class="form-review-text">"Ειδικά το κομμάτι για την επιμέλεια των παιδιών ήταν αυτό που χρειαζόμουν. Σαφές και κατανοητό, χωρίς νομικά."</p>
+          <div class="form-review-author">— Μαρία Π., Πάτρα</div>
+        </div>
+        </div>
+
                 <div class="form-contact-hint">Έχεις ερώτηση; <a href="mailto:hello@lifesimple.gr">hello@lifesimple.gr</a> · <a href="/faq" style="color:#c9a84c;">Συχνές Ερωτήσεις</a></div>
         <p style="font-size:0.85rem;color:#4b5563;text-align:center;margin-bottom:0.5rem;">⚡ Λαμβάνετε τον οδηγό σας αμέσως μετά την πληρωμή — στο email σας σε λίγα λεπτά.</p>
         <button type="submit" class="pay-btn" id="payBtn">
@@ -369,5 +375,24 @@ function rejectCookies() {
 </script>
 <!-- ── End Cookie Banner ───────────────────────────────────── -->
 
+  <button class="sticky-cta" id="stickyCta" aria-label="Λήψη Οδηγού">
+    Λήψη Οδηγού — €19
+  </button>
+  <script>
+    (function() {
+      var btn = document.getElementById('stickyCta');
+      var payBtn = document.getElementById('payBtn');
+      if (!btn || !payBtn) return;
+      btn.addEventListener('click', function() {
+        payBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+      if ('IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function(entries) {
+          btn.classList.toggle('hidden', entries[0].isIntersecting);
+        }, { threshold: 0.1 });
+        obs.observe(payBtn);
+      }
+    })();
+  </script>
 </body>
 </html>

@@ -129,22 +129,8 @@
     <p>
       Βάσει των στοιχείων σου, λαμβάνεις προσαρμοσμένη λίστα εγγράφων, χρονοδιάγραμμα και οδηγίες ανάλογα με τον τύπο γάμου που επιλέγεις.
     </p>
+  </div>
 
-    <div class="testimonials-mini">
-      <p class="testimonials-label">Τι λένε οι χρήστες μας</p>
-            <div class="testimonial-item">
-        <span class="testimonial-stars">★★★★★</span>
-        <p>"Τέλεια λίστα εγγράφων για τον γάμο μας. Δεν φανταζόμουν ότι χρειάζεται τόσα — και χαρήκαμε που τα μάθαμε έγκαιρα!"</p>
-        <span class="testimonial-author">— Ε.Δ., Αθήνα</span>
-      </div>
-      <div class="testimonial-item">
-        <span class="testimonial-stars">★★★★★</span>
-        <p>"Ήθελα κάτι γρήγορο που να μου πει τι χρειάζομαι. Αυτό ακριβώς πήρα. Αξίζει τα €12."</p>
-        <span class="testimonial-author">— Α.Ν., Ηράκλειο</span>
-      </div>
-    </div>
-
-    
 <div style="display:flex;align-items:flex-start;gap:0.75rem;background:#f8f6f0;border:1px solid #e2d8c0;border-left:3px solid #c9a84c;border-radius:0 8px 8px 0;padding:0.9rem 1.1rem;margin-top:1.25rem;">
   <span style="font-size:1.3rem;flex-shrink:0;line-height:1;">🏛️</span>
   <div>
@@ -261,6 +247,25 @@
           <textarea name="additionalInfo" class="form-control" rows="2" placeholder="π.χ. Ο σύντροφός μου έχει διαζύγιο από το εξωτερικό..."></textarea>
           <p class="form-textarea-help">Όσο περισσότερες λεπτομέρειες μας δώσεις για την κατάστασή σου, τόσο πιο εξατομικευμένος και χρήσιμος θα είναι ο οδηγός που θα λάβεις. Μπορείς να αναφέρεις παιδιά, ακίνητα, χρέη, ή οτιδήποτε άλλο θεωρείς σημαντικό.</p>
         </div>
+        <div class="form-reviews">
+          <p class="form-reviews-label">Τι λένε οι χρήστες μας</p>
+        <div class="form-review-card">
+          <div class="form-review-stars">★★★★★</div>
+          <p class="form-review-text">"Δεν φανταζόμουν ότι ο πολιτικός γάμος έχει τόσα χαρτιά. Ο οδηγός μου έδωσε ακριβή λίστα και ξέρω τι να ετοιμάσω."</p>
+          <div class="form-review-author">— Ανδρέας Τ., Αθήνα</div>
+        </div>
+        <div class="form-review-card">
+          <div class="form-review-stars">★★★★★</div>
+          <p class="form-review-text">"Παντρευτήκαμε με έναν αλλοδαπό και είχαμε ερωτήσεις για τα δικαιολογητικά. Βρήκαμε ό,τι χρειαζόμασταν εδώ."</p>
+          <div class="form-review-author">— Χριστίνα Κ., Θεσσαλονίκη</div>
+        </div>
+        <div class="form-review-card">
+          <div class="form-review-stars">★★★★★</div>
+          <p class="form-review-text">"Γλίτωσα χρόνο και ταλαιπωρία. Πήγα στο ληξιαρχείο γνωρίζοντας ακριβώς τι να έχω μαζί μου."</p>
+          <div class="form-review-author">— Στέφανος Α., Πάτρα</div>
+        </div>
+        </div>
+
                 <div class="form-contact-hint">Έχεις ερώτηση; <a href="mailto:hello@lifesimple.gr">hello@lifesimple.gr</a> · <a href="/faq" style="color:#c9a84c;">Συχνές Ερωτήσεις</a></div>
         <p style="font-size:0.85rem;color:#4b5563;text-align:center;margin-bottom:0.5rem;">⚡ Λαμβάνετε τον οδηγό σας αμέσως μετά την πληρωμή — στο email σας σε λίγα λεπτά.</p>
         <button type="submit" class="pay-btn" id="payBtn">
@@ -364,5 +369,24 @@ function rejectCookies() {
 </script>
 <!-- ── End Cookie Banner ───────────────────────────────────── -->
 
+  <button class="sticky-cta" id="stickyCta" aria-label="Λήψη Οδηγού">
+    Λήψη Οδηγού — €12
+  </button>
+  <script>
+    (function() {
+      var btn = document.getElementById('stickyCta');
+      var payBtn = document.getElementById('payBtn');
+      if (!btn || !payBtn) return;
+      btn.addEventListener('click', function() {
+        payBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+      if ('IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function(entries) {
+          btn.classList.toggle('hidden', entries[0].isIntersecting);
+        }, { threshold: 0.1 });
+        obs.observe(payBtn);
+      }
+    })();
+  </script>
 </body>
 </html>

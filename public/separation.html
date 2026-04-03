@@ -150,22 +150,9 @@
         <li><span class="check">✓</span><span>Επαγγελματικά διαμορφωμένο <strong>PDF</strong> στο email σας</span></li>
       </ul>
     </div>
-
-    <div class="testimonials-mini">
-      <p class="testimonials-label">Τι λένε οι χρήστες μας</p>
-            <div class="testimonial-item">
-        <span class="testimonial-stars">★★★★★</span>
-        <p>"Χωρίς γάμο αλλά με κοινή ζωή 7 χρόνων δεν ήξερα αν έχω δικαιώματα. Ο οδηγός μου τα εξήγησε όλα."</p>
-        <span class="testimonial-author">— Α.Μ., Αθήνα</span>
-      </div>
-      <div class="testimonial-item">
-        <span class="testimonial-stars">★★★★★</span>
-        <p>"Γρήγορο, σαφές, χωρίς ορολογία. Ακριβώς αυτό που χρειαζόμουν πριν μιλήσω με δικηγόρο."</p>
-        <span class="testimonial-author">— Κ.Β., Θεσσαλονίκη</span>
-      </div>
-    </div>
-
   </div>
+
+</div>
 
   <div>
     <div class="form-card">
@@ -257,6 +244,25 @@
           <textarea name="additionalInfo" class="form-control" rows="2" placeholder="π.χ. Το σπίτι είναι στο όνομά του, έχω κάνει συνεισφορές για αγορά..."></textarea>
           <p class="form-textarea-help">Όσο περισσότερες λεπτομέρειες μας δώσεις για την κατάστασή σου, τόσο πιο εξατομικευμένος και χρήσιμος θα είναι ο οδηγός που θα λάβεις. Μπορείς να αναφέρεις παιδιά, ακίνητα, χρέη, ή οτιδήποτε άλλο θεωρείς σημαντικό.</p>
         </div>
+        <div class="form-reviews">
+          <p class="form-reviews-label">Τι λένε οι χρήστες μας</p>
+        <div class="form-review-card">
+          <div class="form-review-stars">★★★★★</div>
+          <p class="form-review-text">"Δεν ήθελα διαζύγιο αλλά ούτε να μένω μαζί. Ο οδηγός μου εξήγησε τη χωριστή διαβίωση και τα δικαιώματά μου."</p>
+          <div class="form-review-author">— Αγγελική Δ., Αθήνα</div>
+        </div>
+        <div class="form-review-card">
+          <div class="form-review-stars">★★★★★</div>
+          <p class="form-review-text">"Είχα ερωτήσεις για τη διατροφή κατά τη διάρκεια χωρισμού. Βρήκα απαντήσεις που δεν μου έδωσε ούτε φίλος δικηγόρος."</p>
+          <div class="form-review-author">— Παναγιώτης Σ., Θεσσαλονίκη</div>
+        </div>
+        <div class="form-review-card">
+          <div class="form-review-stars">★★★★★</div>
+          <p class="form-review-text">"Κατάλαβα ότι η χωριστή διαβίωση δεν σημαίνει αυτόματα διαζύγιο. Πολύ χρήσιμες πληροφορίες για τα επόμενα βήματα."</p>
+          <div class="form-review-author">— Δήμητρα Ρ., Λάρισα</div>
+        </div>
+        </div>
+
                 <div class="form-contact-hint">Έχεις ερώτηση; <a href="mailto:hello@lifesimple.gr">hello@lifesimple.gr</a> · <a href="/faq" style="color:#c9a84c;">Συχνές Ερωτήσεις</a></div>
         <p style="font-size:0.85rem;color:#4b5563;text-align:center;margin-bottom:0.5rem;">⚡ Λαμβάνετε τον οδηγό σας αμέσως μετά την πληρωμή — στο email σας σε λίγα λεπτά.</p>
         <button type="submit" class="pay-btn" id="payBtn">
@@ -360,5 +366,24 @@ function rejectCookies() {
 </script>
 <!-- ── End Cookie Banner ───────────────────────────────────── -->
 
+  <button class="sticky-cta" id="stickyCta" aria-label="Λήψη Οδηγού">
+    Λήψη Οδηγού — €19
+  </button>
+  <script>
+    (function() {
+      var btn = document.getElementById('stickyCta');
+      var payBtn = document.getElementById('payBtn');
+      if (!btn || !payBtn) return;
+      btn.addEventListener('click', function() {
+        payBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+      if ('IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function(entries) {
+          btn.classList.toggle('hidden', entries[0].isIntersecting);
+        }, { threshold: 0.1 });
+        obs.observe(payBtn);
+      }
+    })();
+  </script>
 </body>
 </html>
