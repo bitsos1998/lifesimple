@@ -2646,3 +2646,45 @@ textarea.form-control {
 .form-optional-inner .form-group {
   margin-bottom: 1rem;
 }
+
+/* ── Φάκελος Εκκίνησης Trio (Task 4B) ───────────────────── */
+.fakelos-trio {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+.fakelos-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: #f8f6f0;
+  border: 1px solid #e2d8c0;
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+}
+.fakelos-icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  line-height: 1;
+  padding-top: 0.1rem;
+}
+.fakelos-title {
+  display: block;
+  font-size: 0.97rem;
+  font-weight: 700;
+  color: #1a2744;
+  margin-bottom: 0.25rem;
+}
+.fakelos-desc {
+  font-size: 0.87rem;
+  color: #4b5563;
+  line-height: 1.55;
+  margin: 0;
+}
+.deliverables h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a2744;
+  margin-bottom: 0.75rem;
+}
