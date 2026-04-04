@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.stopPropagation();
       const isValid = validateForm(form);
       if (!isValid) return;
-      showPrePaymentOverlay(form);
+      performCheckout(form, payBtn, null);
     });
   }
 
@@ -210,6 +210,7 @@ function showPrePaymentOverlay(form) {
 }
 
 function closeOverlay(backdrop) {
+  if (!backdrop) return;
   backdrop.classList.remove('ppo-visible');
   setTimeout(() => backdrop.remove(), 300);
 }
@@ -287,6 +288,7 @@ function getPDFPreviewContent(productKey) {
 
 // ── Perform Checkout (API call → Stripe redirect) ────────
 async function performCheckout(form, btn, backdrop) {
+  btn.dataset.originalText = btn.textContent;
   btn.classList.add('loading');
   btn.disabled = true;
   btn.textContent = '⏳ Σύνδεση με Stripe...';
@@ -332,8 +334,11 @@ async function performCheckout(form, btn, backdrop) {
     }
   } catch (err) {
     console.error('[checkout]', err);
-    // Close overlay and show error toast
+    // Close overlay if present, restore button state
     closeOverlay(backdrop);
+    btn.classList.remove('loading');
+    btn.disabled = false;
+    btn.textContent = btn.dataset.originalText || 'Πληρωμή & Λήψη';
     showToast(
       `Σφάλμα σύνδεσης: ${err.message}. Παρακαλώ δοκιμάστε ξανά ή επικοινωνήστε με την υποστήριξη.`,
       'error'
