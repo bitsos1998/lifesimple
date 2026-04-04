@@ -393,21 +393,7 @@ function validateForm(form) {
     }
   });
 
-  // Ensure at least one asset checkbox is checked (for WillSimple)
-  const assetCheckboxes = form.querySelectorAll('input[name="assets"]');
-  if (assetCheckboxes.length > 0) {
-    const anyChecked = Array.from(assetCheckboxes).some(cb => cb.checked);
-    if (!anyChecked) {
-      const container = assetCheckboxes[0].closest('.checkbox-group');
-      // Auto-open the <details> so the error is visible
-      const detailsEl = assetCheckboxes[0].closest('details');
-      if (detailsEl) detailsEl.open = true;
-      if (container) {
-        showFieldError(container, 'Επιλέξτε τουλάχιστον ένα περιουσιακό στοιχείο.');
-        valid = false;
-      }
-    }
-  }
+  // Assets checkboxes are optional — no validation required
 
   if (!valid) {
     // Scroll to first error
