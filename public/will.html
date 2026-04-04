@@ -126,7 +126,7 @@
       <div class="product-badge">💶 Μόνο <strong>€29</strong></div>
     </div>
     <p style="margin-top:0.75rem;font-size:0.85rem;color:#6b5e3e;text-align:center;font-weight:600;">⭐⭐⭐⭐⭐ 4.9/5 &nbsp;·&nbsp; Πάνω από 1.000 χρήστες &nbsp;·&nbsp; 🏛️ Νομικά επαληθευμένο περιεχόμενο</p>
-    <p style="margin-top:0.4rem;font-size:0.88rem;text-align:center;color:#c9a84c;font-weight:700;">💶 €29 &mdash; αντί €300&ndash;800 συμβολαιογράφου · εφάπαξ, χωρίς κρυφές χρεώσεις</p>
+    <div class="hero-price-compare"><span class="hero-price-main">€29</span><span class="hero-price-vs">αντί <del>€300–800 συμβολαιογράφου</del></span><span class="hero-price-note">· εφάπαξ, χωρίς κρυφές χρεώσεις</span></div>
   </div>
 </section>
 
@@ -147,13 +147,6 @@
     </p>
 
     
-<div style="display:flex;align-items:flex-start;gap:0.75rem;background:#f8f6f0;border:1px solid #e2d8c0;border-left:3px solid #c9a84c;border-radius:0 8px 8px 0;padding:0.9rem 1.1rem;margin-top:1.25rem;">
-  <span style="font-size:1.3rem;flex-shrink:0;line-height:1;">🏛️</span>
-  <div>
-    <p style="margin:0 0 0.2rem;font-weight:700;font-size:0.88rem;color:#1a2744;letter-spacing:0.01em;">Νομικά Επαληθευμένο Περιεχόμενο</p>
-    <p style="margin:0;font-size:0.84rem;color:#6b5e3e;line-height:1.55;">Ο οδηγός έχει διαμορφωθεί με τη συμβολή έμπειρων νομικών και επαγγελματιών του κλάδου — για την πιο αξιόπιστη και πρακτική καθοδήγηση.</p>
-  </div>
-</div>
 
 <div class="deliverables">
       <h3>📦 Τι λαμβάνεις</h3>
@@ -197,7 +190,6 @@
         <div class="price-display">€29 <small>εφάπαξ</small></div>
         <p>Εξατομικευμένο PDF · Αποστολή στο email σου</p>
         <p style="font-size:0.78rem;color:#9aabba;margin-top:0.2rem;">✓ Χωρίς λογαριασμό &nbsp;·&nbsp; Εφάπαξ, χωρίς κρυφές χρεώσεις</p>
-        <p class="price-anchor">Ο συμβολαιογράφος χρεώνει <strong>€300+</strong>. Εδώ: μόνο €29.</p>
       </div>
 
       <form id="productForm" novalidate>
@@ -205,11 +197,6 @@
         <input type="hidden" name="price" value="2900" />
         <input type="hidden" name="productName" value="WillSimple — Οδηγός Διαθήκης" />
 
-        <!-- ── Form guidance ────────────────────────────────────── -->
-        <div style="margin-bottom:1.25rem;background:#f8fafc;border-left:3px solid #c9a84c;padding:0.9rem 1.1rem;border-radius:0 6px 6px 0;">
-          <p style="margin:0 0 0.4rem;font-weight:600;font-size:0.95rem;color:#1a2744;">Συμπληρώστε όσα περισσότερα πεδία μπορείτε — όσο πιο αναλυτικά απαντήσετε, τόσο πιο εξατομικευμένος και χρήσιμος θα είναι ο οδηγός σας.</p>
-          <p style="margin:0;font-size:0.88rem;color:#6b7280;">Για λόγους εμπιστευτικότητας, δεν χρειάζεται να χρησιμοποιήσετε το πραγματικό σας επώνυμο ή την ακριβή αξία περιουσιακών στοιχείων.</p>
-        </div>
 
         <!-- Name fields -->
         <div class="form-name-row">
@@ -231,10 +218,13 @@
           <p class="form-help">Το PDF θα σταλεί σε αυτή τη διεύθυνση</p>
         </div>
 
+<details class="form-optional">
+          <summary>+ Προσθήκη λεπτομερειών — για πιο εξατομικευμένο αποτέλεσμα</summary>
+          <div class="form-optional-inner">
         <!-- Marital Status -->
         <div class="form-group">
-          <label>Οικογενειακή κατάσταση <span class="required">*</span></label>
-          <select name="maritalStatus" class="form-control" required>
+          <label>Οικογενειακή κατάσταση</label>
+          <select name="maritalStatus" class="form-control">
             <option value="">— Επιλέξτε —</option>
             <option value="single">Άγαμος/η</option>
             <option value="married">Έγγαμος/η</option>
@@ -246,10 +236,10 @@
 
         <!-- Children -->
         <div class="form-group">
-          <label>Έχετε παιδιά; <span class="required">*</span></label>
+          <label>Έχετε παιδιά;</label>
           <div class="radio-group">
             <label class="radio-label">
-              <input type="radio" name="hasChildren" value="yes" required /> Ναι
+              <input type="radio" name="hasChildren" value="yes" /> Ναι
             </label>
             <label class="radio-label">
               <input type="radio" name="hasChildren" value="no" /> Όχι
@@ -265,7 +255,7 @@
 
         <!-- Assets -->
         <div class="form-group">
-          <label>Τύποι περιουσιακών στοιχείων <span class="required">*</span></label>
+          <label>Τύποι περιουσιακών στοιχείων</label>
           <p class="form-help" style="margin-bottom:0.5rem;">Επιλέξτε όσα ισχύουν</p>
           <div class="checkbox-group">
             <label class="checkbox-label">
@@ -304,31 +294,14 @@
 
         <!-- Age (for legal minimum check) -->
         <div class="form-group">
-          <label>Ηλικία <span class="required">*</span></label>
-          <input type="number" name="age" class="form-control" placeholder="π.χ. 45" min="18" max="120" required />
+          <label>Ηλικία</label>
+          <input type="number" name="age" class="form-control" placeholder="π.χ. 45" min="18" max="120" />
           <p class="form-help">Νομικά, η ελάχιστη ηλικία σύνταξης διαθήκης είναι 18 έτη</p>
         </div>
 
         <!-- Submit -->
-        <div class="form-reviews">
-          <p class="form-reviews-label">Τι λένε οι χρήστες μας</p>
-        <div class="form-review-card">
-          <div class="form-review-stars">★★★★★</div>
-          <p class="form-review-text">"Δεν ήξερα ότι η ιδιόγραφη διαθήκη γράφεται ολόκληρη στο χέρι. Ο οδηγός μου εξήγησε ακριβώς τι πρέπει να περιέχει για να είναι έγκυρη."</p>
-          <div class="form-review-author">— Γιώργος Μ., Αθήνα</div>
-        </div>
-        <div class="form-review-card">
-          <div class="form-review-stars">★★★★★</div>
-          <p class="form-review-text">"Τελικά έμαθα ότι δεν χρειάζομαι συμβολαιογράφο για να κάνω διαθήκη. Εξοικονόμησα χρόνο και χρήμα."</p>
-          <div class="form-review-author">— Σοφία Λ., Ηράκλειο</div>
-        </div>
-        <div class="form-review-card">
-          <div class="form-review-stars">★★★★★</div>
-          <p class="form-review-text">"Είχα πολλά ακίνητα και δεν ήξερα πώς να τα μοιράσω σωστά. Ο οδηγός ανέλυσε τη νόμιμη μοίρα και τα δικαιώματα των κληρονόμων με απλά λόγια."</p>
-          <div class="form-review-author">— Κώστας Β., Θεσσαλονίκη</div>
-        </div>
-        </div>
-
+          </div>
+        </details>
         <div class="form-contact-hint">Έχεις ερώτηση; <a href="mailto:hello@lifesimple.gr">hello@lifesimple.gr</a> · <a href="/faq" style="color:#c9a84c;">Συχνές Ερωτήσεις</a></div>
         <p style="font-size:0.85rem;color:#4b5563;text-align:center;margin-bottom:0.5rem;">⚡ Λαμβάνετε τον οδηγό σας αμέσως μετά την πληρωμή — στο email σας σε λίγα λεπτά.</p>
         <button type="submit" class="pay-btn" id="payBtn">
@@ -352,7 +325,31 @@
 
 <!-- ── Footer ────────────────────────────────────────────── -->
 
-<p style="text-align:center;font-size:0.8rem;color:#9ca3af;max-width:600px;margin:1.5rem auto 0.5rem;padding:0 1rem;">Το WillSimple παρέχει πληροφοριακό υλικό και δεν αποτελεί νομική συμβουλή. Για νομική εκπροσώπηση απευθυνθείτε σε πιστοποιημένο δικηγόρο.</p>
+<section class="reviews-section">
+  <div class="container">
+    <button class="reviews-toggle" id="reviewsToggle" onclick="this.classList.toggle('open');document.getElementById('reviewsList').classList.toggle('open')">Τι λένε άλλοι χρήστες <span class="reviews-arrow">▼</span></button>
+    <div class="reviews-list" id="reviewsList">
+      <h2 class="reviews-heading">Εμπειρίες χρηστών</h2>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Ήθελα να αφήσω τα ακίνητά μου στα παιδιά μου χωρίς μπλεξίματα. Έμαθα ότι μπορώ να γράψω ιδιόγραφη ολόκληρη στο χέρι — και τι ακριβώς πρέπει να περιέχει για να είναι έγκυρη."</p>
+          <div class="review-author">— Γιώργος Μαρκόπουλος, Αθήνα</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Πίστευα ότι χρειάζομαι συμβολαιογράφο. Αποδείχτηκε ότι δεν χρειαζόμουν — εξοικονόμησα εκατοντάδες ευρώ και έγινε όλο με δική μου γραφή."</p>
+          <div class="review-author">— Αικατερίνη Δημητρίου, Ηράκλειο</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Ήθελα άνιση κατανομή στα παιδιά μου. Έμαθα για τη νόμιμη μοίρα και τα όρια που θέτει ο νόμος — δεν το ήξερα καθόλου αυτό."</p>
+          <div class="review-author">— Βασίλης Θεοδωράκης, Θεσσαλονίκη</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-brand">

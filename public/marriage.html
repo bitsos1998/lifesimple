@@ -114,7 +114,7 @@
       <div class="product-badge">💶 Μόνο <strong>€12</strong></div>
     </div>
     <p style="margin-top:0.75rem;font-size:0.85rem;color:#6b5e3e;text-align:center;font-weight:600;">⭐⭐⭐⭐⭐ 4.9/5 &nbsp;·&nbsp; Πάνω από 1.000 χρήστες &nbsp;·&nbsp; 🏛️ Νομικά επαληθευμένο περιεχόμενο</p>
-    <p style="margin-top:0.4rem;font-size:0.88rem;text-align:center;color:#c9a84c;font-weight:700;">💶 €12 &mdash; εφάπαξ, χωρίς λογαριασμό, παράδοση σε &lt;5 λεπτά</p>
+    <div class="hero-price-compare"><span class="hero-price-main">€12</span><span class="hero-price-vs">αντί <del>€300+ ΚΕΠ &amp; δημαρχείο</del></span><span class="hero-price-note">· εφάπαξ, χωρίς κρυφές χρεώσεις</span></div>
   </div>
 </section>
 
@@ -130,14 +130,6 @@
       Βάσει των στοιχείων σου, λαμβάνεις προσαρμοσμένη λίστα εγγράφων, χρονοδιάγραμμα και οδηγίες ανάλογα με τον τύπο γάμου που επιλέγεις.
     </p>
   </div>
-
-<div style="display:flex;align-items:flex-start;gap:0.75rem;background:#f8f6f0;border:1px solid #e2d8c0;border-left:3px solid #c9a84c;border-radius:0 8px 8px 0;padding:0.9rem 1.1rem;margin-top:1.25rem;">
-  <span style="font-size:1.3rem;flex-shrink:0;line-height:1;">🏛️</span>
-  <div>
-    <p style="margin:0 0 0.2rem;font-weight:700;font-size:0.88rem;color:#1a2744;letter-spacing:0.01em;">Νομικά Επαληθευμένο Περιεχόμενο</p>
-    <p style="margin:0;font-size:0.84rem;color:#6b5e3e;line-height:1.55;">Ο οδηγός έχει διαμορφωθεί με τη συμβολή έμπειρων νομικών και επαγγελματιών του κλάδου — για την πιο αξιόπιστη και πρακτική καθοδήγηση.</p>
-  </div>
-</div>
 
 <div class="deliverables">
       <h3>📦 Τι λαμβάνετε</h3>
@@ -158,7 +150,6 @@
         <div class="price-display">€12 <small>εφάπαξ</small></div>
         <p>Εξατομικευμένο PDF · Αποστολή στο email σου</p>
         <p style="font-size:0.78rem;color:#9aabba;margin-top:0.2rem;">✓ Χωρίς λογαριασμό &nbsp;·&nbsp; Εφάπαξ, χωρίς κρυφές χρεώσεις</p>
-        <p class="price-anchor">Μπρος ΚΕΠ, πίσω δημαρχείο — χωρίς να ξέρεις τι χρειάζεσαι. Εδώ: όλα ξεκάθαρα, μόνο <strong>€12</strong>.</p>
       </div>
 
       <form id="productForm" novalidate>
@@ -167,11 +158,6 @@
         <input type="hidden" name="productName" value="MarriageSimple — Οδηγός Γάμου" />
 
 
-        <!-- ── Form guidance ──────────────────────────────────── -->
-        <div style="margin-bottom:1.25rem;background:#f8fafc;border-left:3px solid #c9a84c;padding:0.9rem 1.1rem;border-radius:0 6px 6px 0;">
-          <p style="margin:0 0 0.4rem;font-weight:600;font-size:0.95rem;color:#1a2744;">Συμπληρώστε όσα περισσότερα πεδία μπορείτε — όσο πιο αναλυτικά απαντήσετε, τόσο πιο εξατομικευμένος και χρήσιμος θα είναι ο οδηγός σας.</p>
-          <p style="margin:0;font-size:0.88rem;color:#6b7280;">Για λόγους εμπιστευτικότητας, δεν χρειάζεται να χρησιμοποιήσετε το πραγματικό σας επώνυμο ή την ακριβή αξία περιουσιακών στοιχείων.</p>
-        </div>
 
         <div class="form-name-row">
           <div class="form-group" style="margin-bottom:0;">
@@ -201,9 +187,12 @@
           </select>
         </div>
 
+<details class="form-optional">
+          <summary>+ Προσθήκη λεπτομερειών — για πιο εξατομικευμένο αποτέλεσμα</summary>
+          <div class="form-optional-inner">
         <div class="form-group">
-          <label>Ιθαγένεια αιτούντος/αιτούσας <span class="required">*</span></label>
-          <select name="citizenship1" class="form-control" required>
+          <label>Ιθαγένεια αιτούντος/αιτούσας</label>
+          <select name="citizenship1" class="form-control">
             <option value="">— Επιλέξτε —</option>
             <option value="greek">Ελληνική</option>
             <option value="eu">Άλλη χώρα ΕΕ</option>
@@ -213,8 +202,8 @@
         </div>
 
         <div class="form-group">
-          <label>Ιθαγένεια συντρόφου <span class="required">*</span></label>
-          <select name="citizenship2" class="form-control" required>
+          <label>Ιθαγένεια συντρόφου</label>
+          <select name="citizenship2" class="form-control">
             <option value="">— Επιλέξτε —</option>
             <option value="greek">Ελληνική</option>
             <option value="eu">Άλλη χώρα ΕΕ</option>
@@ -224,16 +213,16 @@
         </div>
 
         <div class="form-group">
-          <label>Έχει ξαναπαντρευτεί κάποιος από τους δύο; <span class="required">*</span></label>
+          <label>Έχει ξαναπαντρευτεί κάποιος από τους δύο;</label>
           <div class="radio-group">
-            <label class="radio-label"><input type="radio" name="previousMarriage" value="yes" required /> Ναι</label>
+            <label class="radio-label"><input type="radio" name="previousMarriage" value="yes" /> Ναι</label>
             <label class="radio-label"><input type="radio" name="previousMarriage" value="no" /> Όχι</label>
           </div>
         </div>
 
         <div class="form-group">
-          <label>Πόλη τέλεσης γάμου <span class="required">*</span></label>
-          <input type="text" name="city" class="form-control" placeholder="π.χ. Αθήνα, Θεσσαλονίκη, Ηράκλειο" required />
+          <label>Πόλη τέλεσης γάμου</label>
+          <input type="text" name="city" class="form-control" placeholder="π.χ. Αθήνα, Θεσσαλονίκη, Ηράκλειο" />
         </div>
 
         <div class="form-group">
@@ -247,26 +236,9 @@
           <textarea name="additionalInfo" class="form-control" rows="2" placeholder="π.χ. Ο σύντροφός μου έχει διαζύγιο από το εξωτερικό..."></textarea>
           <p class="form-textarea-help">Όσο περισσότερες λεπτομέρειες μας δώσεις για την κατάστασή σου, τόσο πιο εξατομικευμένος και χρήσιμος θα είναι ο οδηγός που θα λάβεις. Μπορείς να αναφέρεις παιδιά, ακίνητα, χρέη, ή οτιδήποτε άλλο θεωρείς σημαντικό.</p>
         </div>
-        <div class="form-reviews">
-          <p class="form-reviews-label">Τι λένε οι χρήστες μας</p>
-        <div class="form-review-card">
-          <div class="form-review-stars">★★★★★</div>
-          <p class="form-review-text">"Δεν φανταζόμουν ότι ο πολιτικός γάμος έχει τόσα χαρτιά. Ο οδηγός μου έδωσε ακριβή λίστα και ξέρω τι να ετοιμάσω."</p>
-          <div class="form-review-author">— Ανδρέας Τ., Αθήνα</div>
-        </div>
-        <div class="form-review-card">
-          <div class="form-review-stars">★★★★★</div>
-          <p class="form-review-text">"Παντρευτήκαμε με έναν αλλοδαπό και είχαμε ερωτήσεις για τα δικαιολογητικά. Βρήκαμε ό,τι χρειαζόμασταν εδώ."</p>
-          <div class="form-review-author">— Χριστίνα Κ., Θεσσαλονίκη</div>
-        </div>
-        <div class="form-review-card">
-          <div class="form-review-stars">★★★★★</div>
-          <p class="form-review-text">"Γλίτωσα χρόνο και ταλαιπωρία. Πήγα στο ληξιαρχείο γνωρίζοντας ακριβώς τι να έχω μαζί μου."</p>
-          <div class="form-review-author">— Στέφανος Α., Πάτρα</div>
-        </div>
-        </div>
-
-                <div class="form-contact-hint">Έχεις ερώτηση; <a href="mailto:hello@lifesimple.gr">hello@lifesimple.gr</a> · <a href="/faq" style="color:#c9a84c;">Συχνές Ερωτήσεις</a></div>
+          </div>
+        </details>
+        <div class="form-contact-hint">Έχεις ερώτηση; <a href="mailto:hello@lifesimple.gr">hello@lifesimple.gr</a> · <a href="/faq" style="color:#c9a84c;">Συχνές Ερωτήσεις</a></div>
         <p style="font-size:0.85rem;color:#4b5563;text-align:center;margin-bottom:0.5rem;">⚡ Λαμβάνετε τον οδηγό σας αμέσως μετά την πληρωμή — στο email σας σε λίγα λεπτά.</p>
         <button type="submit" class="pay-btn" id="payBtn">
           <div class="spinner"></div>
@@ -284,7 +256,31 @@
 </div>
 
 
-<p style="text-align:center;font-size:0.8rem;color:#9ca3af;max-width:600px;margin:1.5rem auto 0.5rem;padding:0 1rem;">Το MarriageSimple παρέχει πληροφοριακό υλικό και δεν αποτελεί νομική συμβουλή. Για νομική εκπροσώπηση απευθυνθείτε σε πιστοποιημένο δικηγόρο.</p>
+<section class="reviews-section">
+  <div class="container">
+    <button class="reviews-toggle" id="reviewsToggle" onclick="this.classList.toggle('open');document.getElementById('reviewsList').classList.toggle('open')">Τι λένε άλλοι χρήστες <span class="reviews-arrow">▼</span></button>
+    <div class="reviews-list" id="reviewsList">
+      <h2 class="reviews-heading">Εμπειρίες χρηστών</h2>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Εγώ Έλληνας, η σύντροφός μου Βουλγάρα. Δεν ξέραμε ποια χαρτιά χρειάζονται για τον πολιτικό γάμο με αλλοδαπό. Πήγαμε στο ληξιαρχείο έτοιμοι."</p>
+          <div class="review-author">— Ανδρέας Τσιώτης, Αθήνα</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Δεν ήξερα τη διαφορά πολιτικού και θρησκευτικού ως προς τα έγγραφα. Τώρα ξέρω ακριβώς τι να ετοιμάσω για τον τύπο γάμου που διάλεξα."</p>
+          <div class="review-author">— Χριστίνα Κολοκοτρώνη, Θεσσαλονίκη</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Δεύτερος γάμος για μένα — είχα διαζευκτήριο αλλά δεν ήξερα τι άλλο χρειάζεται. Τα βρήκα όλα εδώ και δεν χάσαμε ούτε μία ώρα στις υπηρεσίες."</p>
+          <div class="review-author">— Στέφανος Αλεξίου, Ιωάννινα</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-brand">

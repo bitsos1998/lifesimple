@@ -2499,3 +2499,150 @@ textarea.form-control {
 @media (max-width: 767px) {
   .how-works-section { display: none; }
 }
+
+/* ── Hero price comparison (Task 4) ──────────────────────── */
+.hero-price-compare {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+.hero-price-main {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #c9a84c;
+  letter-spacing: -0.01em;
+}
+.hero-price-vs {
+  font-size: 0.88rem;
+  color: #6b5e3e;
+}
+.hero-price-vs del {
+  color: #9ca3af;
+  text-decoration-color: #9ca3af;
+}
+.hero-price-note {
+  font-size: 0.82rem;
+  color: #6b5e3e;
+}
+
+/* ── User reviews section (Tasks 1+2) ────────────────────── */
+.reviews-section {
+  background: #f8f6f0;
+  border-top: 1px solid #e2d8c0;
+  padding: 2rem 0;
+  margin-top: 2rem;
+}
+.reviews-section .container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+.reviews-toggle {
+  display: none;
+  width: 100%;
+  background: none;
+  border: 1px solid #c9a84c;
+  color: #1a2744;
+  font-size: 0.97rem;
+  font-weight: 600;
+  padding: 0.75rem 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+}
+.reviews-arrow {
+  float: right;
+  transition: transform 0.22s;
+}
+.reviews-toggle.open .reviews-arrow {
+  transform: rotate(180deg);
+}
+.reviews-heading {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1a2744;
+  margin: 0 0 1.25rem;
+}
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.review-card {
+  background: #fff;
+  border: 1px solid #e2d8c0;
+  border-radius: 10px;
+  padding: 1.1rem 1.1rem 0.85rem;
+}
+.review-stars {
+  color: #c9a84c;
+  font-size: 0.88rem;
+  margin-bottom: 0.5rem;
+}
+.review-text {
+  font-size: 0.87rem;
+  color: #374151;
+  line-height: 1.55;
+  margin: 0 0 0.65rem;
+}
+.review-author {
+  font-size: 0.8rem;
+  color: #6b7280;
+  font-weight: 600;
+}
+@media (max-width: 767px) {
+  .reviews-toggle {
+    display: block;
+  }
+  .reviews-list {
+    display: none;
+  }
+  .reviews-list.open {
+    display: block;
+    padding-top: 0.75rem;
+  }
+  .reviews-heading {
+    font-size: 1.05rem;
+    margin-bottom: 0.9rem;
+  }
+  .reviews-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
+
+/* ── Form optional details section (Task 3) ──────────────── */
+.form-optional {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #e2d8c0;
+  border-radius: 8px;
+  background: #fafaf8;
+}
+.form-optional > summary {
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #c9a84c;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  border-radius: 8px;
+}
+.form-optional > summary::-webkit-details-marker {
+  display: none;
+}
+.form-optional[open] > summary {
+  border-bottom: 1px solid #e2d8c0;
+  border-radius: 8px 8px 0 0;
+}
+.form-optional-inner {
+  padding: 0.5rem 0.75rem 0.75rem;
+}
+.form-optional-inner .form-group {
+  margin-bottom: 1rem;
+}
