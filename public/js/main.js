@@ -394,6 +394,9 @@ function validateForm(form) {
     const anyChecked = Array.from(assetCheckboxes).some(cb => cb.checked);
     if (!anyChecked) {
       const container = assetCheckboxes[0].closest('.checkbox-group');
+      // Auto-open the <details> so the error is visible
+      const detailsEl = assetCheckboxes[0].closest('details');
+      if (detailsEl) detailsEl.open = true;
       if (container) {
         showFieldError(container, 'Επιλέξτε τουλάχιστον ένα περιουσιακό στοιχείο.');
         valid = false;
