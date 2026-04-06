@@ -80,23 +80,6 @@
   }
   </script>
 
-<style>
-.entry-cards-section { margin: 0 0 1.5rem; }
-.entry-cards-label { font-size: 0.88rem; color: #6b7280; text-align: center; margin-bottom: 0.75rem; font-weight: 600; }
-.entry-cards { display: flex; flex-direction: column; gap: 0.6rem; }
-.entry-card {
-  display: flex; align-items: center; gap: 0.9rem;
-  background: #f0f4ff; border: 2px solid #d1d9f0;
-  border-radius: 10px; padding: 0.85rem 1rem;
-  cursor: pointer; text-align: left; width: 100%;
-  font-family: inherit; transition: border-color 0.18s, background 0.18s;
-}
-.entry-card:hover { border-color: #c9a84c; background: #faf7ee; }
-.entry-card.selected { border-color: #c9a84c; background: #faf7ee; }
-.entry-card-icon { font-size: 1.4rem; flex-shrink: 0; }
-.entry-card-title { display: block; font-weight: 700; font-size: 0.9rem; color: #1a2744; }
-.entry-card-sub { display: block; font-size: 0.8rem; color: #6b7280; margin-top: 0.1rem; }
-</style>
 
 </head>
 <body>
@@ -125,7 +108,7 @@
 <section class="product-hero">
   <div class="container">
     <p class="breadcrumb"><a href="/">LifeSimple</a> › InheritSimple</p>
-    <h1 class="product-h1-wrap"><svg class="product-h1-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="22" y1="38" x2="22" y2="16" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/><ellipse cx="22" cy="12" rx="4" ry="6" stroke="#c9a84c" stroke-width="1.8" fill="none"/><path d="M19,12 Q22,7 25,12 Q22,17 19,12 Z" fill="#c9a84c" opacity="0.75"/><ellipse cx="22" cy="39" rx="7" ry="2.5" stroke="#c9a84c" stroke-width="1.5" fill="none" opacity="0.5"/></svg>Inherit<em>Simple</em></h1>
+    <h1 class="product-h1-wrap"><svg class="product-h1-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="22" y1="38" x2="22" y2="16" stroke="#C1522A" stroke-width="2" stroke-linecap="round"/><ellipse cx="22" cy="12" rx="4" ry="6" stroke="#C1522A" stroke-width="1.8" fill="none"/><path d="M19,12 Q22,7 25,12 Q22,17 19,12 Z" fill="#C1522A" opacity="0.75"/><ellipse cx="22" cy="39" rx="7" ry="2.5" stroke="#C1522A" stroke-width="1.5" fill="none" opacity="0.5"/></svg>Inherit<em>Simple</em></h1>
     <p class="product-tagline">Κληρονομιά στην Ελλάδα — ξέρε πού πας</p>
     <div class="product-badge-row">
       <div class="product-badge">🕊️ <strong>Πλήρης οδηγός</strong> μετά τον θάνατο</div>
@@ -133,7 +116,7 @@
       <div class="product-badge">💶 Μόνο <strong>€12</strong></div>
     </div>
     <p style="margin-top:0.75rem;font-size:0.85rem;color:#6b5e3e;text-align:center;font-weight:600;">🏛️ Νομικά επαληθευμένο περιεχόμενο &nbsp;·&nbsp; ✉️ Παράδοση σε λίγα λεπτά</p>
-    <div class="hero-price-compare"><span class="hero-price-main">€12</span><span class="hero-price-vs"><span style="color:#9aabba;">Δικηγόρος €500–1.500</span></span><span class="hero-price-note">· <strong style="color:#c9a84c;">LifeSimple μόνο €12</strong></span></div>
+    <div class="hero-price-compare"><span class="hero-price-main">€12</span><span class="hero-price-vs"><span style="color:#9aabba;">Δικηγόρος €500–1.500</span></span><span class="hero-price-note">· <strong style="color:#C1522A;">LifeSimple μόνο €12</strong></span></div>
   </div>
 </section>
 
@@ -183,30 +166,6 @@
       💙 Εκφράζουμε τα συλλυπητήριά μας. Το InheritSimple δημιουργήθηκε για να μειώσει το διοικητικό βάρος σε αυτή τη δύσκολη στιγμή.
     </div>
   </div>
-
-  <!-- ── Entry Point Selection (Task 5) ───────────────────── -->
-  <div class="entry-cards-section">
-    <p class="entry-cards-label">Ποια είναι η κατάστασή σου;</p>
-    <div class="entry-cards">
-      <button type="button" class="entry-card" data-scenario="post-death" onclick="selectScenario(this)">
-        <span class="entry-card-icon">🕊️</span>
-        <span class="entry-card-title">Έχω χάσει κάποιον αγαπημένο</span>
-        <span class="entry-card-sub">Δεν ξέρω τι να κάνω πρώτα</span>
-      </button>
-      <button type="button" class="entry-card" data-scenario="planning" onclick="selectScenario(this)">
-        <span class="entry-card-icon">📋</span>
-        <span class="entry-card-title">Θέλω να προετοιμαστώ εγκαίρως</span>
-        <span class="entry-card-sub">Για μένα ή για την οικογένειά μου</span>
-      </button>
-      <button type="button" class="entry-card" data-scenario="education" onclick="selectScenario(this)">
-        <span class="entry-card-icon">💡</span>
-        <span class="entry-card-title">Θέλω να καταλάβω πώς λειτουργεί</span>
-        <span class="entry-card-sub">Κληρονομιά και διαδικασίες στην Ελλάδα</span>
-      </button>
-    </div>
-    <p class="entry-cards-error" id="entryCardsError" style="display:none;color:#dc2626;font-size:0.85rem;text-align:center;margin-top:0.5rem;">Παρακαλώ επίλεξε μια κατηγορία</p>
-  </div>
-
   <div>
     <div class="form-card">
       <div class="form-card-header">
@@ -220,13 +179,42 @@
         <input type="hidden" name="price" value="1200" />
         <input type="hidden" name="productName" value="InheritSimple — Φάκελος Εκκίνησης" />
         <input type="hidden" name="scenario" id="scenarioField" value="" />
-
-
-
-        <p id="formIntroText" style="font-size:0.88rem;color:#6b7280;margin-bottom:1rem;font-weight:500;">Πες μας λίγα πράγματα για να φτιάξουμε τον φάκελό σου</p>
-        <div class="form-name-row">
+      <div class="step-progress">
+        <div class="step-indicator">
+          <div class="step-circle active">1</div>
+          <span class="step-label active">Κατηγορία</span>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step-indicator">
+          <div class="step-circle">2</div>
+          <span class="step-label">Κατάστασή σου</span>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step-indicator">
+          <div class="step-circle">3</div>
+          <span class="step-label">Επιβεβαίωση</span>
+        </div>
+      </div>
+      <div class="form-step active" data-step="1">
+        <p class="ms-entry-label">Ποια είναι η κατάστασή σου;</p>
+        <div class="ms-entry-cards">
+          <button type="button" class="ms-entry-card" data-scenario="post-death" onclick="msSelectScenario(this)">
+            <span class="ms-entry-icon">🕊️</span>
+            <span><span class="ms-entry-title">Έχω χάσει κάποιον αγαπημένο</span><span class="ms-entry-sub">Δεν ξέρω τι να κάνω πρώτα</span></span>
+          </button>
+          <button type="button" class="ms-entry-card" data-scenario="planning" onclick="msSelectScenario(this)">
+            <span class="ms-entry-icon">📋</span>
+            <span><span class="ms-entry-title">Θέλω να προετοιμαστώ εγκαίρως</span><span class="ms-entry-sub">Για μένα ή για την οικογένειά μου</span></span>
+          </button>
+          <button type="button" class="ms-entry-card" data-scenario="education" onclick="msSelectScenario(this)">
+            <span class="ms-entry-icon">💡</span>
+            <span><span class="ms-entry-title">Θέλω να καταλάβω πώς λειτουργεί</span><span class="ms-entry-sub">Κληρονομιά και διαδικασίες στην Ελλάδα</span></span>
+          </button>
+        </div>
+        <p class="entry-cards-error" id="entryCardsError" style="display:none;color:#dc2626;font-size:0.85rem;text-align:center;margin-bottom:0.5rem;">Παρακαλώ επίλεξε μια κατηγορία</p>
+        <div class="form-name-row" style="margin-top:0.75rem;">
           <div class="form-group" style="margin-bottom:0;">
-            <label>Όνομα αιτούντος <span class="required">*</span></label>
+            <label>Όνομα <span class="required">*</span></label>
             <input type="text" name="firstName" class="form-control" placeholder="π.χ. Νίκος" required />
           </div>
           <div class="form-group" style="margin-bottom:0;">
@@ -234,76 +222,76 @@
             <input type="text" name="lastName" class="form-control" placeholder="π.χ. Θεοδωρίδης" />
           </div>
         </div>
-        <div style="margin-bottom:1.25rem;"></div>
-
+        <div style="margin-bottom:1.1rem;"></div>
         <div class="form-group">
-          <label>Email αποστολής PDF <span class="required">*</span></label>
+          <label>Email αποστολής <span class="required">*</span></label>
           <input type="email" name="email" class="form-control" placeholder="name@example.com" required />
         </div>
-
-        <div class="form-group">
-          <label>Σχέση με τον αποθανόντα <span class="required">*</span></label>
-          <select name="relationship" class="form-control" required>
-            <option value="">— Επιλέξτε —</option>
-            <option value="spouse">Σύζυγος</option>
-            <option value="child">Τέκνο</option>
-            <option value="parent">Γονέας</option>
-            <option value="sibling">Αδελφός/ή</option>
-            <option value="other_relative">Άλλος συγγενής</option>
-            <option value="executor">Εκτελεστής διαθήκης</option>
-          </select>
+        <div class="step-nav">
+          <span></span>
+          <button type="button" class="step-next-btn">Επόμενο →</button>
         </div>
-
-<details class="form-optional">
-          <summary>+ Προσθήκη λεπτομερειών — για πιο εξατομικευμένο αποτέλεσμα</summary>
-          <div class="form-optional-inner">
+      </div>
+      <div class="form-step" data-step="2">
         <div class="form-group">
-          <label>Υπάρχει διαθήκη;</label>
-          <div class="radio-group">
-            <label class="radio-label"><input type="radio" name="hasWill" value="yes" /> Ναι</label>
-            <label class="radio-label"><input type="radio" name="hasWill" value="no" /> Όχι</label>
-            <label class="radio-label"><input type="radio" name="hasWill" value="unknown" /> Δεν γνωρίζω</label>
+          <label>Σχέση με τον αποθανόντα / μελλοντικό κληρονόμο <span class="required">*</span></label>
+          <div class="radio-group" data-required="radio" data-sumkey="Σχέση">
+            <label class="radio-label"><input type="radio" name="relationship" value="spouse" /> Σύζυγος / σύντροφος</label>
+            <label class="radio-label"><input type="radio" name="relationship" value="child" /> Παιδί</label>
+            <label class="radio-label"><input type="radio" name="relationship" value="parent" /> Γονέας</label>
+            <label class="radio-label"><input type="radio" name="relationship" value="sibling" /> Αδερφός/ή</label>
+            <label class="radio-label"><input type="radio" name="relationship" value="other" /> Άλλο</label>
           </div>
         </div>
-
         <div class="form-group">
-          <label>Περιουσιακά στοιχεία του αποθανόντος</label>
-          <p class="form-help" style="margin-bottom:0.5rem;">Επιλέξτε όσα γνωρίζετε</p>
-          <div class="checkbox-group">
-            <label class="checkbox-label"><input type="checkbox" name="assets" value="property" /> 🏠 Ακίνητα</label>
-            <label class="checkbox-label"><input type="checkbox" name="assets" value="bank" /> 🏦 Τραπεζικοί λογαριασμοί</label>
-            <label class="checkbox-label"><input type="checkbox" name="assets" value="pension" /> 👴 Σύνταξη / παροχές ΕΦΚΑ</label>
-            <label class="checkbox-label"><input type="checkbox" name="assets" value="insurance" /> 📋 Ασφαλιστήριο ζωής</label>
-            <label class="checkbox-label"><input type="checkbox" name="assets" value="business" /> 🏢 Επιχείρηση</label>
-            <label class="checkbox-label"><input type="checkbox" name="assets" value="debts" /> ⚠️ Γνωστά χρέη ή δάνεια</label>
+          <label>Υπάρχει ακίνητη περιουσία;</label>
+          <div class="radio-group" data-sumkey="Ακίνητη περιουσία">
+            <label class="radio-label"><input type="radio" name="hasProperty" value="yes" /> Ναι</label>
+            <label class="radio-label"><input type="radio" name="hasProperty" value="no" /> Όχι</label>
+            <label class="radio-label"><input type="radio" name="hasProperty" value="unknown" /> Δεν ξέρω</label>
           </div>
         </div>
-
         <div class="form-group">
-          <label>Αριθμός κληρονόμων (εκτιμώμενος)</label>
-          <input type="number" name="heirsCount" class="form-control" placeholder="π.χ. 3" min="1" max="50" />
+          <label>Επιπλέον πληροφορίες <span style="color:#9aabba;">(προαιρετικό)</span></label>
+          <textarea name="additionalInfo" class="form-control" rows="3" data-sumkey="Σημείωση" placeholder="π.χ. υπάρχει διαθήκη, είναι πολλοί κληρονόμοι..."></textarea>
         </div>
-
-        <div class="form-group">
-          <label>Πόσες ημέρες έχουν περάσει από τον θάνατο;</label>
-          <select name="daysSinceDeath" class="form-control">
-            <option value="">— Επιλέξτε —</option>
-            <option value="0-2">Λιγότερο από 2 ημέρες</option>
-            <option value="3-7">3–7 ημέρες</option>
-            <option value="8-30">8–30 ημέρες</option>
-            <option value="31+">Πάνω από 1 μήνα</option>
-          </select>
-          <p class="form-help">Βοηθά να προτεραιοποιήσουμε τα επείγοντα βήματα</p>
+        <div class="step-nav">
+          <button type="button" class="step-back-btn">← Πίσω</button>
+          <button type="button" class="step-next-btn">Επόμενο →</button>
         </div>
-
-        <div class="form-group">
-          <label>Επιπλέον Πληροφορίες <span style="color:#9aabba;font-weight:400;">(προαιρετικό)</span></label>
-          <textarea name="additionalInfo" class="form-control" rows="2" placeholder="π.χ. Ο αποθανών είχε εισοδήματα από ενοίκια, υπάρχουν διαφωνίες μεταξύ κληρονόμων..."></textarea>
-          <p class="form-textarea-help">Όσο περισσότερες λεπτομέρειες μας δώσεις για την κατάστασή σου, τόσο πιο εξατομικευμένος και χρήσιμος θα είναι ο οδηγός που θα λάβεις. Μπορείς να αναφέρεις παιδιά, ακίνητα, χρέη, ή οτιδήποτε άλλο θεωρείς σημαντικό.</p>
+      </div>
+      <div class="form-step" data-step="3">
+        <div class="ms-summary">
+          <h4>Τα στοιχεία σου:</h4>
+          <div id="summaryContent"></div>
         </div>
+        <div class="ms-includes">
+          <h4>Ο Φάκελός σου θα περιλαμβάνει:</h4>
+          <ul>
+            <li>Προσχέδιο εγγράφου για τη δική σου κατάσταση</li>
+            <li>Βήμα-βήμα οδηγός διαδικασίας</li>
+            <li>Εκπαιδευτικό υλικό πριν τον συμβολαιογράφο</li>
+          </ul>
+        </div>
+        <div class="pdf-mockup">
+          <div class="pdf-doc">
+            <div class="pdf-doc-logo">LIFESIMPLE</div>
+            <div class="pdf-doc-title">Φάκελος Εκκίνησης</div>
+            <div class="pdf-line"></div>
+            <div class="pdf-line w80"></div>
+            <div class="pdf-line w60"></div>
+            <div class="pdf-section-gap"></div>
+            <div class="pdf-line"></div>
+            <div class="pdf-line w70"></div>
+            <div class="pdf-line w45"></div>
           </div>
-        </details>
-        <div class="form-contact-hint">Έχεις ερώτηση; <a href="mailto:hello@lifesimple.gr">hello@lifesimple.gr</a> · <a href="/faq" style="color:#c9a84c;">Συχνές Ερωτήσεις</a></div>
+          <p class="pdf-mockup-caption">📧 Αποστέλλεται αμέσως στο email σου</p>
+        </div>
+        <div class="step-nav" style="border-top:none;padding-top:0;margin-top:0.25rem;">
+          <button type="button" class="step-back-btn">← Πίσω</button>
+          <span></span>
+        </div>
+        <div class="form-contact-hint" style="margin-top:1rem;">Έχεις ερώτηση; <a href="mailto:hello@lifesimple.gr">hello@lifesimple.gr</a> · <a href="/faq" style="color:#C1522A;">Συχνές Ερωτήσεις</a></div>
         <p style="font-size:0.85rem;color:#4b5563;text-align:center;margin-bottom:0.5rem;">⚡ Ο Φάκελος Εκκίνησής σας φτάνει αμέσως μετά την πληρωμή — στο email σας σε λίγα λεπτά.</p>
         <button type="submit" class="pay-btn" id="payBtn">
           <div class="spinner"></div>
@@ -315,7 +303,8 @@
           <span style="flex-shrink:0;">🔄</span>
           <div><strong>💰 Εγγύηση επιστροφής 14 ημερών</strong> — αν δεν είσαι ευχαριστημένος για οποιονδήποτε λόγο, επικοινώνησε στο <a href="mailto:hello@lifesimple.gr" style="color:#166534;font-weight:600;">hello@lifesimple.gr</a> και σου επιστρέφουμε τα χρήματά σου.</div>
         </div>
-      </form>
+      </div>
+</form>
     </div>
   </div>
 </div>
@@ -409,17 +398,17 @@
   <div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:1rem;">
     <p style="flex:1;min-width:220px;margin:0;">
       Χρησιμοποιούμε cookies για τη σωστή λειτουργία του ιστότοπου και, εάν συναινέσεις, για ανάλυση επισκεψιμότητας.
-      <a href="/privacy" style="color:#c9a84c;text-decoration:underline;">Πολιτική Απορρήτου</a>
+      <a href="/privacy" style="color:#C1522A;text-decoration:underline;">Πολιτική Απορρήτου</a>
     </p>
     <div style="display:flex;gap:0.75rem;flex-wrap:wrap;flex-shrink:0;">
       <button onclick="acceptCookies()" style="
-        background:#c9a84c;color:#1a2744;border:none;
+        background:#C1522A;color:#1a2744;border:none;
         padding:0.6rem 1.4rem;border-radius:6px;
         font-weight:700;font-size:0.95rem;cursor:pointer;
       ">Αποδοχή όλων</button>
       <button onclick="rejectCookies()" style="
         background:transparent;color:#f7f5f0;
-        border:2px solid #c9a84c;
+        border:2px solid #C1522A;
         padding:0.6rem 1.4rem;border-radius:6px;
         font-weight:600;font-size:0.95rem;cursor:pointer;
       ">Μόνο απαραίτητα</button>
@@ -464,38 +453,7 @@ function rejectCookies() {
     })();
   </script>
 
-<script>
-function selectScenario(btn) {
-  document.querySelectorAll('.entry-card').forEach(c => c.classList.remove('selected'));
-  btn.classList.add('selected');
-  var scenario = btn.getAttribute('data-scenario');
-  var field = document.getElementById('scenarioField');
-  if (field) field.value = scenario;
-  document.getElementById('entryCardsError').style.display = 'none';
-  // Update form intro text
-  var intros = {
-    'post-death': 'Πες μας λίγα πράγματα για να φτιάξουμε τον φάκελό σου',
-    'planning': 'Λίγες πληροφορίες για να προετοιμάσουμε το σωστό πλάνο',
-    'education': 'Πες μας για την κατάστασή σου και τι θέλεις να καταλάβεις'
-  };
-  var el = document.getElementById('formIntroText');
-  if (el && intros[scenario]) el.textContent = intros[scenario];
-}
-// Validate scenario on submit — hook into existing payBtn validation
-document.addEventListener('DOMContentLoaded', function() {
-  var payBtn = document.getElementById('payBtn');
-  if (!payBtn) return;
-  var originalClick = payBtn.onclick;
-  payBtn.addEventListener('click', function(e) {
-    var scenario = document.getElementById('scenarioField');
-    if (scenario && !scenario.value) {
-      e.stopImmediatePropagation();
-      document.getElementById('entryCardsError').style.display = 'block';
-      document.querySelector('.entry-cards').scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-  }, true); // capture phase — runs before the main handler
-});
-</script>
 
+  <script src="/js/multistep.js"></script>
 </body>
 </html>

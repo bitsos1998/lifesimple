@@ -106,7 +106,7 @@
 <section class="product-hero">
   <div class="container">
     <p class="breadcrumb"><a href="/">LifeSimple</a> › PrenupSimple</p>
-    <h1 class="product-h1-wrap"><svg class="product-h1-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="10" width="22" height="28" rx="2" stroke="#c9a84c" stroke-width="2" fill="none"/><line x1="13" y1="18" x2="25" y2="18" stroke="#c9a84c" stroke-width="1.5"/><line x1="13" y1="23" x2="25" y2="23" stroke="#c9a84c" stroke-width="1.5"/><line x1="13" y1="28" x2="20" y2="28" stroke="#c9a84c" stroke-width="1.5" opacity="0.7"/><path d="M26,12 L36,6 L38,11 L28,17" fill="#c9a84c" opacity="0.8"/></svg>Prenup<em>Simple</em></h1>
+    <h1 class="product-h1-wrap"><svg class="product-h1-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="10" width="22" height="28" rx="2" stroke="#C1522A" stroke-width="2" fill="none"/><line x1="13" y1="18" x2="25" y2="18" stroke="#C1522A" stroke-width="1.5"/><line x1="13" y1="23" x2="25" y2="23" stroke="#C1522A" stroke-width="1.5"/><line x1="13" y1="28" x2="20" y2="28" stroke="#C1522A" stroke-width="1.5" opacity="0.7"/><path d="M26,12 L36,6 L38,11 L28,17" fill="#C1522A" opacity="0.8"/></svg>Prenup<em>Simple</em></h1>
     <p class="product-tagline">Προστάτεψε το μέλλον σου — πριν πεις το ναι</p>
     <div class="product-badge-row">
       <div class="product-badge">📝 <strong>Προγαμιαίο</strong> συμβόλαιο</div>
@@ -114,7 +114,7 @@
       <div class="product-badge">💶 Μόνο <strong>€12</strong></div>
     </div>
     <p style="margin-top:0.75rem;font-size:0.85rem;color:#6b5e3e;text-align:center;font-weight:600;">🏛️ Νομικά επαληθευμένο περιεχόμενο &nbsp;·&nbsp; ✉️ Παράδοση σε λίγα λεπτά</p>
-    <div class="hero-price-compare"><span class="hero-price-main">€12</span><span class="hero-price-vs"><span style="color:#9aabba;">Συμβολαιογράφος €500–2.000</span></span><span class="hero-price-note">· <strong style="color:#c9a84c;">LifeSimple μόνο €12</strong></span></div>
+    <div class="hero-price-compare"><span class="hero-price-main">€12</span><span class="hero-price-vs"><span style="color:#9aabba;">Συμβολαιογράφος €500–2.000</span></span><span class="hero-price-note">· <strong style="color:#C1522A;">LifeSimple μόνο €12</strong></span></div>
   </div>
 </section>
 
@@ -173,74 +173,104 @@
       <form id="productForm" novalidate>
         <input type="hidden" name="product" value="prenup" />
         <input type="hidden" name="price" value="1200" />
-        <input type="hidden" name="productName" value="PrenupSimple — Προγαμιαίο Συμβόλαιο" />
-
-
-
-        <!-- Your name -->
-        <p style="font-size:0.82rem;font-weight:700;color:#9aabba;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.75rem;">Στοιχεία Αιτούντος</p>
+        <input type="hidden" name="productName" value="PrenupSimple — Φάκελος Εκκίνησης" />
+      <div class="step-progress">
+        <div class="step-indicator">
+          <div class="step-circle active">1</div>
+          <span class="step-label active">Στοιχεία</span>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step-indicator">
+          <div class="step-circle">2</div>
+          <span class="step-label">Κατάστασή σου</span>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step-indicator">
+          <div class="step-circle">3</div>
+          <span class="step-label">Επιβεβαίωση</span>
+        </div>
+      </div>
+      <div class="form-step active" data-step="1">
         <div class="form-name-row">
           <div class="form-group" style="margin-bottom:0;">
             <label>Όνομα <span class="required">*</span></label>
-            <input type="text" name="firstName" class="form-control" placeholder="π.χ. Δημήτρης" required />
+            <input type="text" name="firstName" class="form-control" placeholder="π.χ. Μαρία" required />
           </div>
           <div class="form-group" style="margin-bottom:0;">
             <label>Επώνυμο <span style="color:#9aabba;font-weight:400;">(προαιρετικό)</span></label>
-            <input type="text" name="lastName" class="form-control" placeholder="π.χ. Σταματίου" />
+            <input type="text" name="lastName" class="form-control" placeholder="π.χ. Αντωνίου" />
           </div>
         </div>
-        <div style="margin-bottom:1.25rem;"></div>
-
+        <div style="margin-bottom:1.1rem;"></div>
         <div class="form-group">
-          <label>Email αποστολής PDF <span class="required">*</span></label>
+          <label>Email αποστολής <span class="required">*</span></label>
           <input type="email" name="email" class="form-control" placeholder="name@example.com" required />
-          <p class="form-help">Το PDF θα σταλεί σε αυτή τη διεύθυνση</p>
+          <p class="form-help">Ο Φάκελος Εκκίνησης θα σταλεί σε αυτή τη διεύθυνση</p>
         </div>
-
-        <!-- Partner name -->
-        <p style="font-size:0.82rem;font-weight:700;color:#9aabba;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.75rem;margin-top:0.5rem;">Στοιχεία Συντρόφου</p>
-        <div class="form-name-row">
-          <div class="form-group" style="margin-bottom:0;">
-            <label>Όνομα συντρόφου <span class="required">*</span></label>
-            <input type="text" name="partnerFirstName" class="form-control" placeholder="π.χ. Ειρήνη" required />
-          </div>
-          <div class="form-group" style="margin-bottom:0;">
-            <label>Επώνυμο <span style="color:#9aabba;font-weight:400;">(προαιρετικό)</span></label>
-            <input type="text" name="partnerLastName" class="form-control" placeholder="π.χ. Παπαδάκη" />
-          </div>
+        <div class="step-nav">
+          <span></span>
+          <button type="button" class="step-next-btn">Επόμενο →</button>
         </div>
-        <div style="margin-bottom:1.25rem;"></div>
-
-<details class="form-optional">
-          <summary>+ Προσθήκη λεπτομερειών — για πιο εξατομικευμένο αποτέλεσμα</summary>
-          <div class="form-optional-inner">
-        <!-- Property -->
+      </div>
+      <div class="form-step" data-step="2">
         <div class="form-group">
-          <label>Κάποιος από τους δύο έχει ακίνητα ή άλλη σημαντική περιουσία;</label>
-          <div class="radio-group">
-            <label class="radio-label"><input type="radio" name="hasProperty" value="yes" /> Ναι</label>
-            <label class="radio-label"><input type="radio" name="hasProperty" value="no" /> Όχι</label>
+          <label>Πότε είναι ο γάμος; <span class="required">*</span></label>
+          <div class="radio-group" data-required="radio" data-sumkey="Χρόνος γάμου">
+            <label class="radio-label"><input type="radio" name="weddingTiming" value="soon" /> Σύντομα (εντός 3 μηνών)</label>
+            <label class="radio-label"><input type="radio" name="weddingTiming" value="later" /> Σε 6+ μήνες</label>
+            <label class="radio-label"><input type="radio" name="weddingTiming" value="undecided" /> Δεν έχει οριστεί ακόμα</label>
           </div>
         </div>
-
-        <!-- Business -->
         <div class="form-group">
-          <label>Κάποιος από τους δύο έχει επιχείρηση ή εταιρικά μερίδια;</label>
-          <div class="radio-group">
-            <label class="radio-label"><input type="radio" name="hasBusiness" value="yes" /> Ναι</label>
-            <label class="radio-label"><input type="radio" name="hasBusiness" value="no" /> Όχι</label>
+          <label>Υπάρχει ακίνητη περιουσία ή επιχείρηση;</label>
+          <div class="radio-group" data-sumkey="Περιουσία ή επιχείρηση">
+            <label class="radio-label"><input type="radio" name="hasAssets" value="property" /> Ναι, ακίνητη περιουσία</label>
+            <label class="radio-label"><input type="radio" name="hasAssets" value="business" /> Ναι, επιχείρηση</label>
+            <label class="radio-label"><input type="radio" name="hasAssets" value="both" /> Και τα δύο</label>
+            <label class="radio-label"><input type="radio" name="hasAssets" value="no" /> Όχι</label>
           </div>
         </div>
-
-        <!-- Specific wishes -->
         <div class="form-group">
-          <label>Επιπλέον Πληροφορίες <span style="color:#9aabba;font-weight:400;">(προαιρετικό)</span></label>
-          <textarea name="specificWishes" class="form-control" rows="4" placeholder="π.χ. Το σπίτι στη Θεσσαλονίκη να παραμείνει στο όνομά μου, να χωρίσουμε τα μελλοντικά έσοδα 50/50, να προστατευτεί η οικογενειακή επιχείρηση..."></textarea>
-          <p class="form-textarea-help">Όσο περισσότερες λεπτομέρειες μας δώσεις για την κατάστασή σου, τόσο πιο εξατομικευμένος και χρήσιμος θα είναι ο οδηγός που θα λάβεις. Μπορείς να αναφέρεις παιδιά, ακίνητα, χρέη, ή οτιδήποτε άλλο θεωρείς σημαντικό.</p>
+          <label>Επιπλέον πληροφορίες <span style="color:#9aabba;">(προαιρετικό)</span></label>
+          <textarea name="additionalInfo" class="form-control" rows="3" data-sumkey="Σημείωση" placeholder="π.χ. δεύτερος γάμος, θέλω να προστατέψω παιδιά..."></textarea>
         </div>
+        <div class="step-nav">
+          <button type="button" class="step-back-btn">← Πίσω</button>
+          <button type="button" class="step-next-btn">Επόμενο →</button>
+        </div>
+      </div>
+      <div class="form-step" data-step="3">
+        <div class="ms-summary">
+          <h4>Τα στοιχεία σου:</h4>
+          <div id="summaryContent"></div>
+        </div>
+        <div class="ms-includes">
+          <h4>Ο Φάκελός σου θα περιλαμβάνει:</h4>
+          <ul>
+            <li>Προσχέδιο εγγράφου για τη δική σου κατάσταση</li>
+            <li>Βήμα-βήμα οδηγός διαδικασίας</li>
+            <li>Εκπαιδευτικό υλικό πριν τον συμβολαιογράφο</li>
+          </ul>
+        </div>
+        <div class="pdf-mockup">
+          <div class="pdf-doc">
+            <div class="pdf-doc-logo">LIFESIMPLE</div>
+            <div class="pdf-doc-title">Φάκελος Εκκίνησης</div>
+            <div class="pdf-line"></div>
+            <div class="pdf-line w80"></div>
+            <div class="pdf-line w60"></div>
+            <div class="pdf-section-gap"></div>
+            <div class="pdf-line"></div>
+            <div class="pdf-line w70"></div>
+            <div class="pdf-line w45"></div>
           </div>
-        </details>
-        <div class="form-contact-hint">Έχεις ερώτηση; <a href="mailto:hello@lifesimple.gr">hello@lifesimple.gr</a> · <a href="/faq" style="color:#c9a84c;">Συχνές Ερωτήσεις</a></div>
+          <p class="pdf-mockup-caption">📧 Αποστέλλεται αμέσως στο email σου</p>
+        </div>
+        <div class="step-nav" style="border-top:none;padding-top:0;margin-top:0.25rem;">
+          <button type="button" class="step-back-btn">← Πίσω</button>
+          <span></span>
+        </div>
+        <div class="form-contact-hint" style="margin-top:1rem;">Έχεις ερώτηση; <a href="mailto:hello@lifesimple.gr">hello@lifesimple.gr</a> · <a href="/faq" style="color:#C1522A;">Συχνές Ερωτήσεις</a></div>
         <p style="font-size:0.85rem;color:#4b5563;text-align:center;margin-bottom:0.5rem;">⚡ Ο Φάκελος Εκκίνησής σας φτάνει αμέσως μετά την πληρωμή — στο email σας σε λίγα λεπτά.</p>
         <button type="submit" class="pay-btn" id="payBtn">
           <div class="spinner"></div>
@@ -252,7 +282,8 @@
           <span style="flex-shrink:0;">🔄</span>
           <div><strong>💰 Εγγύηση επιστροφής 14 ημερών</strong> — αν δεν είσαι ευχαριστημένος για οποιονδήποτε λόγο, επικοινώνησε στο <a href="mailto:hello@lifesimple.gr" style="color:#166534;font-weight:600;">hello@lifesimple.gr</a> και σου επιστρέφουμε τα χρήματά σου.</div>
         </div>
-      </form>
+      </div>
+</form>
     </div>
   </div>
 </div>
@@ -346,17 +377,17 @@
   <div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:1rem;">
     <p style="flex:1;min-width:220px;margin:0;">
       Χρησιμοποιούμε cookies για τη σωστή λειτουργία του ιστότοπου και, εάν συναινέσεις, για ανάλυση επισκεψιμότητας.
-      <a href="/privacy" style="color:#c9a84c;text-decoration:underline;">Πολιτική Απορρήτου</a>
+      <a href="/privacy" style="color:#C1522A;text-decoration:underline;">Πολιτική Απορρήτου</a>
     </p>
     <div style="display:flex;gap:0.75rem;flex-wrap:wrap;flex-shrink:0;">
       <button onclick="acceptCookies()" style="
-        background:#c9a84c;color:#1a2744;border:none;
+        background:#C1522A;color:#1a2744;border:none;
         padding:0.6rem 1.4rem;border-radius:6px;
         font-weight:700;font-size:0.95rem;cursor:pointer;
       ">Αποδοχή όλων</button>
       <button onclick="rejectCookies()" style="
         background:transparent;color:#f7f5f0;
-        border:2px solid #c9a84c;
+        border:2px solid #C1522A;
         padding:0.6rem 1.4rem;border-radius:6px;
         font-weight:600;font-size:0.95rem;cursor:pointer;
       ">Μόνο απαραίτητα</button>
@@ -400,5 +431,6 @@ function rejectCookies() {
       }
     })();
   </script>
+  <script src="/js/multistep.js"></script>
 </body>
 </html>
