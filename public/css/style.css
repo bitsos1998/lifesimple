@@ -519,6 +519,7 @@ p  { font-size: 1.05rem; }
 .product-hero h1 { color: #ffffff; }
 .product-hero h1 em { font-style: normal; color: #C9892A; }
 .product-hero .product-tagline { font-size: 1.15rem; color: #c8d6f0; margin: 1rem auto 0; max-width: 520px; }
+.product-hero .product-subtagline { font-size: 0.97rem; color: #a8bdd6; margin: 0.65rem auto 0; max-width: 560px; line-height: 1.6; text-align: center; }
 
 .product-badge-row {
   display: flex;
@@ -2566,7 +2567,7 @@ textarea.form-control {
   padding: 0 1.25rem;
 }
 .reviews-toggle {
-  display: none;
+  display: block;
   width: 100%;
   background: none;
   border: 1px solid #C9892A;
@@ -2585,6 +2586,13 @@ textarea.form-control {
 }
 .reviews-toggle.open .reviews-arrow {
   transform: rotate(180deg);
+}
+.reviews-list {
+  display: none;
+}
+.reviews-list.open {
+  display: block;
+  padding-top: 0.75rem;
 }
 .reviews-heading {
   font-size: 1.15rem;
@@ -2620,16 +2628,7 @@ textarea.form-control {
   font-weight: 600;
 }
 @media (max-width: 767px) {
-  .reviews-toggle {
-    display: block;
-  }
-  .reviews-list {
-    display: none;
-  }
-  .reviews-list.open {
-    display: block;
-    padding-top: 0.75rem;
-  }
+
   .reviews-heading {
     font-size: 1.05rem;
     margin-bottom: 0.9rem;
