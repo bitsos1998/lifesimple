@@ -2509,23 +2509,24 @@ textarea.form-control {
   flex-wrap: wrap;
   margin-top: 0.5rem;
 }
-.hero-price-main {
-  font-size: 1.55rem;
-  font-weight: 800;
-  color: #C1522A;
-  letter-spacing: -0.01em;
-}
 .hero-price-vs {
   font-size: 0.88rem;
-  color: #6b5e3e;
+  color: #9aabba;
+  font-weight: 400;
 }
-.hero-price-vs del {
-  color: #9ca3af;
-  text-decoration-color: #9ca3af;
+.hero-price-sep {
+  font-size: 0.88rem;
+  color: #9aabba;
+}
+.hero-price-amount {
+  color: #C1522A;
+  font-weight: 800;
+  font-size: 1.05em;
+  letter-spacing: -0.01em;
 }
 .hero-price-note {
-  font-size: 0.82rem;
-  color: #6b5e3e;
+  font-size: 0.88rem;
+  color: #fff;
 }
 
 /* ── User reviews section (Tasks 1+2) ────────────────────── */
