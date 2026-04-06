@@ -58,7 +58,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // PRODUCT PAGE ROUTES  (clean URLs without .html)
 // ────────────────────────────────────────────────────────────
 
-const pages = ['will', 'divorce', 'marriage', 'inherit', 'separation', 'prenup', 'success', 'terms', 'privacy', 'about', 'faq', 'blog'];
+const pages = ['will', 'divorce', 'marriage', 'inherit', 'separation', 'prenup', 'success', 'complete', 'terms', 'privacy', 'about', 'faq', 'blog'];
 pages.forEach(page => {
   app.get(`/${page}`, (req, res) => {
     res.sendFile(path.join(__dirname, 'public', `${page}.html`));
@@ -146,7 +146,7 @@ app.post('/api/create-checkout-session', async (req, res) => {
         },
       ],
       mode: 'payment',
-      success_url: `${baseUrl}/success?session_id={CHECKOUT_SESSION_ID}`,
+      success_url: `${baseUrl}/complete?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url:  `${baseUrl}/${product.replace('simple', '')}?cancelled=1`,
       customer_email: formData.email,
       metadata: {
@@ -206,12 +206,25 @@ app.post('/api/webhook', async (req, res) => {
       return res.json({ received: true });
     }
 
-    // Process asynchronously — don't block the webhook response
-    processOrder(order, session).catch(err =>
-      console.error('[processOrder] Error:', err)
-    );
+    // Mark as paid — wait for Step 2 form submission before generating PDF
+    order.status = 'paid_awaiting_step2';
+    order.paidAt = Date.now();
 
-    pendingOrders.delete(sessionId);
+    // Set 30-min follow-up timer: if Step 2 never submitted, email the user
+    const followUpTimerId = setTimeout(async () => {
+      const currentOrder = pendingOrders.get(sessionId);
+      if (currentOrder && currentOrder.status === 'paid_awaiting_step2') {
+        try {
+          await sendFollowUpEmail(sessionId, currentOrder);
+          console.log(`[followup] Follow-up email sent to ${currentOrder.formData.email}`);
+        } catch (err) {
+          console.error('[followup] Failed to send follow-up email:', err);
+        }
+      }
+    }, 30 * 60 * 1000);
+
+    order.followUpTimerId = followUpTimerId;
+    pendingOrders.set(sessionId, order);
   }
 
   res.json({ received: true });
@@ -999,6 +1012,120 @@ function buildPDF(productName, formData, claudeContent, customerName) {
 
     doc.end();
   });
+}
+
+// ────────────────────────────────────────────────────────────
+// GET /api/session-info — Returns session info for complete.html
+// ────────────────────────────────────────────────────────────
+
+app.get('/api/session-info', (req, res) => {
+  const sessionId = req.query.session_id;
+  if (!sessionId) return res.status(400).json({ error: 'Missing session_id' });
+
+  const order = pendingOrders.get(sessionId);
+  if (!order) {
+    return res.status(404).json({ error: 'Session not found or expired' });
+  }
+
+  res.json({
+    product:     order.product,
+    productName: order.productName,
+    userName:    order.displayName,
+    status:      order.status || 'awaiting_payment',
+  });
+});
+
+// ────────────────────────────────────────────────────────────
+// POST /api/complete-order — Step 2 form → generate PDF → email
+// ────────────────────────────────────────────────────────────
+
+app.post('/api/complete-order', async (req, res) => {
+  const { sessionId, ...step2Fields } = req.body;
+
+  if (!sessionId) return res.status(400).json({ error: 'Missing sessionId' });
+
+  const order = pendingOrders.get(sessionId);
+  if (!order) {
+    return res.status(404).json({ error: 'Session not found or expired. Please contact hello@lifesimple.gr' });
+  }
+
+  // Clear the 30-min follow-up timer
+  if (order.followUpTimerId) clearTimeout(order.followUpTimerId);
+
+  // Merge step 2 fields into formData
+  const fullFormData = { ...order.formData, ...step2Fields };
+  const completedOrder = { ...order, formData: fullFormData, status: 'complete' };
+
+  // Remove from pending before async processing
+  pendingOrders.delete(sessionId);
+
+  // Respond immediately — PDF generation happens in background
+  res.json({ success: true });
+
+  // Generate PDF and send email
+  processOrder(completedOrder, null).catch(err =>
+    console.error('[complete-order processOrder]', err)
+  );
+});
+
+// ────────────────────────────────────────────────────────────
+// SENDGRID — Follow-Up Email (Step 2 not completed after 30 min)
+// ────────────────────────────────────────────────────────────
+
+async function sendFollowUpEmail(sessionId, order) {
+  const { formData, productName } = order;
+  const baseUrl      = process.env.BASE_URL || `http://localhost:${process.env.PORT || 3000}`;
+  const completeUrl  = `${baseUrl}/complete?session_id=${sessionId}`;
+  const customerName = order.displayName || formData.firstName || 'Πελάτη';
+  const fromEmail    = process.env.SENDGRID_FROM_EMAIL || 'support@lifesimple.gr';
+  const fromName     = process.env.SENDGRID_FROM_NAME  || 'LifeSimple';
+
+  const msg = {
+    to:      { email: formData.email, name: customerName },
+    from:    { email: fromEmail, name: fromName },
+    replyTo: { email: 'support@lifesimple.gr', name: 'LifeSimple Υποστήριξη' },
+    subject: `Ολοκλήρωσε τα στοιχεία σου για να λάβεις τον Φάκελο — ${productName}`,
+    text: `Αγαπητέ/ή ${customerName},\n\nΗ πληρωμή σου για το ${productName} ολοκληρώθηκε επιτυχώς.\n\nΜόνο ένα βήμα ακόμη: συμπλήρωσε τα στοιχεία σου και ο Φάκελος Εκκίνησής σου θα είναι έτοιμος σε λίγα λεπτά.\n\nΣυνέχισε εδώ:\n${completeUrl}\n\nΜε εκτίμηση,\nΗ ομάδα του LifeSimple\nlifesimple.gr`,
+    html: `<!DOCTYPE html>
+<html lang="el">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<body style="margin:0;padding:0;background:#f7f5f0;font-family:Arial,'Helvetica Neue',sans-serif;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f7f5f0;padding:32px 16px;">
+  <tr><td align="center">
+    <table role="presentation" width="580" cellpadding="0" cellspacing="0" style="max-width:580px;width:100%;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.08);">
+      <tr><td style="background:#1a2744;padding:24px 36px 20px;">
+        <span style="font-size:26px;font-weight:900;color:#fff;">Life<span style="color:#c9a84c;">Simple</span></span>
+      </td></tr>
+      <tr><td style="background:#c9a84c;height:3px;font-size:0;">&nbsp;</td></tr>
+      <tr><td style="padding:36px 36px 28px;">
+        <h1 style="font-size:20px;font-weight:700;color:#1a2744;margin:0 0 14px;text-align:center;">Ένα βήμα ακόμη για τον Φάκελό σου!</h1>
+        <p style="font-size:15px;color:#5a6b8a;line-height:1.7;margin:0 0 20px;text-align:center;">
+          Αγαπητέ/ή <strong style="color:#1a2744;">${customerName}</strong>, η πληρωμή σου για το <strong style="color:#1a2744;">${productName}</strong> ολοκληρώθηκε.<br>
+          Χρειαζόμαστε μερικά ακόμη στοιχεία για να φτιάξουμε τον εξατομικευμένο Φάκελό σου.
+        </p>
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+          <tr><td align="center">
+            <a href="${completeUrl}" style="display:inline-block;background:#c9a84c;color:#1a2744;font-size:15px;font-weight:700;padding:14px 36px;border-radius:7px;text-decoration:none;">
+              Συμπλήρωσε τα στοιχεία σου →
+            </a>
+          </td></tr>
+        </table>
+        <p style="font-size:12px;color:#9aabba;text-align:center;margin-top:20px;">
+          Ή αντέγραψε αυτό το link: ${completeUrl}
+        </p>
+      </td></tr>
+      <tr><td style="background:#f7f5f0;padding:18px 36px;border-top:1px solid #e8e5e0;">
+        <p style="font-size:11px;color:#9aabba;margin:0;text-align:center;">
+          LifeSimple · lifesimple.gr · support@lifesimple.gr
+        </p>
+      </td></tr>
+    </table>
+  </td></tr>
+</table>
+</body></html>`,
+  };
+
+  await sgMail.send(msg);
 }
 
 // ────────────────────────────────────────────────────────────

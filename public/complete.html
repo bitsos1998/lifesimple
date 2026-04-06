@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ολοκλήρωση Παραγγελίας · LifeSimple</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" href="/images/logo.png" type="image/png" />
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="/" class="nav-logo">
+      <span class="logo-main">Life<span>Simple</span></span>
+      <span class="logo-sub">lifesimple.gr</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Μενού">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">Αρχική</a></li>
+      <li><a href="/#products">Υπηρεσίες</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/faq">FAQ</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="complete-hero">
+  <div class="complete-hero-icon">✅</div>
+  <h1>Η πληρωμή ολοκληρώθηκε!</h1>
+  <p id="heroProductName">Φάκελος Εκκίνησης · LifeSimple</p>
+</section>
+
+<!-- Main body -->
+<div class="complete-body">
+
+  <!-- Loading state -->
+  <div id="stateLoading" style="text-align:center;padding:3rem 1.5rem;color:#5a6b8a;">
+    <div style="font-size:2rem;margin-bottom:1rem;">⏳</div>
+    <p style="font-size:1rem;">Φόρτωση...</p>
+  </div>
+
+  <!-- Error state -->
+  <div id="stateError" class="complete-error" style="display:none;">
+    <div style="font-size:3rem;margin-bottom:1rem;">⚠️</div>
+    <h2 style="font-size:1.3rem;font-weight:700;color:#1a2744;margin-bottom:0.75rem;">Η σύνδεση έληξε</h2>
+    <p style="color:#5a6b8a;font-size:0.97rem;line-height:1.7;">
+      Δεν μπορέσαμε να βρούμε τα στοιχεία της παραγγελίας σου.<br>
+      Αυτό συμβαίνει αν έχει περάσει πολύς χρόνος ή αν ανανεώθηκε η σελίδα.
+    </p>
+    <p style="color:#5a6b8a;font-size:0.97rem;line-height:1.7;margin-top:0.75rem;">
+      Επικοινώνησε μαζί μας στο <a href="mailto:hello@lifesimple.gr" style="color:#C9892A;font-weight:600;">hello@lifesimple.gr</a> και θα τακτοποιήσουμε τα πάντα αμέσως.
+    </p>
+  </div>
+
+  <!-- Step 2 form state -->
+  <div id="stateForm" style="display:none;">
+    <div class="complete-step2-notice">
+      Συμπλήρωσε τα παρακάτω στοιχεία για να ξεκινήσει η δημιουργία του Φακέλου Εκκίνησής σου. Ο φάκελός σου θα είναι έτοιμος σε έως 10 λεπτά.
+    </div>
+
+    <div class="complete-form-card">
+      <h2 id="formHeading">Λίγα στοιχεία για τον Φάκελό σου</h2>
+
+      <form id="step2Form" novalidate>
+        <input type="hidden" name="sessionId" id="sessionIdField" value="" />
+
+        <!-- ── DivorceSimple fields ── -->
+        <div class="product-fields" data-product="divorcesimple" style="display:none;">
+          <div class="form-group">
+            <label>Τύπος διαζυγίου <span class="required">*</span></label>
+            <div class="radio-group" data-required="radio">
+              <label class="radio-label"><input type="radio" name="divorceType" value="consensual" /> Συναινετικό (υπάρχει συμφωνία)</label>
+              <label class="radio-label"><input type="radio" name="divorceType" value="contested" /> Αντιδικία (δεν υπάρχει συμφωνία)</label>
+              <label class="radio-label"><input type="radio" name="divorceType" value="unsure" /> Δεν ξέρω ακόμα</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Παιδιά από τον γάμο;</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="hasChildren" value="yes" /> Ναι</label>
+              <label class="radio-label"><input type="radio" name="hasChildren" value="no" /> Όχι</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Κοινή περιουσία;</label>
+            <div class="checkbox-group">
+              <label class="checkbox-label"><input type="checkbox" name="sharedAssets" value="property" /> 🏠 Κοινή κατοικία / ακίνητα</label>
+              <label class="checkbox-label"><input type="checkbox" name="sharedAssets" value="bank" /> 🏦 Κοινοί τραπεζικοί λογαριασμοί</label>
+              <label class="checkbox-label"><input type="checkbox" name="sharedAssets" value="business" /> 🏢 Κοινή επιχείρηση</label>
+              <label class="checkbox-label"><input type="checkbox" name="sharedAssets" value="none" /> Δεν υπάρχει κοινή περιουσία</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Επιπλέον πληροφορίες <span style="color:#9aabba;font-weight:400;">(προαιρετικό)</span></label>
+            <textarea name="additionalInfo" class="form-control" rows="3" placeholder="π.χ. υπάρχουν χρέη, ο σύζυγος δεν συνεργάζεται..."></textarea>
+          </div>
+        </div>
+
+        <!-- ── WillSimple fields ── -->
+        <div class="product-fields" data-product="willsimple" style="display:none;">
+          <div class="form-group">
+            <label>Τύπος διαθήκης που σε ενδιαφέρει <span class="required">*</span></label>
+            <div class="radio-group" data-required="radio">
+              <label class="radio-label"><input type="radio" name="willType" value="handwritten" /> Ιδιόγραφη (γράφω ολόκληρη ο ίδιος)</label>
+              <label class="radio-label"><input type="radio" name="willType" value="notarial" /> Συμβολαιογραφική (με συμβολαιογράφο)</label>
+              <label class="radio-label"><input type="radio" name="willType" value="unsure" /> Δεν ξέρω — θέλω να δω επιλογές</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Έχετε ακίνητη περιουσία;</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="hasProperty" value="yes" /> Ναι</label>
+              <label class="radio-label"><input type="radio" name="hasProperty" value="no" /> Όχι</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Οικογενειακή κατάσταση</label>
+            <select name="maritalStatus" class="form-control">
+              <option value="">— Επιλέξτε —</option>
+              <option value="married">Έγγαμος/η</option>
+              <option value="single">Άγαμος/η</option>
+              <option value="divorced">Διαζευγμένος/η</option>
+              <option value="widowed">Χήρος/α</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Επιπλέον πληροφορίες <span style="color:#9aabba;font-weight:400;">(προαιρετικό)</span></label>
+            <textarea name="additionalInfo" class="form-control" rows="3" placeholder="π.χ. θέλω να αφήσω κάτι σε συγκεκριμένο πρόσωπο..."></textarea>
+          </div>
+        </div>
+
+        <!-- ── MarriageSimple fields ── -->
+        <div class="product-fields" data-product="marriagesimple" style="display:none;">
+          <div class="form-group">
+            <label>Τύπος γάμου <span class="required">*</span></label>
+            <div class="radio-group" data-required="radio">
+              <label class="radio-label"><input type="radio" name="marriageType" value="civil" /> Πολιτικός</label>
+              <label class="radio-label"><input type="radio" name="marriageType" value="religious" /> Θρησκευτικός</label>
+              <label class="radio-label"><input type="radio" name="marriageType" value="both" /> Και οι δύο</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Ιθαγένεια συντρόφων <span class="required">*</span></label>
+            <div class="radio-group" data-required="radio">
+              <label class="radio-label"><input type="radio" name="citizenship" value="both_greek" /> Και οι δύο Έλληνες</label>
+              <label class="radio-label"><input type="radio" name="citizenship" value="one_foreign" /> Ο ένας αλλοδαπός/ή</label>
+              <label class="radio-label"><input type="radio" name="citizenship" value="both_foreign" /> Και οι δύο αλλοδαποί/ές</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Επιπλέον πληροφορίες <span style="color:#9aabba;font-weight:400;">(προαιρετικό)</span></label>
+            <textarea name="additionalInfo" class="form-control" rows="3" placeholder="π.χ. δεύτερος γάμος, έχω διαζευκτήριο..."></textarea>
+          </div>
+        </div>
+
+        <!-- ── InheritSimple fields ── -->
+        <div class="product-fields" data-product="inheritsimple" style="display:none;">
+          <div class="form-group">
+            <label>Σχέση με τον αποθανόντα <span class="required">*</span></label>
+            <div class="radio-group" data-required="radio">
+              <label class="radio-label"><input type="radio" name="relationship" value="spouse" /> Σύζυγος / σύντροφος</label>
+              <label class="radio-label"><input type="radio" name="relationship" value="child" /> Παιδί</label>
+              <label class="radio-label"><input type="radio" name="relationship" value="parent" /> Γονέας</label>
+              <label class="radio-label"><input type="radio" name="relationship" value="sibling" /> Αδερφός/ή</label>
+              <label class="radio-label"><input type="radio" name="relationship" value="other" /> Άλλο</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Υπάρχει ακίνητη περιουσία;</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="hasProperty" value="yes" /> Ναι</label>
+              <label class="radio-label"><input type="radio" name="hasProperty" value="no" /> Όχι</label>
+              <label class="radio-label"><input type="radio" name="hasProperty" value="unknown" /> Δεν ξέρω</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Επιπλέον πληροφορίες <span style="color:#9aabba;font-weight:400;">(προαιρετικό)</span></label>
+            <textarea name="additionalInfo" class="form-control" rows="3" placeholder="π.χ. υπάρχει διαθήκη, είναι πολλοί κληρονόμοι..."></textarea>
+          </div>
+        </div>
+
+        <!-- ── SeparationSimple fields ── -->
+        <div class="product-fields" data-product="separationsimple" style="display:none;">
+          <div class="form-group">
+            <label>Υπάρχει σύμφωνο συμβίωσης; <span class="required">*</span></label>
+            <div class="radio-group" data-required="radio">
+              <label class="radio-label"><input type="radio" name="cohabitation" value="yes" /> Ναι, υπάρχει σύμφωνο</label>
+              <label class="radio-label"><input type="radio" name="cohabitation" value="no" /> Όχι, απλή συγκατοίκηση</label>
+              <label class="radio-label"><input type="radio" name="cohabitation" value="married" /> Είμαστε παντρεμένοι</label>
+              <label class="radio-label"><input type="radio" name="cohabitation" value="unsure" /> Δεν ξέρω</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Παιδιά;</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="hasChildren" value="yes" /> Ναι</label>
+              <label class="radio-label"><input type="radio" name="hasChildren" value="no" /> Όχι</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Κοινή κατοικία;</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="sharedHome" value="yes" /> Ναι</label>
+              <label class="radio-label"><input type="radio" name="sharedHome" value="no" /> Όχι</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Επιπλέον πληροφορίες <span style="color:#9aabba;font-weight:400;">(προαιρετικό)</span></label>
+            <textarea name="additionalInfo" class="form-control" rows="3" placeholder="π.χ. το σπίτι είναι στο όνομά του..."></textarea>
+          </div>
+        </div>
+
+        <!-- ── PrenupSimple fields ── -->
+        <div class="product-fields" data-product="prenup" style="display:none;">
+          <div class="form-group">
+            <label>Πότε σχεδιάζετε τον γάμο; <span class="required">*</span></label>
+            <div class="radio-group" data-required="radio">
+              <label class="radio-label"><input type="radio" name="weddingTiming" value="soon" /> Σύντομα (εντός 3 μηνών)</label>
+              <label class="radio-label"><input type="radio" name="weddingTiming" value="later" /> Σε 6+ μήνες</label>
+              <label class="radio-label"><input type="radio" name="weddingTiming" value="undecided" /> Δεν έχει οριστεί ακόμα</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Υπάρχει περιουσία ή επιχείρηση;</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="hasAssets" value="property" /> Ναι, ακίνητη περιουσία</label>
+              <label class="radio-label"><input type="radio" name="hasAssets" value="business" /> Ναι, επιχείρηση</label>
+              <label class="radio-label"><input type="radio" name="hasAssets" value="both" /> Και τα δύο</label>
+              <label class="radio-label"><input type="radio" name="hasAssets" value="no" /> Όχι</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Επιπλέον πληροφορίες <span style="color:#9aabba;font-weight:400;">(προαιρετικό)</span></label>
+            <textarea name="additionalInfo" class="form-control" rows="3" placeholder="π.χ. δεύτερος γάμος, θέλω να προστατέψω παιδιά..."></textarea>
+          </div>
+        </div>
+
+        <div id="formError" style="display:none;color:#c0392b;font-size:0.87rem;padding:0.6rem 0;"></div>
+
+        <button type="submit" class="complete-btn" id="submitStep2Btn">
+          Δημιούργησε τον Φάκελό μου →
+        </button>
+      </form>
+
+      <p style="font-size:0.82rem;color:#9aabba;text-align:center;margin-top:1rem;">
+        Πρόβλημα; <a href="mailto:hello@lifesimple.gr" style="color:#C9892A;">hello@lifesimple.gr</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Success state (after step 2 submit) -->
+  <div id="stateSuccess" style="display:none;">
+    <div class="complete-form-card complete-success">
+      <div class="complete-success-icon">📧</div>
+      <h2>Ο Φάκελός σου ετοιμάζεται!</h2>
+      <p>Ο Φάκελος Εκκίνησής σου ετοιμάζεται και θα σταλεί στο email σου σε έως 10 λεπτά.</p>
+      <p style="margin-top:0.5rem;">Έλεγξε και τον φάκελο <strong>spam/junk</strong> αν δεν το δεις στα εισερχόμενα.</p>
+      <p style="margin-top:1.25rem;">
+        Οποιαδήποτε ερώτηση: <a href="mailto:hello@lifesimple.gr" style="color:#C9892A;font-weight:600;">hello@lifesimple.gr</a>
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo-main">Life<span>Simple</span></div>
+      <p class="footer-tagline">Οδηγοί για τις μεγάλες στιγμές της ζωής</p>
+      <p class="footer-copy">© 2026 LifeSimple</p>
+    </div>
+    <div class="footer-links">
+      <h5>Σελίδες</h5>
+      <ul>
+        <li><a href="/">Αρχική</a></li>
+        <li><a href="/about">Σχετικά</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h5>Νομικά</h5>
+      <ul>
+        <li><a href="/privacy">Πολιτική Απορρήτου</a></li>
+        <li><a href="/terms">Όροι Χρήσης</a></li>
+        <li><a href="mailto:hello@lifesimple.gr">hello@lifesimple.gr</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom-centered">
+    Το LifeSimple παρέχει ενημερωτικούς οδηγούς και δεν αποτελεί νομική συμβουλή.
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var sessionId = new URLSearchParams(window.location.search).get('session_id');
+
+  var stateLoading = document.getElementById('stateLoading');
+  var stateError   = document.getElementById('stateError');
+  var stateForm    = document.getElementById('stateForm');
+  var stateSuccess = document.getElementById('stateSuccess');
+
+  function showState(state) {
+    [stateLoading, stateError, stateForm, stateSuccess].forEach(function (el) {
+      el.style.display = 'none';
+    });
+    state.style.display = 'block';
+  }
+
+  if (!sessionId) {
+    showState(stateError);
+    return;
+  }
+
+  // Fetch session info
+  fetch('/api/session-info?session_id=' + encodeURIComponent(sessionId))
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      if (data.error) { showState(stateError); return; }
+
+      // Update hero
+      document.getElementById('heroProductName').textContent = data.productName || 'Φάκελος Εκκίνησης · LifeSimple';
+      document.getElementById('formHeading').textContent = 'Λίγα στοιχεία για τον ' + (data.productName || 'Φάκελό σου');
+
+      // Show the right product fields
+      var product = (data.product || '').toLowerCase();
+      var fields = document.querySelector('.product-fields[data-product="' + product + '"]');
+      if (fields) {
+        fields.style.display = 'block';
+      } else {
+        showState(stateError);
+        return;
+      }
+
+      // Set session ID in form
+      document.getElementById('sessionIdField').value = sessionId;
+
+      showState(stateForm);
+    })
+    .catch(function () { showState(stateError); });
+
+  // Step 2 form submission
+  document.getElementById('step2Form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    var btn = document.getElementById('submitStep2Btn');
+    var errEl = document.getElementById('formError');
+    errEl.style.display = 'none';
+
+    // Validate required radio groups (only within visible product fields)
+    var visibleFields = document.querySelector('.product-fields[style*="block"]') ||
+                        document.querySelector('.product-fields:not([style*="none"])');
+    var valid = true;
+
+    if (visibleFields) {
+      visibleFields.querySelectorAll('[data-required="radio"]').forEach(function (group) {
+        var checked = group.querySelector('input[type="radio"]:checked');
+        if (!checked) {
+          group.style.outline = '2px solid #c0392b';
+          group.style.borderRadius = '6px';
+          valid = false;
+          setTimeout(function () {
+            group.style.outline = '';
+            group.style.borderRadius = '';
+          }, 3000);
+        }
+      });
+    }
+
+    if (!valid) {
+      errEl.textContent = 'Παρακαλώ συμπλήρωσε τα υποχρεωτικά πεδία (με *).';
+      errEl.style.display = 'block';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = '⏳ Γίνεται επεξεργασία...';
+
+    // Collect form data
+    var rawData = new FormData(e.target);
+    var payload = {};
+    var multiFields = {};
+
+    for (var pair of rawData.entries()) {
+      var key = pair[0], val = pair[1];
+      if (key in payload) {
+        if (!multiFields[key]) multiFields[key] = [payload[key]];
+        multiFields[key].push(val);
+      } else {
+        payload[key] = val;
+      }
+    }
+    Object.assign(payload, multiFields);
+
+    fetch('/api/complete-order', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (data.success) {
+          showState(stateSuccess);
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Δημιούργησε τον Φάκελό μου →';
+          errEl.textContent = data.error || 'Σφάλμα. Παρακαλώ επικοινώνησε στο hello@lifesimple.gr';
+          errEl.style.display = 'block';
+        }
+      })
+      .catch(function () {
+        btn.disabled = false;
+        btn.textContent = 'Δημιούργησε τον Φάκελό μου →';
+        errEl.textContent = 'Σφάλμα σύνδεσης. Παρακαλώ δοκίμασε ξανά ή επικοινώνησε στο hello@lifesimple.gr';
+        errEl.style.display = 'block';
+      });
+  });
+})();
+</script>
+</body>
+</html>

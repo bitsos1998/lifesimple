@@ -54,6 +54,38 @@
     "mainEntity": [
       {
         "@type": "Question",
+        "name": "Τι είναι ο Φάκελος Εκκίνησης;",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ο Φάκελος Εκκίνησης περιλαμβάνει προσχέδιο εγγράφου, αναλυτικό οδηγό διαδικασίας και εκπαιδευτικό υλικό — όλα σε ένα αρχείο, έτοιμα για χρήση."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Πόσο γρήγορα θα λάβω τον Φάκελο;",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ο Φάκελος σου ετοιμάζεται αυτόματα και αποστέλλεται στο email σου σε λίγα λεπτά."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Υπάρχει εγγύηση επιστροφής χρημάτων;",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ναι. Αν δεν μείνεις ικανοποιημένος/η, επιστρέφουμε τα χρήματά σου εντός 14 ημερών, χωρίς ερωτήσεις."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Αντικαθιστά τον δικηγόρο;",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Όχι. Ο Φάκελος Εκκίνησης σε προετοιμάζει και σε καθοδηγεί ώστε να ξεκινήσεις τη διαδικασία ενημερωμένος/η και οργανωμένος/η. Για πολύπλοκες περιπτώσεις, συνιστούμε πάντα τη συμβουλή δικηγόρου."
+        }
+      },
+      {
+        "@type": "Question",
         "name": "Τι είναι η προγαμιαία συμφωνία και τι καλύπτει;",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -62,18 +94,10 @@
       },
       {
         "@type": "Question",
-        "name": "Είναι νομικά έγκυρη η προγαμιαία συμφωνία στην Ελλάδα;",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Ναι, η προγαμιαία συμφωνία είναι νομικά αναγνωρισμένη στην Ελλάδα εφόσον συνταχθεί σωστά και συμφωνεί με τις διατάξεις του Αστικού Κώδικα."
-        }
-      },
-      {
-        "@type": "Question",
         "name": "Πόσο κοστίζει η προγαμιαία συμφωνία σε δικηγόρο;",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Η σύνταξη προγαμιαίας συμφωνίας από δικηγόρο στην Ελλάδα κοστίζει συνήθως €500–2.000 ανάλογα με την πολυπλοκότητα. Ο οδηγός PrenupSimple σας προετοιμάζει πλήρως για τη διαδικασία στο κλάσμα του κόστους."
+          "text": "Η σύνταξη προγαμιαίας συμφωνίας από δικηγόρο στην Ελλάδα κοστίζει συνήθως €500–2.000 ανάλογα με την πολυπλοκότητα. Ο Φάκελος PrenupSimple σας προετοιμάζει πλήρως για τη διαδικασία στο κλάσμα του κόστους."
         }
       }
     ]
@@ -211,25 +235,8 @@
 
       <form id="productForm" novalidate>
         <input type="hidden" name="product" value="prenup" />
-        <input type="hidden" name="price" value="2900" />
+        <input type="hidden" name="price" value="1200" />
         <input type="hidden" name="productName" value="PrenupSimple — Φάκελος Προγαμιαίας" />
-      <div class="step-progress">
-        <div class="step-indicator">
-          <div class="step-circle active">1</div>
-          <span class="step-label active">Στοιχεία</span>
-        </div>
-        <div class="step-connector"></div>
-        <div class="step-indicator">
-          <div class="step-circle">2</div>
-          <span class="step-label">Κατάστασή σου</span>
-        </div>
-        <div class="step-connector"></div>
-        <div class="step-indicator">
-          <div class="step-circle">3</div>
-          <span class="step-label">Επιβεβαίωση</span>
-        </div>
-      </div>
-      <div class="form-step active" data-step="1">
         <div class="form-name-row">
           <div class="form-group" style="margin-bottom:0;">
             <label>Όνομα <span class="required">*</span></label>
@@ -246,87 +253,54 @@
           <input type="email" name="email" class="form-control" placeholder="name@example.com" required />
           <p class="form-help">Ο Φάκελος Προγαμιαίας θα σταλεί σε αυτή τη διεύθυνση</p>
         </div>
-        <div class="step-nav">
-          <span></span>
-          <button type="button" class="step-next-btn">Επόμενο →</button>
-        </div>
-      </div>
-      <div class="form-step" data-step="2">
-        <div class="form-group">
-          <label>Πότε είναι ο γάμος; <span class="required">*</span></label>
-          <div class="radio-group" data-required="radio" data-sumkey="Χρόνος γάμου">
-            <label class="radio-label"><input type="radio" name="weddingTiming" value="soon" /> Σύντομα (εντός 3 μηνών)</label>
-            <label class="radio-label"><input type="radio" name="weddingTiming" value="later" /> Σε 6+ μήνες</label>
-            <label class="radio-label"><input type="radio" name="weddingTiming" value="undecided" /> Δεν έχει οριστεί ακόμα</label>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Υπάρχει ακίνητη περιουσία ή επιχείρηση;</label>
-          <div class="radio-group" data-sumkey="Περιουσία ή επιχείρηση">
-            <label class="radio-label"><input type="radio" name="hasAssets" value="property" /> Ναι, ακίνητη περιουσία</label>
-            <label class="radio-label"><input type="radio" name="hasAssets" value="business" /> Ναι, επιχείρηση</label>
-            <label class="radio-label"><input type="radio" name="hasAssets" value="both" /> Και τα δύο</label>
-            <label class="radio-label"><input type="radio" name="hasAssets" value="no" /> Όχι</label>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Επιπλέον πληροφορίες <span style="color:#9aabba;">(προαιρετικό)</span></label>
-          <textarea name="additionalInfo" class="form-control" rows="3" data-sumkey="Σημείωση" placeholder="π.χ. δεύτερος γάμος, θέλω να προστατέψω παιδιά..."></textarea>
-        </div>
-        <div class="step-nav">
-          <button type="button" class="step-back-btn">← Πίσω</button>
-          <button type="button" class="step-next-btn">Επόμενο →</button>
-        </div>
-      </div>
-      <div class="form-step" data-step="3">
-        <div class="ms-summary">
-          <h4>Τα στοιχεία σου:</h4>
-          <div id="summaryContent"></div>
-        </div>
-        <div class="ms-includes">
-          <h4>Ο Φάκελός σου θα περιλαμβάνει:</h4>
-          <ul>
-            <li>Προσχέδιο εγγράφου για τη δική σου κατάσταση</li>
-            <li>Βήμα-βήμα οδηγός διαδικασίας</li>
-            <li>Εκπαιδευτικό υλικό πριν τον συμβολαιογράφο</li>
-          </ul>
-        </div>
-        <div class="pdf-mockup">
-          <div class="pdf-doc">
-            <div class="pdf-doc-logo">LIFESIMPLE</div>
-            <div class="pdf-doc-title">Φάκελος Προγαμιαίας</div>
-            <div class="pdf-line"></div>
-            <div class="pdf-line w80"></div>
-            <div class="pdf-line w60"></div>
-            <div class="pdf-section-gap"></div>
-            <div class="pdf-line"></div>
-            <div class="pdf-line w70"></div>
-            <div class="pdf-line w45"></div>
-          </div>
-          <p class="pdf-mockup-caption">📧 Αποστέλλεται αμέσως στο email σου</p>
-        </div>
-        <div class="step-nav" style="border-top:none;padding-top:0;margin-top:0.25rem;">
-          <button type="button" class="step-back-btn">← Πίσω</button>
-          <span></span>
-        </div>
-        <div class="form-contact-hint" style="margin-top:1rem;">Έχεις ερώτηση; <a href="mailto:hello@lifesimple.gr">hello@lifesimple.gr</a> · <a href="/faq" style="color:#C9892A;">Συχνές Ερωτήσεις</a></div>
-        <p style="font-size:0.85rem;color:#4b5563;text-align:center;margin-bottom:0.5rem;">⚡ Ο Φάκελος Εκκίνησής σας φτάνει αμέσως μετά την πληρωμή — στο email σας σε λίγα λεπτά.</p>
+        <div class="cta-price-anchor">€12 <span class="lawyer-cost">αντί για €1.000+ σε δικηγόρο</span></div>
         <button type="submit" class="pay-btn" id="payBtn">
           <div class="spinner"></div>
-          <span class="btn-text">Απόκτησε τον Φάκελο Προγαμιαίας — €29</span>
+          <span class="btn-text">Αποκτήστε τον Φάκελο Προγαμιαίας — €12</span>
         </button>
-        <div class="form-security">🔒 Ασφαλής πληρωμή μέσω Stripe · SSL κρυπτογράφηση</div>
-        <div class="form-guarantee">💬 Πρόβλημα με το email σου; Γράψε μας αμέσως στο <a href="mailto:hello@lifesimple.gr">hello@lifesimple.gr</a> — το διορθώνουμε αμέσως.</div>
-        <div style="display:flex;align-items:flex-start;gap:0.6rem;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:0.75rem 1rem;margin-top:0.75rem;font-size:0.87rem;color:#166534;line-height:1.5;">
-          <span style="flex-shrink:0;">🔄</span>
-          <div><strong>💰 Εγγύηση επιστροφής 14 ημερών</strong> — αν δεν είσαι ευχαριστημένος για οποιονδήποτε λόγο, επικοινώνησε στο <a href="mailto:hello@lifesimple.gr" style="color:#166534;font-weight:600;">hello@lifesimple.gr</a> και σου επιστρέφουμε τα χρήματά σου.</div>
+        <div class="cta-trust-badges">
+          <div class="cta-trust-badge cta-trust-badge--guarantee">✅ Εγγύηση επιστροφής χρημάτων εντός 14 ημερών — χωρίς ερωτήσεις</div>
+          <div class="cta-trust-badge cta-trust-badge--stripe">🔒 Ασφαλής πληρωμή μέσω Stripe</div>
         </div>
-      </div>
-</form>
+        <div class="form-contact-hint" style="margin-top:0.9rem;">Έχεις ερώτηση; <a href="mailto:hello@lifesimple.gr">hello@lifesimple.gr</a> · <a href="/faq" style="color:#C9892A;">Συχνές Ερωτήσεις</a></div>
+      </form>
     </div>
   </div>
 </div>
 
+
+<!-- ── FAQ Accordion ──────────────────────────────────────── -->
+<section class="product-faq">
+  <div class="product-faq-inner">
+    <h2>Συχνές Ερωτήσεις</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question">Τι είναι ο Φάκελος Εκκίνησης; <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>Ο Φάκελος Εκκίνησης περιλαμβάνει προσχέδιο εγγράφου, αναλυτικό οδηγό διαδικασίας και εκπαιδευτικό υλικό — όλα σε ένα αρχείο, έτοιμα για χρήση.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Πόσο γρήγορα θα λάβω τον Φάκελο; <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>Ο Φάκελος σου ετοιμάζεται αυτόματα και αποστέλλεται στο email σου σε λίγα λεπτά.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Υπάρχει εγγύηση επιστροφής χρημάτων; <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>Ναι. Αν δεν μείνεις ικανοποιημένος/η, επιστρέφουμε τα χρήματά σου εντός 14 ημερών, χωρίς ερωτήσεις.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Αντικαθιστά τον δικηγόρο; <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>Όχι. Ο Φάκελος Εκκίνησης σε προετοιμάζει και σε καθοδηγεί ώστε να ξεκινήσεις τη διαδικασία ενημερωμένος/η και οργανωμένος/η. Για πολύπλοκες περιπτώσεις, συνιστούμε πάντα τη συμβουλή δικηγόρου.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Τι είναι η προγαμιαία συμφωνία και τι καλύπτει; <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>Η προγαμιαία συμφωνία είναι νομικό συμβόλαιο που καθορίζει πώς θα διαχειριστείτε περιουσία και οικονομικά σε περίπτωση διαζυγίου. Μπορεί να καλύψει ακίνητα, επιχειρήσεις, χρέη και κληρονομιές.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Πόσο κοστίζει η προγαμιαία συμφωνία σε δικηγόρο; <span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>Η σύνταξη προγαμιαίας συμφωνίας από δικηγόρο στην Ελλάδα κοστίζει συνήθως €500–2.000 ανάλογα με την πολυπλοκότητα. Ο Φάκελος PrenupSimple σας προετοιμάζει πλήρως για τη διαδικασία στο κλάσμα του κόστους.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="reviews-section">
   <div class="container">
@@ -453,7 +427,7 @@ function rejectCookies() {
 <!-- ── End Cookie Banner ───────────────────────────────────── -->
 
   <button class="sticky-cta" id="stickyCta" aria-label="Λήψη Οδηγού">
-    Φάκελος Προγαμιαίας — €29
+    Φάκελος Προγαμιαίας — €12
   </button>
   <script>
     (function() {
