@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LifeSimple — Απλοποιούμε τη Γραφειοκρατία της Ζωής</title>
-  <meta name="description" content="Ψηφιακές υπηρεσίες για διαθήκες, διαζύγιο, γάμο, ληξιαρχικές πράξεις και άλλες νομικές διαδικασίες στην Ελλάδα. Γρήγορα, οικονομικά, χωρίς λογαριασμό." />
+  <meta name="description" content="Φάκελοι Εκκίνησης για διαζύγιο, διαθήκη, κληρονομιά, φόρους, επιχείρηση και άλλα. Από €9." />
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="icon" href="/images/logo.png" type="image/png" />
   <!-- Meta Pixel Code -->
@@ -42,7 +42,7 @@
   <meta property="og:site_name" content="LifeSimple">
   <meta property="og:url" content="https://lifesimple.gr/">
   <meta property="og:title" content="LifeSimple — Νομικοί Οδηγοί Χωρίς Δικηγόρο">
-  <meta property="og:description" content="Πλήρεις οδηγοί για διαζύγιο, διαθήκη, γάμο, κληρονομιά και άλλα — άμεσα, στα ελληνικά, από €12.">
+  <meta property="og:description" content="Φάκελοι Εκκίνησης για διαζύγιο, διαθήκη, κληρονομιά, φόρους, επιχείρηση και άλλα. Από €9.">
   <meta property="og:image" content="https://lifesimple.gr/images/og-default.jpg">
   <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -60,7 +60,7 @@
     </button>
     <ul class="nav-links" id="navLinks">
       <li><a href="/" class="active">Αρχική</a></li>
-      <li><a href="/#products">Υπηρεσίες</a></li>
+      <li><a href="/#product-grid">Υπηρεσίες</a></li>
       <li><a href="/blog">Blog</a></li>
       <li><a href="/about">Σχετικά</a></li>
       <li><a href="/faq">FAQ</a></li>
@@ -68,202 +68,336 @@
   </nav>
 </header>
 
-<!-- ── Hero ─────────────────────────────────────────────── -->
-<section class="hero">
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 1 — QUIZ (Hero + Quiz combined)
+══════════════════════════════════════════════════════════ -->
+<section class="quiz-hero" id="quiz">
   <div class="container">
-    <p class="hero-eyebrow">🇬🇷 Ελληνικές Νομικές &amp; Διοικητικές Υπηρεσίες</p>
-    <h1>Η γραφειοκρατία<br>της ζωής, <em>απλή</em></h1>
-    <p class="hero-subtitle">
-      Από διαθήκη έως διαζύγιο — λαμβάνετε εξατομικευμένες οδηγίες και έγγραφα που έχουν δημιουργηθεί ειδικά για εσάς, απευθείας στο email σας.
-    </p>
-    <a href="#products" class="btn btn-primary btn-large">Δείτε τις Υπηρεσίες</a>
-    <div class="hero-badges">
-      <div class="hero-badge-item"><span class="hero-badge-icon">🔒</span><span>Ασφαλής Πληρωμή<br>μέσω Stripe</span></div>
-      <div class="hero-badge-item"><span class="hero-badge-icon">⚡</span><span>Παράδοση<br>σε λίγα λεπτά</span></div>
-      <div class="hero-badge-item"><span class="hero-badge-icon">📧</span><span>PDF<br>στο Email σας</span></div>
-      <div class="hero-badge-item"><span class="hero-badge-icon">🚫</span><span>Χωρίς δημιουργία<br>λογαριασμού</span></div>
+    <div class="quiz-wrapper">
+      <div class="quiz-header">
+        <h1>Βρες αυτό που χρειάζεσαι</h1>
+        <p class="quiz-subtitle">Φάκελοι Εκκίνησης για γραφειοκρατία, νομικά, φόροι. Χωρίς δικηγόρο.</p>
+      </div>
+
+      <!-- Quiz Card -->
+      <div class="quiz-card" id="quizCard">
+        <!-- Progress indicator -->
+        <div class="quiz-progress" id="quizProgress">
+          <div class="quiz-progress-bar" id="quizProgressBar" style="width: 33%"></div>
+        </div>
+        <div class="quiz-step-label" id="quizStepLabel">Βήμα 1 / 3</div>
+
+        <!-- Q1: Category -->
+        <div class="quiz-step active" id="quizStep1">
+          <h3 class="quiz-question">Τι σε απασχολεί;</h3>
+          <div class="quiz-options">
+            <button class="quiz-option" data-category="oikogeneia" onclick="quizSelectCategory(this)">
+              <span class="quiz-option-icon">👨‍👩‍👧</span>
+              <span>Οικογένεια & Σχέσεις</span>
+            </button>
+            <button class="quiz-option" data-category="thanatos" onclick="quizSelectCategory(this)">
+              <span class="quiz-option-icon">🕊️</span>
+              <span>Θάνατος & Κληρονομιά</span>
+            </button>
+            <button class="quiz-option" data-category="xrimata" onclick="quizSelectCategory(this)">
+              <span class="quiz-option-icon">💰</span>
+              <span>Χρήματα & Φόροι</span>
+            </button>
+            <button class="quiz-option" data-category="nomika" onclick="quizSelectCategory(this)">
+              <span class="quiz-option-icon">⚖️</span>
+              <span>Κάτι νομικό</span>
+            </button>
+            <button class="quiz-option" data-category="epixeirisi" onclick="quizSelectCategory(this)">
+              <span class="quiz-option-icon">🏢</span>
+              <span>Επιχείρηση</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Q2: Situation (dynamically populated) -->
+        <div class="quiz-step" id="quizStep2">
+          <h3 class="quiz-question" id="quizQ2Title">Ποια κατάσταση σε αφορά;</h3>
+          <div class="quiz-options" id="quizQ2Options">
+            <!-- Populated by JS -->
+          </div>
+          <button class="quiz-back" onclick="quizGoBack(1)">← Πίσω</button>
+        </div>
+
+        <!-- Q3: Result -->
+        <div class="quiz-step" id="quizStep3">
+          <div class="quiz-result" id="quizResult">
+            <!-- Populated by JS -->
+          </div>
+          <button class="quiz-back" onclick="quizGoBack(2)">← Πίσω</button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ── How It Works (3 steps) ───────────────────────────── -->
-<section class="how-works-section">
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 2 — PRODUCT GRID (24 products, 5 categories)
+══════════════════════════════════════════════════════════ -->
+<section class="pgrid-section" id="product-grid">
   <div class="container">
-    <div class="section-header">
-      <span class="section-label">Πώς λειτουργεί</span>
-      <h2>Τρία βήματα, μερικά λεπτά</h2>
-      <hr class="divider">
-    </div>
-    <div class="how-works-steps">
-      <div class="how-works-step">
-        <div class="hw-number">1</div>
-        <span class="hw-time">2 λεπτά</span>
-        <h4>Συμπλήρωσε τη φόρμα</h4>
-        <p>Απάντησε σε μερικές ερωτήσεις για την κατάστασή σου. Γρήγορα και χωρίς τεχνικές γνώσεις.</p>
-      </div>
-      <div class="how-works-step">
-        <div class="hw-number">2</div>
-        <span class="hw-time">€12–29</span>
-        <h4>Πλήρωσε με ασφάλεια</h4>
-        <p>Ασφαλής ολοκλήρωση παραγγελίας μέσω Stripe. Χωρίς συνδρομές, μόνο εφάπαξ πληρωμή.</p>
-      </div>
-      <div class="how-works-step">
-        <div class="hw-number">3</div>
-        <span class="hw-time">Αμέσως</span>
-        <h4>Λάβε τον οδηγό σου</h4>
-        <p>Εξατομικευμένο PDF φτάνει αμέσως στο email σου — φτιαγμένο ειδικά για εσένα.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Products ──────────────────────────────────────────── -->
-<section class="products-section" id="products">
-  <div class="container">
-    <div class="products-header">
+    <div class="pgrid-header">
       <span class="section-label">Υπηρεσίες</span>
-      <h2>Τι μπορούμε να κάνουμε για εσάς</h2>
+      <h2>Όλοι οι Φάκελοι Εκκίνησης</h2>
       <hr class="divider">
-      <p style="color:#5a6b8a;max-width:560px;margin:0 auto;">Κάθε υπηρεσία παράγει ένα προσαρμοσμένο PDF οδηγό ή έγγραφο, φτιαγμένο αποκλειστικά με βάση τα δικά σας στοιχεία.</p>
     </div>
-    <div class="products-grid">
-      <a class="product-card" href="/will">
-        <div class="product-card-icon"><svg class="product-card-svg" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="10" y="4" width="32" height="42" rx="3" stroke="#C9892A" stroke-width="2.5" fill="none"/>
-          <path d="M10 10 Q8 12 8 14 Q8 16 10 18" stroke="#C9892A" stroke-width="2" fill="none"/>
-          <line x1="17" y1="17" x2="35" y2="17" stroke="#C9892A" stroke-width="2"/>
-          <line x1="17" y1="23" x2="35" y2="23" stroke="#C9892A" stroke-width="2"/>
-          <line x1="17" y1="29" x2="28" y2="29" stroke="#C9892A" stroke-width="2"/>
-          <line x1="17" y1="35" x2="35" y2="35" stroke="#C9892A" stroke-width="1.5" opacity="0.6"/>
-          <line x1="17" y1="40" x2="29" y2="40" stroke="#C9892A" stroke-width="1.5" opacity="0.6"/>
-        </svg></div>
-        <div class="product-card-name">Will<span>Simple</span></div>
-        <p class="product-card-desc">Φτιάξε τη διαθήκη σου σωστά — ξέρε ποιον τύπο χρειάζεσαι, τι ισχύει για την περιουσία σου, και τι ακριβώς να πεις στον συμβολαιογράφο.</p>
-        <div class="product-card-trio">
-          <span class="trio-tag">✓ Προσχέδιο</span>
-          <span class="trio-tag">✓ Οδηγός</span>
-          <span class="trio-tag">✓ Υλικό</span>
+
+    <!-- Category Filter Buttons -->
+    <div class="pgrid-filters" id="pgridFilters">
+      <button class="pgrid-filter active" data-filter="all" onclick="filterGrid(this)">Όλα</button>
+      <button class="pgrid-filter" data-filter="oikogeneia" onclick="filterGrid(this)">Οικογένεια</button>
+      <button class="pgrid-filter" data-filter="thanatos" onclick="filterGrid(this)">Θάνατος & Κληρονομιά</button>
+      <button class="pgrid-filter" data-filter="xrimata" onclick="filterGrid(this)">Χρήματα & Φόροι</button>
+      <button class="pgrid-filter" data-filter="nomika" onclick="filterGrid(this)">Νομικά</button>
+      <button class="pgrid-filter" data-filter="epixeirisi" onclick="filterGrid(this)">Επιχείρηση</button>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="pgrid-grid" id="pgridGrid">
+
+      <!-- ── Οικογένεια ──────────────────────── -->
+      <div class="pgrid-card" data-category="oikogeneia" data-live="true">
+        <div class="pgrid-card-name">Marriage<span>Simple</span></div>
+        <p class="pgrid-card-desc">Όλα τα χαρτιά και τα βήματα για πολιτικό ή θρησκευτικό γάμο.</p>
+        <div class="pgrid-card-footer">
+          <span class="pgrid-price">€12</span>
+          <a href="/marriage" class="btn btn-primary pgrid-btn">Ξεκίνα</a>
         </div>
-        <div class="product-card-footer">
-          <div class="product-price">€29 <span>εφάπαξ</span></div>
-          <span class="btn btn-primary">Ξεκινήστε →</span>
+      </div>
+
+      <div class="pgrid-card" data-category="oikogeneia" data-live="false">
+        <div class="pgrid-card-badge-soon">Σύντομα</div>
+        <div class="pgrid-card-name">Cohabit<span>Simple</span></div>
+        <p class="pgrid-card-desc">Οδηγός σύμφωνου συμβίωσης, βήμα προς βήμα.</p>
+        <div class="pgrid-card-footer">
+          <span class="pgrid-price">€15</span>
+          <button class="btn btn-outline pgrid-btn pgrid-notify-btn" onclick="openWaitlistModal('cohabitsimple', 'CohabitSimple')">Ειδοποίησέ με</button>
         </div>
-      </a>
-      <a class="product-card" href="/divorce">
-        <div class="product-card-icon"><svg class="product-card-svg" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="18" cy="28" r="11" stroke="#C9892A" stroke-width="2.5" fill="none"/>
-          <circle cx="38" cy="28" r="11" stroke="#C9892A" stroke-width="2.5" fill="none"/>
-          <line x1="28" y1="8" x2="28" y2="48" stroke="#C9892A" stroke-width="2" stroke-dasharray="4,3"/>
-          <line x1="16" y1="16" x2="10" y2="10" stroke="#C9892A" stroke-width="2" stroke-linecap="round"/>
-          <line x1="40" y1="16" x2="46" y2="10" stroke="#C9892A" stroke-width="2" stroke-linecap="round"/>
-        </svg></div>
-        <div class="product-card-name">Divorce<span>Simple</span></div>
-        <p class="product-card-desc">Ξεκίνα το διαζύγιο σωστά — μάθε τη διαφορά συναινετικού και αντιδικίας, τι χαρτιά μαζεύεις, και τι ρωτάς τον δικηγόρο σου πριν ξοδέψεις τίποτα.</p>
-        <div class="product-card-trio">
-          <span class="trio-tag">✓ Προσχέδιο</span>
-          <span class="trio-tag">✓ Οδηγός</span>
-          <span class="trio-tag">✓ Υλικό</span>
+      </div>
+
+      <div class="pgrid-card" data-category="oikogeneia" data-live="true">
+        <div class="pgrid-card-name">Prenup<span>Simple</span></div>
+        <p class="pgrid-card-desc">Προγαμιαία συμφωνία: τι περιλαμβάνει, πώς συντάσσεται.</p>
+        <div class="pgrid-card-footer">
+          <span class="pgrid-price">€29</span>
+          <a href="/prenup" class="btn btn-primary pgrid-btn">Ξεκίνα</a>
         </div>
-        <div class="product-card-footer">
-          <div class="product-price">€19 <span>εφάπαξ</span></div>
-          <span class="btn btn-primary">Ξεκινήστε →</span>
+      </div>
+
+      <div class="pgrid-card" data-category="oikogeneia" data-live="true">
+        <div class="pgrid-card-name">Divorce<span>Simple</span></div>
+        <p class="pgrid-card-desc">Συναινετικό ή μη διαζύγιο — η διαδικασία απλά.</p>
+        <div class="pgrid-card-footer">
+          <span class="pgrid-price">€19</span>
+          <a href="/divorce" class="btn btn-primary pgrid-btn">Ξεκίνα</a>
         </div>
-      </a>
-      <a class="product-card" href="/marriage">
-        <div class="product-card-icon"><svg class="product-card-svg" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="20" cy="28" r="11" stroke="#C9892A" stroke-width="2.5" fill="none"/>
-          <circle cx="36" cy="28" r="11" stroke="#C9892A" stroke-width="2.5" fill="none"/>
-          <circle cx="28" cy="14" r="4" fill="#C9892A" opacity="0.85"/>
-          <line x1="28" y1="10" x2="28" y2="7" stroke="#C9892A" stroke-width="1.5"/>
-        </svg></div>
-        <div class="product-card-name">Marriage<span>Simple</span></div>
-        <p class="product-card-desc">Οργάνωσε τον γάμο σου χωρίς εκπλήξεις — ξέρε ακριβώς ποια χαρτιά χρειάζεσαι, πού πας πρώτα, και τι αλλάζει αν ο σύντροφός σου είναι αλλοδαπός/ή.</p>
-        <div class="product-card-trio">
-          <span class="trio-tag">✓ Προσχέδιο</span>
-          <span class="trio-tag">✓ Οδηγός</span>
-          <span class="trio-tag">✓ Υλικό</span>
+      </div>
+
+      <div class="pgrid-card" data-category="oikogeneia" data-live="true">
+        <div class="pgrid-card-name">Separation<span>Simple</span></div>
+        <p class="pgrid-card-desc">Χωριστή διαβίωση: πότε, πώς, τι δικαιούσαι.</p>
+        <div class="pgrid-card-footer">
+          <span class="pgrid-price">€19</span>
+          <a href="/separation" class="btn btn-primary pgrid-btn">Ξεκίνα</a>
         </div>
-        <div class="product-card-footer">
-          <div class="product-price">€12 <span>εφάπαξ</span></div>
-          <span class="btn btn-primary">Ξεκινήστε →</span>
+      </div>
+
+      <div class="pgrid-card" data-category="oikogeneia" data-live="false">
+        <div class="pgrid-card-badge-soon">Σύντομα</div>
+        <div class="pgrid-card-name">Custody<span>Simple</span></div>
+        <p class="pgrid-card-desc">Επιμέλεια τέκνων: δικαιώματα, διαδικασία, συμφωνία γονέων.</p>
+        <div class="pgrid-card-footer">
+          <span class="pgrid-price">€19</span>
+          <button class="btn btn-outline pgrid-btn pgrid-notify-btn" onclick="openWaitlistModal('custodysimple', 'CustodySimple')">Ειδοποίησέ με</button>
         </div>
-      </a>
-      <a class="product-card" href="/inherit">
-        <div class="product-card-icon"><svg class="product-card-svg" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <line x1="28" y1="48" x2="28" y2="18" stroke="#C9892A" stroke-width="2.5" stroke-linecap="round"/>
-          <ellipse cx="28" cy="14" rx="5" ry="7" stroke="#C9892A" stroke-width="2" fill="none"/>
-          <path d="M24,14 Q28,8 32,14 Q28,20 24,14 Z" fill="#C9892A" opacity="0.7"/>
-          <ellipse cx="28" cy="49" rx="9" ry="3" stroke="#C9892A" stroke-width="1.5" fill="none" opacity="0.5"/>
-          <path d="M16,36 Q10,28 16,22 Q22,28 16,36 Z" fill="#C9892A" opacity="0.35"/>
-          <path d="M40,36 Q46,28 40,22 Q34,28 40,36 Z" fill="#C9892A" opacity="0.35"/>
-        </svg></div>
-        <div class="product-card-name">Inherit<span>Simple</span></div>
-        <p class="product-card-desc">Ξέρε πού πας — τι κάνεις πρώτα, πού απευθύνεσαι, ποια έγγραφα μαζεύεις μετά τον θάνατο αγαπημένου προσώπου στην Ελλάδα.</p>
-        <div class="product-card-trio">
-          <span class="trio-tag">✓ Προσχέδιο</span>
-          <span class="trio-tag">✓ Οδηγός</span>
-          <span class="trio-tag">✓ Υλικό</span>
+      </div>
+
+      <div class="pgrid-card" data-category="oikogeneia" data-live="false">
+        <div class="pgrid-card-badge-soon">Σύντομα</div>
+        <div class="pgrid-card-name">Alimony<span>Simple</span></div>
+        <p class="pgrid-card-desc">Διατροφή συζύγου & τέκνων: υπολογισμός, δικαιώματα, διαδικασία.</p>
+        <div class="pgrid-card-footer">
+          <span class="pgrid-price">€15</span>
+          <button class="btn btn-outline pgrid-btn pgrid-notify-btn" onclick="openWaitlistModal('alimonysimple', 'AlimonySimple')">Ειδοποίησέ με</button>
         </div>
-        <div class="product-card-footer">
-          <div class="product-price">€12 <span>εφάπαξ</span></div>
-          <span class="btn btn-primary">Ξεκινήστε →</span>
+      </div>
+
+      <!-- ── Θάνατος & Κληρονομιά ────────────── -->
+      <div class="pgrid-card" data-category="thanatos" data-live="true">
+        <div class="pgrid-card-name">Will<span>Simple</span></div>
+        <p class="pgrid-card-desc">Πώς να συντάξεις διαθήκη — ιδιόγραφη ή δημόσια.</p>
+        <div class="pgrid-card-footer">
+          <span class="pgrid-price">€29</span>
+          <a href="/will" class="btn btn-primary pgrid-btn">Ξεκίνα</a>
         </div>
-      </a>
-      <a class="product-card" href="/prenup">
-        <div class="product-card-icon"><svg class="product-card-svg" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="10" y="14" width="28" height="36" rx="3" stroke="#C9892A" stroke-width="2.5" fill="none"/>
-          <line x1="16" y1="24" x2="32" y2="24" stroke="#C9892A" stroke-width="2"/>
-          <line x1="16" y1="30" x2="32" y2="30" stroke="#C9892A" stroke-width="2"/>
-          <line x1="16" y1="36" x2="26" y2="36" stroke="#C9892A" stroke-width="2" opacity="0.7"/>
-          <path d="M34,16 L46,8 L48,14 L36,22" fill="#C9892A" opacity="0.8"/>
-          <line x1="34" y1="16" x2="36" y2="22" stroke="#C9892A" stroke-width="1.5"/>
-        </svg></div>
-        <div class="product-card-name">Prenup<span>Simple</span></div>
-        <p class="product-card-desc">Προστάτεψε ό,τι έχεις χτίσει — μάθε τι καλύπτει η προγαμιαία στην Ελλάδα, τι δεν μπορεί να περιέχει, και πώς ξεκινάς τη συζήτηση με τον σύντροφό σου.</p>
-        <div class="product-card-trio">
-          <span class="trio-tag">✓ Προσχέδιο</span>
-          <span class="trio-tag">✓ Οδηγός</span>
-          <span class="trio-tag">✓ Υλικό</span>
+      </div>
+
+      <div class="pgrid-card" data-category="thanatos" data-live="true">
+        <div class="pgrid-card-name">Inherit<span>Simple</span></div>
+        <p class="pgrid-card-desc">Κληρονομιά, αποποίηση, προθεσμίες — τι πρέπει να ξέρεις.</p>
+        <div class="pgrid-card-footer">
+          <span class="pgrid-price">€19</span>
+          <a href="/inherit" class="btn btn-primary pgrid-btn">Ξεκίνα</a>
         </div>
-        <div class="product-card-footer">
-          <div class="product-price">€12 <span>εφάπαξ</span></div>
-          <span class="btn btn-primary">Ξεκινήστε →</span>
+      </div>
+
+      <div class="pgrid-card" data-category="thanatos" data-live="false">
+        <div class="pgrid-card-badge-soon">Σύντομα</div>
+        <div class="pgrid-card-name">Funeral<span>Simple</span></div>
+        <p class="pgrid-card-desc">Τι πρέπει να κάνεις τις πρώτες 48 ώρες μετά από θάνατο.</p>
+        <div class="pgrid-card-footer">
+          <span class="pgrid-price">€15</span>
+          <button class="btn btn-outline pgrid-btn pgrid-notify-btn" onclick="openWaitlistModal('funeralsimple', 'FuneralSimple')">Ειδοποίησέ με</button>
         </div>
-      </a>
-      <a class="product-card" href="/separation">
-        <div class="product-card-icon"><svg class="product-card-svg" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <line x1="28" y1="48" x2="28" y2="30" stroke="#C9892A" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="28" y1="30" x2="14" y2="14" stroke="#C9892A" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="28" y1="30" x2="42" y2="14" stroke="#C9892A" stroke-width="2.5" stroke-linecap="round"/>
-          <circle cx="14" cy="12" r="5" stroke="#C9892A" stroke-width="2" fill="none"/>
-          <circle cx="42" cy="12" r="5" stroke="#C9892A" stroke-width="2" fill="none"/>
-          <circle cx="28" cy="50" r="3" fill="#C9892A" opacity="0.7"/>
-        </svg></div>
-        <div class="product-card-name">Separation<span>Simple</span></div>
-        <p class="product-card-desc">Γνώρισε τα δικαιώματά σου πριν κάνεις οτιδήποτε — τι ισχύει για σύμφωνο συμβίωσης, κοινή κατοικία, παιδιά, και διατροφή στην Ελλάδα.</p>
-        <div class="product-card-trio">
-          <span class="trio-tag">✓ Προσχέδιο</span>
-          <span class="trio-tag">✓ Οδηγός</span>
-          <span class="trio-tag">✓ Υλικό</span>
+      </div>
+
+      <div class="pgrid-card" data-category="thanatos" data-live="false">
+        <div class="pgrid-card-badge-soon">Σύντομα</div>
+        <div class="pgrid-card-name">Donation<span>Simple</span></div>
+        <p class="pgrid-card-desc">Γονική παροχή & δωρεά ακινήτου: διαδικασία και φορολογία.</p>
+        <div class="pgrid-card-footer">
+          <span class="pgrid-price">€19</span>
+          <button class="btn btn-outline pgrid-btn pgrid-notify-btn" onclick="openWaitlistModal('donationsimple', 'DonationSimple')">Ειδοποίησέ με</button>
         </div>
-        <div class="product-card-footer">
-          <div class="product-price">€12 <span>εφάπαξ</span></div>
-          <span class="btn btn-primary">Ξεκινήστε →</span>
+      </div>
+
+      <!-- ── Χρήματα & Φόροι ─────────────────── -->
+      <div class="pgrid-card" data-category="xrimata" data-live="false">
+        <div class="pgrid-card-badge-soon">Σύντομα</div>
+        <div class="pgrid-card-name">Tax<span>Simple</span></div>
+        <p class="pgrid-card-desc">Φορολογική δήλωση βήμα-βήμα για αρχάριους.</p>
+        <div class="pgrid-card-footer">
+          <span class="pgrid-price">€12</span>
+          <button class="btn btn-outline pgrid-btn pgrid-notify-btn" onclick="openWaitlistModal('taxsimple', 'TaxSimple')">Ειδοποίησέ με</button>
         </div>
-      </a>
+      </div>
+
+      <div class="pgrid-card" data-category="xrimata" data-live="false">
+        <div class="pgrid-card-badge-soon">Σύντομα</div>
+        <div class="pgrid-card-name">PropertyTax<span>Simple</span></div>
+        <p class="pgrid-card-desc">ΕΝΦΙΑ, φόρος μεταβίβασης και τι πρέπει να πληρώσεις.</p>
+        <div class="pgrid-card-footer">
+          <span class="pgrid-price">€15</span>
+          <button class="btn btn-outline pgrid-btn pgrid-notify-btn" onclick="openWaitlistModal('propertytaxsimple', 'PropertyTaxSimple')">Ειδοποίησέ με</button>
+        </div>
+      </div>
+
+      <div class="pgrid-card" data-category="xrimata" data-live="false">
+        <div class="pgrid-card-badge-soon">Σύντομα</div>
+        <div class="pgrid-card-name">Pension<span>Simple</span></div>
+        <p class="pgrid-card-desc">Αίτηση σύνταξης ΕΦΚΑ: έγγραφα, προϋποθέσεις, υπολογισμός.</p>
+        <div class="pgrid-card-footer">
+          <span class="pgrid-price">€15</span>
+          <button class="btn btn-outline pgrid-btn pgrid-notify-btn" onclick="openWaitlistModal('pensionsimple', 'PensionSimple')">Ειδοποίησέ με</button>
+        </div>
+      </div>
+
+      <div class="pgrid-card" data-category="xrimata" data-live="false">
+        <div class="pgrid-card-badge-soon">Σύντομα</div>
+        <div class="pgrid-card-name">Debt<span>Simple</span></div>
+        <p class="pgrid-card-desc">Ρύθμιση χρεών & εξωδικαστικός μηχανισμός — τα δικαιώματά σου.</p>
+        <div class="pgrid-card-footer">
+          <span class="pgrid-price">€12</span>
+          <button class="btn btn-outline pgrid-btn pgrid-notify-btn" onclick="openWaitlistModal('debtsimple', 'DebtSimple')">Ειδοποίησέ με</button>
+        </div>
+      </div>
+
+      <!-- ── Νομικά ──────────────────────────── -->
+      <div class="pgrid-card" data-category="nomika" data-live="false">
+        <div class="pgrid-card-badge-soon">Σύντομα</div>
+        <div class="pgrid-card-name">PowerOfAttorney<span>Simple</span></div>
+        <p class="pgrid-card-desc">Πληρεξούσιο: τύποι, κόστος, πώς το βγάζεις.</p>
+        <div class="pgrid-card-footer">
+          <span class="pgrid-price">€15</span>
+          <button class="btn btn-outline pgrid-btn pgrid-notify-btn" onclick="openWaitlistModal('powerofattorneysimple', 'PowerOfAttorneySimple')">Ειδοποίησέ με</button>
+        </div>
+      </div>
+
+      <div class="pgrid-card" data-category="nomika" data-live="false">
+        <div class="pgrid-card-badge-soon">Σύντομα</div>
+        <div class="pgrid-card-name">Contract<span>Simple</span></div>
+        <p class="pgrid-card-desc">Ιδιωτικό συμφωνητικό: πρότυπο και οδηγός σύνταξης.</p>
+        <div class="pgrid-card-footer">
+          <span class="pgrid-price">€19</span>
+          <button class="btn btn-outline pgrid-btn pgrid-notify-btn" onclick="openWaitlistModal('contractsimple', 'ContractSimple')">Ειδοποίησέ με</button>
+        </div>
+      </div>
+
+      <div class="pgrid-card" data-category="nomika" data-live="false">
+        <div class="pgrid-card-badge-soon">Σύντομα</div>
+        <div class="pgrid-card-name">Complaint<span>Simple</span></div>
+        <p class="pgrid-card-desc">Πώς κάνεις καταγγελία σε ΣΕΠΕ, καταναλωτή, ΑΠΔΠΧ.</p>
+        <div class="pgrid-card-footer">
+          <span class="pgrid-price">€12</span>
+          <button class="btn btn-outline pgrid-btn pgrid-notify-btn" onclick="openWaitlistModal('complaintsimple', 'ComplaintSimple')">Ειδοποίησέ με</button>
+        </div>
+      </div>
+
+      <div class="pgrid-card" data-category="nomika" data-live="false">
+        <div class="pgrid-card-badge-soon">Σύντομα</div>
+        <div class="pgrid-card-name">Tenant<span>Simple</span></div>
+        <p class="pgrid-card-desc">Δικαιώματα ενοικιαστή & ιδιοκτήτη — τι ισχύει.</p>
+        <div class="pgrid-card-footer">
+          <span class="pgrid-price">€15</span>
+          <button class="btn btn-outline pgrid-btn pgrid-notify-btn" onclick="openWaitlistModal('tenantsimple', 'TenantSimple')">Ειδοποίησέ με</button>
+        </div>
+      </div>
+
+      <!-- ── Επιχείρηση ──────────────────────── -->
+      <div class="pgrid-card" data-category="epixeirisi" data-live="false">
+        <div class="pgrid-card-badge-soon">Σύντομα</div>
+        <div class="pgrid-card-name">Freelance<span>Simple</span></div>
+        <p class="pgrid-card-desc">Άνοιγμα ατομικής: ΕΦΚΑ, ΔΟΥ, υποχρεώσεις.</p>
+        <div class="pgrid-card-footer">
+          <span class="pgrid-price">€19</span>
+          <button class="btn btn-outline pgrid-btn pgrid-notify-btn" onclick="openWaitlistModal('freelancesimple', 'FreelanceSimple')">Ειδοποίησέ με</button>
+        </div>
+      </div>
+
+      <div class="pgrid-card" data-category="epixeirisi" data-live="false">
+        <div class="pgrid-card-badge-soon">Σύντομα</div>
+        <div class="pgrid-card-name">IKE<span>Simple</span></div>
+        <p class="pgrid-card-desc">Σύσταση ΙΚΕ μέσω One Stop Shop, βήμα-βήμα.</p>
+        <div class="pgrid-card-footer">
+          <span class="pgrid-price">€25</span>
+          <button class="btn btn-outline pgrid-btn pgrid-notify-btn" onclick="openWaitlistModal('ikesimple', 'IKESimple')">Ειδοποίησέ με</button>
+        </div>
+      </div>
+
+      <div class="pgrid-card" data-category="epixeirisi" data-live="false">
+        <div class="pgrid-card-badge-soon">Σύντομα</div>
+        <div class="pgrid-card-name">Close<span>Simple</span></div>
+        <p class="pgrid-card-desc">Κλείσιμο επιχείρησης: λύση, εκκαθάριση, φορολογική ενημερότητα.</p>
+        <div class="pgrid-card-footer">
+          <span class="pgrid-price">€19</span>
+          <button class="btn btn-outline pgrid-btn pgrid-notify-btn" onclick="openWaitlistModal('closesimple', 'CloseSimple')">Ειδοποίησέ με</button>
+        </div>
+      </div>
+
+      <div class="pgrid-card" data-category="epixeirisi" data-live="false">
+        <div class="pgrid-card-badge-soon">Σύντομα</div>
+        <div class="pgrid-card-name">Invoice<span>Simple</span></div>
+        <p class="pgrid-card-desc">Τιμολόγηση, myDATA, αποδείξεις — τα βασικά.</p>
+        <div class="pgrid-card-footer">
+          <span class="pgrid-price">€9</span>
+          <button class="btn btn-outline pgrid-btn pgrid-notify-btn" onclick="openWaitlistModal('invoicesimple', 'InvoiceSimple')">Ειδοποίησέ με</button>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ── Trust Figures ─────────────────────────────────────── -->
-<section class="trust-section">
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 3 — TRUST STRIP
+══════════════════════════════════════════════════════════ -->
+<section class="trust-strip">
   <div class="container">
-    <div class="trust-grid">
-      <div class="trust-item"><h3>6</h3><p>Εξειδικευμένες<br>υπηρεσίες</p></div>
-      <div class="trust-item"><h3>&lt; 5΄</h3><p>Χρόνος παράδοσης<br>PDF</p></div>
-      <div class="trust-item"><h3>100%</h3><p>Ασφαλής πληρωμή<br>μέσω Stripe</p></div>
-      <div class="trust-item"><h3>€0</h3><p>Κρυφές χρεώσεις ή<br>συνδρομές</p></div>
-    </div>
+    <p>Το LifeSimple παρέχει γενικές πληροφορίες και οδηγούς — όχι νομικές ή φορολογικές συμβουλές. Για πολύπλοκες υποθέσεις, ένας ειδικός αξίζει τα χρήματά του.</p>
   </div>
 </section>
 
@@ -311,7 +445,7 @@
     </div>
     <div class="blog-teaser-grid">
 
-      <!-- Article 10: Σύμφωνο Συμβίωσης — Mar 18 2026 -->
+      <!-- Article 10: Σύμφωνο Συμβίωσης -->
       <div class="blog-teaser-card">
         <div class="blog-teaser-img">
           <svg viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
@@ -336,24 +470,24 @@
         </div>
       </div>
 
-      <!-- Article 11: Προγαμιαία — Mar 24 2026 -->
+      <!-- Article 11: Προγαμιαία -->
       <div class="blog-teaser-card">
         <div class="blog-teaser-img">
           <svg viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
             <rect width="200" height="130" fill="#1a2744"/>
-            <text x="58" y="42" text-anchor="middle" fill="#e55" font-size="28">✗</text>
+            <text x="58" y="42" text-anchor="middle" fill="#e55" font-size="28">&#10007;</text>
             <rect x="30" y="50" width="55" height="55" rx="3" fill="none" stroke="#e55" stroke-width="1.5" opacity="0.6"/>
-            <text x="57" y="68" text-anchor="middle" fill="#C9892A" font-size="7">«Μόνο για</text>
-            <text x="57" y="78" text-anchor="middle" fill="#C9892A" font-size="7">πλούσιους»</text>
-            <text x="57" y="91" text-anchor="middle" fill="#C9892A" font-size="7">«Ξορκίζει</text>
-            <text x="57" y="101" text-anchor="middle" fill="#C9892A" font-size="7">τον γάμο»</text>
-            <text x="145" y="42" text-anchor="middle" fill="#2a9" font-size="28">✓</text>
+            <text x="57" y="68" text-anchor="middle" fill="#C9892A" font-size="7">&#171;&#924;&#972;&#957;&#959; &#947;&#953;&#945;</text>
+            <text x="57" y="78" text-anchor="middle" fill="#C9892A" font-size="7">&#960;&#955;&#959;&#973;&#963;&#953;&#959;&#965;&#962;&#187;</text>
+            <text x="57" y="91" text-anchor="middle" fill="#C9892A" font-size="7">&#171;&#926;&#959;&#961;&#954;&#943;&#950;&#949;&#953;</text>
+            <text x="57" y="101" text-anchor="middle" fill="#C9892A" font-size="7">&#964;&#959;&#957; &#947;&#940;&#956;&#959;&#187;</text>
+            <text x="145" y="42" text-anchor="middle" fill="#2a9" font-size="28">&#10003;</text>
             <rect x="117" y="50" width="55" height="55" rx="3" fill="#C9892A" opacity="0.15"/>
             <rect x="117" y="50" width="55" height="55" rx="3" fill="none" stroke="#C9892A" stroke-width="1.5"/>
-            <text x="145" y="70" text-anchor="middle" fill="#C9892A" font-size="7">Προστατεύει</text>
-            <text x="145" y="80" text-anchor="middle" fill="#C9892A" font-size="7">όλους</text>
-            <text x="145" y="93" text-anchor="middle" fill="#C9892A" font-size="7">Νομικά</text>
-            <text x="145" y="103" text-anchor="middle" fill="#C9892A" font-size="7">έγκυρη</text>
+            <text x="145" y="70" text-anchor="middle" fill="#C9892A" font-size="7">&#928;&#961;&#959;&#963;&#964;&#945;&#964;&#949;&#973;&#949;&#953;</text>
+            <text x="145" y="80" text-anchor="middle" fill="#C9892A" font-size="7">&#972;&#955;&#959;&#965;&#962;</text>
+            <text x="145" y="93" text-anchor="middle" fill="#C9892A" font-size="7">&#925;&#959;&#956;&#953;&#954;&#940;</text>
+            <text x="145" y="103" text-anchor="middle" fill="#C9892A" font-size="7">&#941;&#947;&#954;&#965;&#961;&#951;</text>
           </svg>
         </div>
         <div class="blog-teaser-body">
@@ -364,12 +498,12 @@
         </div>
       </div>
 
-      <!-- Article 12: Χρέη & Διαζύγιο — Mar 28 2026 -->
+      <!-- Article 12: Χρέη & Διαζύγιο -->
       <div class="blog-teaser-card">
         <div class="blog-teaser-img">
           <svg viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
             <rect width="200" height="130" fill="#1a2744"/>
-            <text x="100" y="68" text-anchor="middle" fill="#C9892A" font-size="48" opacity="0.9">€</text>
+            <text x="100" y="68" text-anchor="middle" fill="#C9892A" font-size="48" opacity="0.9">&#8364;</text>
             <rect x="28" y="38" width="16" height="10" rx="5" fill="none" stroke="#C9892A" stroke-width="1.8" opacity="0.7"/>
             <rect x="40" y="41" width="16" height="10" rx="5" fill="none" stroke="#C9892A" stroke-width="1.8" opacity="0.7"/>
             <rect x="52" y="38" width="16" height="10" rx="5" fill="none" stroke="#C9892A" stroke-width="1.8" opacity="0.7"/>
@@ -424,7 +558,27 @@
   </div>
 </footer>
 
+<!-- ── Waitlist Modal ─────────────────────────────────────── -->
+<div class="waitlist-backdrop" id="waitlistModal" style="display:none;">
+  <div class="waitlist-sheet">
+    <button class="waitlist-close" onclick="closeWaitlistModal()">&times;</button>
+    <div class="waitlist-content">
+      <h3>Αυτός ο Φάκελος ετοιμάζεται!</h3>
+      <p>Άφησε το email σου και θα σε ειδοποιήσουμε πρώτο/η.</p>
+      <form id="waitlistForm" onsubmit="submitWaitlist(event)">
+        <input type="hidden" id="waitlistProduct" name="product_slug" value="">
+        <input type="email" id="waitlistEmail" name="email" class="form-control" placeholder="To email σου" required>
+        <button type="submit" class="btn btn-primary" style="width:100%;margin-top:0.75rem;">Θέλω ειδοποίηση</button>
+      </form>
+      <div class="waitlist-success" id="waitlistSuccess" style="display:none;">
+        <p>Ευχαριστούμε! Θα σε ειδοποιήσουμε μόλις είναι έτοιμο.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="/js/main.js"></script>
+<script src="/js/quiz.js"></script>
 
 <!-- ── GDPR Cookie Consent Banner ─────────────────────────── -->
 <div id="cookie-banner" style="

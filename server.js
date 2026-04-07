@@ -1069,6 +1069,35 @@ app.post('/api/complete-order', async (req, res) => {
 });
 
 // ────────────────────────────────────────────────────────────
+// POST /api/waitlist — Email capture for upcoming products
+// ────────────────────────────────────────────────────────────
+
+const waitlistEntries = new Map(); // email+slug → { email, product_slug, timestamp }
+
+app.post('/api/waitlist', (req, res) => {
+  const { email, product_slug } = req.body;
+
+  if (!email || !product_slug) {
+    return res.status(400).json({ error: 'Missing email or product_slug' });
+  }
+
+  // Basic email validation
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return res.status(400).json({ error: 'Invalid email format' });
+  }
+
+  const key = `${email.toLowerCase()}:${product_slug}`;
+  waitlistEntries.set(key, {
+    email: email.toLowerCase(),
+    product_slug,
+    timestamp: new Date().toISOString(),
+  });
+
+  console.log(`[waitlist] ${email} → ${product_slug} (total: ${waitlistEntries.size})`);
+  res.json({ success: true });
+});
+
+// ────────────────────────────────────────────────────────────
 // SENDGRID — Follow-Up Email (Step 2 not completed after 30 min)
 // ────────────────────────────────────────────────────────────
 
