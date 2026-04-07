@@ -21,7 +21,7 @@
     </button>
     <ul class="nav-links" id="navLinks">
       <li><a href="/">Αρχική</a></li>
-      <li><a href="/#products">Υπηρεσίες</a></li>
+      <li><a href="/#product-grid">Υπηρεσίες</a></li>
       <li><a href="/blog">Blog</a></li>
       <li><a href="/faq">FAQ</a></li>
     </ul>
@@ -240,6 +240,550 @@
           </div>
         </div>
 
+        <!-- ── CohabitSimple fields ── -->
+        <div class="product-fields" data-product="cohabitsimple" style="display:none;">
+          <div class="form-group">
+            <label>Ονόματα δύο μερών <span class="required">*</span></label>
+            <input type="text" name="partnerNames" class="form-control" placeholder="π.χ. Μαρία Παπαδοπούλου & Γιώργος Αντωνίου" required />
+          </div>
+          <div class="form-group">
+            <label>ΑΦΜ <span style="color:#9aabba;font-weight:400;">(προαιρετικό)</span></label>
+            <input type="text" name="afm" class="form-control" placeholder="π.χ. 123456789" />
+          </div>
+          <div class="form-group">
+            <label>Διεύθυνση κατοικίας <span style="color:#9aabba;font-weight:400;">(προαιρετικό)</span></label>
+            <input type="text" name="address" class="form-control" placeholder="π.χ. Ερμού 25, Αθήνα" />
+          </div>
+          <div class="form-group">
+            <label>Υπάρχουν κοινά τέκνα;</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="hasChildren" value="yes" /> Ναι</label>
+              <label class="radio-label"><input type="radio" name="hasChildren" value="no" /> Όχι</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Ρύθμιση περιουσιακών;</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="propertyArrangement" value="yes" /> Ναι, θέλω να συμπεριλάβω ρυθμίσεις περιουσίας</label>
+              <label class="radio-label"><input type="radio" name="propertyArrangement" value="no" /> Όχι</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Ειδικοί όροι <span style="color:#9aabba;font-weight:400;">(προαιρετικό)</span></label>
+            <textarea name="specialTerms" class="form-control" rows="3" placeholder="π.χ. ρύθμιση εξόδων κατοικίας, ειδικές ρήτρες..."></textarea>
+          </div>
+        </div>
+
+        <!-- ── CustodySimple fields ── -->
+        <div class="product-fields" data-product="custodysimple" style="display:none;">
+          <div class="form-group">
+            <label>Αριθμός τέκνων <span class="required">*</span></label>
+            <select name="numberOfChildren" class="form-control" required>
+              <option value="">Επίλεξε...</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4+">4+</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Ηλικίες τέκνων</label>
+            <input type="text" name="childrenAges" class="form-control" placeholder="π.χ. 5, 8" />
+          </div>
+          <div class="form-group">
+            <label>Τρέχουσα κατάσταση γονέων <span class="required">*</span></label>
+            <div class="radio-group" data-required="radio">
+              <label class="radio-label"><input type="radio" name="parentStatus" value="married" /> Παντρεμένοι</label>
+              <label class="radio-label"><input type="radio" name="parentStatus" value="separated" /> Σε διάσταση</label>
+              <label class="radio-label"><input type="radio" name="parentStatus" value="divorced" /> Διαζευγμένοι</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Ποιος έχει τρέχουσα επιμέλεια;</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="currentCustody" value="mother" /> Η μητέρα</label>
+              <label class="radio-label"><input type="radio" name="currentCustody" value="father" /> Ο πατέρας</label>
+              <label class="radio-label"><input type="radio" name="currentCustody" value="joint" /> Κοινή</label>
+              <label class="radio-label"><input type="radio" name="currentCustody" value="none" /> Δεν έχει ρυθμιστεί</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Τι ζητάς; <span class="required">*</span></label>
+            <div class="radio-group" data-required="radio">
+              <label class="radio-label"><input type="radio" name="custodyRequest" value="joint" /> Κοινή επιμέλεια</label>
+              <label class="radio-label"><input type="radio" name="custodyRequest" value="exclusive" /> Αποκλειστική επιμέλεια</label>
+              <label class="radio-label"><input type="radio" name="custodyRequest" value="change" /> Αλλαγή υφιστάμενης ρύθμισης</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Επιπλέον πληροφορίες <span style="color:#9aabba;font-weight:400;">(προαιρετικό)</span></label>
+            <textarea name="additionalInfo" class="form-control" rows="3" placeholder="π.χ. ο άλλος γονέας δεν συνεργάζεται, θέμα μετοίκησης..."></textarea>
+          </div>
+        </div>
+
+        <!-- ── AlimonySimple fields ── -->
+        <div class="product-fields" data-product="alimonysimple" style="display:none;">
+          <div class="form-group">
+            <label>Τύπος διατροφής <span class="required">*</span></label>
+            <div class="radio-group" data-required="radio">
+              <label class="radio-label"><input type="radio" name="alimonyType" value="spouse" /> Διατροφή συζύγου</label>
+              <label class="radio-label"><input type="radio" name="alimonyType" value="children" /> Διατροφή τέκνων</label>
+              <label class="radio-label"><input type="radio" name="alimonyType" value="both" /> Και τα δύο</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Αριθμός τέκνων</label>
+            <select name="numberOfChildren" class="form-control">
+              <option value="">Δεν αφορά</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4+">4+</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Μηνιαίο εισόδημα δικό σου (κατά προσέγγιση)</label>
+            <input type="text" name="myIncome" class="form-control" placeholder="π.χ. €1.200" />
+          </div>
+          <div class="form-group">
+            <label>Μηνιαίο εισόδημα αντιδίκου (κατά προσέγγιση)</label>
+            <input type="text" name="otherIncome" class="form-control" placeholder="π.χ. €2.000" />
+          </div>
+          <div class="form-group">
+            <label>Τρέχουσα κατάσταση <span class="required">*</span></label>
+            <div class="radio-group" data-required="radio">
+              <label class="radio-label"><input type="radio" name="currentStatus" value="married" /> Παντρεμένοι</label>
+              <label class="radio-label"><input type="radio" name="currentStatus" value="separated" /> Σε διάσταση</label>
+              <label class="radio-label"><input type="radio" name="currentStatus" value="divorced" /> Διαζευγμένοι</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Επιπλέον πληροφορίες <span style="color:#9aabba;font-weight:400;">(προαιρετικό)</span></label>
+            <textarea name="additionalInfo" class="form-control" rows="3" placeholder="π.χ. ο σύζυγος δεν πληρώνει, ψάχνω προσωρινή διαταγή..."></textarea>
+          </div>
+        </div>
+
+        <!-- ── FuneralSimple fields ── -->
+        <div class="product-fields" data-product="funeralsimple" style="display:none;">
+          <div class="form-group">
+            <label>Τόπος θανάτου <span class="required">*</span></label>
+            <div class="radio-group" data-required="radio">
+              <label class="radio-label"><input type="radio" name="deathLocation" value="hospital" /> Νοσοκομείο</label>
+              <label class="radio-label"><input type="radio" name="deathLocation" value="home" /> Σπίτι</label>
+              <label class="radio-label"><input type="radio" name="deathLocation" value="abroad" /> Εξωτερικό</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Υπάρχει ασφάλεια ζωής;</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="lifeInsurance" value="yes" /> Ναι</label>
+              <label class="radio-label"><input type="radio" name="lifeInsurance" value="no" /> Όχι</label>
+              <label class="radio-label"><input type="radio" name="lifeInsurance" value="unknown" /> Δεν γνωρίζω</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Ασφαλιστικός φορέας θανόντος</label>
+            <select name="insuranceFund" class="form-control">
+              <option value="">Επίλεξε...</option>
+              <option value="ika">ΙΚΑ/ΕΦΚΑ μισθωτών</option>
+              <option value="oaee">ΟΑΕΕ/ΕΦΚΑ αυτοαπασχολούμενων</option>
+              <option value="public">Δημόσιο</option>
+              <option value="other">Άλλο</option>
+              <option value="unknown">Δεν γνωρίζω</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Δήμος ταφής <span style="color:#9aabba;font-weight:400;">(προαιρετικό)</span></label>
+            <input type="text" name="burialMunicipality" class="form-control" placeholder="π.χ. Δήμος Αθηναίων" />
+          </div>
+        </div>
+
+        <!-- ── DonationSimple fields ── -->
+        <div class="product-fields" data-product="donationsimple" style="display:none;">
+          <div class="form-group">
+            <label>Τύπος μεταβίβασης <span class="required">*</span></label>
+            <div class="radio-group" data-required="radio">
+              <label class="radio-label"><input type="radio" name="transferType" value="parental" /> Γονική παροχή</label>
+              <label class="radio-label"><input type="radio" name="transferType" value="donation" /> Δωρεά</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Σχέση μεταξύ μερών <span class="required">*</span></label>
+            <div class="radio-group" data-required="radio">
+              <label class="radio-label"><input type="radio" name="relationship" value="parent-child" /> Γονέας → Τέκνο</label>
+              <label class="radio-label"><input type="radio" name="relationship" value="spouses" /> Μεταξύ συζύγων</label>
+              <label class="radio-label"><input type="radio" name="relationship" value="other" /> Άλλη σχέση</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Τύπος περιουσίας <span class="required">*</span></label>
+            <div class="radio-group" data-required="radio">
+              <label class="radio-label"><input type="radio" name="assetType" value="property" /> Ακίνητο</label>
+              <label class="radio-label"><input type="radio" name="assetType" value="money" /> Χρήματα</label>
+              <label class="radio-label"><input type="radio" name="assetType" value="stocks" /> Μετοχές / Κινητή περιουσία</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Εκτιμώμενη αξία <span style="color:#9aabba;font-weight:400;">(προαιρετικό)</span></label>
+            <input type="text" name="estimatedValue" class="form-control" placeholder="π.χ. €100.000" />
+          </div>
+        </div>
+
+        <!-- ── TaxSimple fields ── -->
+        <div class="product-fields" data-product="taxsimple" style="display:none;">
+          <div class="form-group">
+            <label>Τύπος εισοδήματος <span class="required">*</span></label>
+            <div class="radio-group" data-required="radio">
+              <label class="radio-label"><input type="radio" name="incomeType" value="employee" /> Μισθωτός</label>
+              <label class="radio-label"><input type="radio" name="incomeType" value="freelancer" /> Ελεύθερος επαγγελματίας</label>
+              <label class="radio-label"><input type="radio" name="incomeType" value="retiree" /> Συνταξιούχος</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Έχεις ακίνητα;</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="hasProperty" value="yes" /> Ναι</label>
+              <label class="radio-label"><input type="radio" name="hasProperty" value="no" /> Όχι</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Εισόδημα εξωτερικού;</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="foreignIncome" value="yes" /> Ναι</label>
+              <label class="radio-label"><input type="radio" name="foreignIncome" value="no" /> Όχι</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Είναι πρώτη δήλωση;</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="firstDeclaration" value="yes" /> Ναι</label>
+              <label class="radio-label"><input type="radio" name="firstDeclaration" value="no" /> Όχι</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── PropertyTaxSimple fields ── -->
+        <div class="product-fields" data-product="propertytaxsimple" style="display:none;">
+          <div class="form-group">
+            <label>Τύπος ακινήτου <span class="required">*</span></label>
+            <div class="radio-group" data-required="radio">
+              <label class="radio-label"><input type="radio" name="propertyType" value="apartment" /> Διαμέρισμα</label>
+              <label class="radio-label"><input type="radio" name="propertyType" value="house" /> Μονοκατοικία</label>
+              <label class="radio-label"><input type="radio" name="propertyType" value="plot" /> Οικόπεδο</label>
+              <label class="radio-label"><input type="radio" name="propertyType" value="land" /> Αγροτεμάχιο</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Τοποθεσία (Νομός) <span style="color:#9aabba;font-weight:400;">(προαιρετικό)</span></label>
+            <input type="text" name="propertyLocation" class="form-control" placeholder="π.χ. Αττικής" />
+          </div>
+          <div class="form-group">
+            <label>Αντικειμενική αξία (αν τη γνωρίζεις) <span style="color:#9aabba;font-weight:400;">(προαιρετικό)</span></label>
+            <input type="text" name="objectiveValue" class="form-control" placeholder="π.χ. €80.000" />
+          </div>
+          <div class="form-group">
+            <label>Αμφισβητείς τον ΕΝΦΙΑ;</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="disputeENFIA" value="yes" /> Ναι, θέλω να κάνω ένσταση</label>
+              <label class="radio-label"><input type="radio" name="disputeENFIA" value="no" /> Όχι</label>
+              <label class="radio-label"><input type="radio" name="disputeENFIA" value="unsure" /> Δεν ξέρω αν αξίζει</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── PensionSimple fields ── -->
+        <div class="product-fields" data-product="pensionsimple" style="display:none;">
+          <div class="form-group">
+            <label>Τύπος σύνταξης <span class="required">*</span></label>
+            <div class="radio-group" data-required="radio">
+              <label class="radio-label"><input type="radio" name="pensionType" value="retirement" /> Γήρατος</label>
+              <label class="radio-label"><input type="radio" name="pensionType" value="disability" /> Αναπηρίας</label>
+              <label class="radio-label"><input type="radio" name="pensionType" value="survivor" /> Χηρείας / Θανάτου</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Ηλικία</label>
+            <input type="number" name="age" class="form-control" placeholder="π.χ. 62" min="40" max="100" />
+          </div>
+          <div class="form-group">
+            <label>Έτη ασφάλισης (κατά προσέγγιση)</label>
+            <input type="number" name="insuranceYears" class="form-control" placeholder="π.χ. 35" min="0" max="50" />
+          </div>
+          <div class="form-group">
+            <label>Φορέας ασφάλισης <span class="required">*</span></label>
+            <select name="insuranceFund" class="form-control" required>
+              <option value="">Επίλεξε...</option>
+              <option value="ika">ΙΚΑ / ΕΦΚΑ μισθωτών</option>
+              <option value="oaee">ΟΑΕΕ / ΕΦΚΑ αυτοαπασχολούμενων</option>
+              <option value="public">Δημόσιο</option>
+              <option value="other">Άλλο</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Διαδοχική ασφάλιση;</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="successiveInsurance" value="yes" /> Ναι (πολλαπλοί φορείς)</label>
+              <label class="radio-label"><input type="radio" name="successiveInsurance" value="no" /> Όχι</label>
+              <label class="radio-label"><input type="radio" name="successiveInsurance" value="unsure" /> Δεν ξέρω</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── DebtSimple fields ── -->
+        <div class="product-fields" data-product="debtsimple" style="display:none;">
+          <div class="form-group">
+            <label>Τύπος χρεών <span class="required">*</span></label>
+            <div class="checkbox-group">
+              <label class="checkbox-label"><input type="checkbox" name="debtType" value="bank" /> 🏦 Τράπεζα (δάνειο/κάρτα)</label>
+              <label class="checkbox-label"><input type="checkbox" name="debtType" value="tax" /> 🏛️ Εφορία</label>
+              <label class="checkbox-label"><input type="checkbox" name="debtType" value="efka" /> 📋 ΕΦΚΑ</label>
+              <label class="checkbox-label"><input type="checkbox" name="debtType" value="private" /> 👤 Ιδιώτες</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Συνολικό ποσό χρεών (κατά προσέγγιση)</label>
+            <input type="text" name="totalDebt" class="form-control" placeholder="π.χ. €30.000" />
+          </div>
+          <div class="form-group">
+            <label>Υπάρχει ακίνητη περιουσία;</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="hasProperty" value="yes" /> Ναι</label>
+              <label class="radio-label"><input type="radio" name="hasProperty" value="no" /> Όχι</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Έχει γίνει κατάσχεση/πλειστηριασμός;</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="seizure" value="yes" /> Ναι</label>
+              <label class="radio-label"><input type="radio" name="seizure" value="no" /> Όχι</label>
+              <label class="radio-label"><input type="radio" name="seizure" value="threat" /> Υπάρχει απειλή</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- PowerOfAttorneySimple -->
+        <div class="product-fields" data-product="powerattorneysimple" style="display:none;">
+          <div class="form-group">
+            <label>Τύπος πληρεξουσίου <span class="required">*</span></label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="poaType" value="special" required /> Ειδικό</label>
+              <label class="radio-label"><input type="radio" name="poaType" value="general" /> Γενικό</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Σκοπός <span class="required">*</span></label>
+            <select name="poaPurpose" class="form-control" required>
+              <option value="">— Επίλεξε —</option>
+              <option value="property_sale">Πώληση ακινήτου</option>
+              <option value="public_service">Εκπροσώπηση σε δημόσια υπηρεσία</option>
+              <option value="bank">Τραπεζική συναλλαγή</option>
+              <option value="court">Δικαστική εκπροσώπηση</option>
+              <option value="other">Άλλο</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Χρειάζεται για εξωτερικό (Apostille);</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="needsApostille" value="yes" /> Ναι</label>
+              <label class="radio-label"><input type="radio" name="needsApostille" value="no" /> Όχι</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- ContractSimple -->
+        <div class="product-fields" data-product="contractsimple" style="display:none;">
+          <div class="form-group">
+            <label>Τύπος συμφωνητικού <span class="required">*</span></label>
+            <select name="contractType" class="form-control" required>
+              <option value="">— Επίλεξε —</option>
+              <option value="rental">Ενοικίαση</option>
+              <option value="loan">Δάνειο μεταξύ ιδιωτών</option>
+              <option value="services">Παροχή υπηρεσιών</option>
+              <option value="cooperation">Συνεργασία</option>
+              <option value="other">Άλλο</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Αριθμός μερών</label>
+            <input type="number" name="numberOfParties" class="form-control" min="2" max="10" placeholder="π.χ. 2" />
+          </div>
+          <div class="form-group">
+            <label>Βασικοί όροι (σύντομη περιγραφή)</label>
+            <textarea name="basicTerms" class="form-control" rows="3" placeholder="π.χ. Ποσό, διάρκεια, υποχρεώσεις κάθε μέρους..."></textarea>
+          </div>
+        </div>
+
+        <!-- ComplaintSimple -->
+        <div class="product-fields" data-product="complaintsimple" style="display:none;">
+          <div class="form-group">
+            <label>Τύπος προβλήματος <span class="required">*</span></label>
+            <select name="complaintType" class="form-control" required>
+              <option value="">— Επίλεξε —</option>
+              <option value="labor">Εργασιακό</option>
+              <option value="consumer">Καταναλωτικό</option>
+              <option value="data">Προσωπικά δεδομένα</option>
+              <option value="food">Τρόφιμα / Υγιεινή</option>
+              <option value="other">Άλλο</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Έχεις ήδη επικοινωνήσει με τον προμηθευτή/εργοδότη;</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="contactedSupplier" value="yes" /> Ναι</label>
+              <label class="radio-label"><input type="radio" name="contactedSupplier" value="no" /> Όχι</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Σύντομη περιγραφή</label>
+            <textarea name="complaintDescription" class="form-control" rows="3" placeholder="Περιέγραψε σύντομα τι συνέβη..."></textarea>
+          </div>
+        </div>
+
+        <!-- TenantSimple -->
+        <div class="product-fields" data-product="tenantsimple" style="display:none;">
+          <div class="form-group">
+            <label>Ρόλος <span class="required">*</span></label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="tenantRole" value="tenant" required /> 🏠 Ενοικιαστής</label>
+              <label class="radio-label"><input type="radio" name="tenantRole" value="owner" /> 🔑 Ιδιοκτήτης</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Τύπος ακινήτου</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="propertyType" value="residential" /> Κατοικία</label>
+              <label class="radio-label"><input type="radio" name="propertyType" value="commercial" /> Επαγγελματικό</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Τι σε αφορά; <span class="required">*</span></label>
+            <select name="tenantProblem" class="form-control" required>
+              <option value="">— Επίλεξε —</option>
+              <option value="new_lease">Νέα μίσθωση</option>
+              <option value="rent_increase">Αύξηση ενοικίου</option>
+              <option value="damages">Φθορές</option>
+              <option value="termination">Καταγγελία σύμβασης</option>
+              <option value="eviction">Εκκένωση</option>
+              <option value="other">Άλλο</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- FreelanceSimple -->
+        <div class="product-fields" data-product="freelancesimple" style="display:none;">
+          <div class="form-group">
+            <label>Τύπος δραστηριότητας (ΚΑΔ) <span class="required">*</span></label>
+            <input type="text" name="kadType" class="form-control" required placeholder="π.χ. Προγραμματιστής, Γραφίστας, Μεταφραστής..." />
+          </div>
+          <div class="form-group">
+            <label>Παράλληλη μισθωτή εργασία;</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="parallelEmployment" value="yes" /> Ναι</label>
+              <label class="radio-label"><input type="radio" name="parallelEmployment" value="no" /> Όχι</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Θέλεις φοιτητική/νεανική απαλλαγή ΕΦΚΑ;</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="efkaExemption" value="yes" /> Ναι</label>
+              <label class="radio-label"><input type="radio" name="efkaExemption" value="no" /> Όχι</label>
+              <label class="radio-label"><input type="radio" name="efkaExemption" value="unsure" /> Δεν ξέρω</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- IKESimple -->
+        <div class="product-fields" data-product="ikesimple" style="display:none;">
+          <div class="form-group">
+            <label>Αριθμός εταίρων <span class="required">*</span></label>
+            <input type="number" name="partnersCount" class="form-control" min="1" max="20" required placeholder="π.χ. 2" />
+          </div>
+          <div class="form-group">
+            <label>Τύπος εισφορών</label>
+            <div class="checkbox-group">
+              <label class="checkbox-label"><input type="checkbox" name="contributionType" value="capital" /> 💰 Κεφαλαιακές</label>
+              <label class="checkbox-label"><input type="checkbox" name="contributionType" value="non_capital" /> 🤝 Εξωκεφαλαιακές</label>
+              <label class="checkbox-label"><input type="checkbox" name="contributionType" value="guarantee" /> 🛡️ Εγγυητικές</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Έδρα εταιρείας (νομός)</label>
+            <input type="text" name="headquarters" class="form-control" placeholder="π.χ. Αττικής" />
+          </div>
+          <div class="form-group">
+            <label>Σκοπός εταιρείας</label>
+            <textarea name="companyPurpose" class="form-control" rows="2" placeholder="Σύντομη περιγραφή δραστηριότητας..."></textarea>
+          </div>
+        </div>
+
+        <!-- CloseSimple -->
+        <div class="product-fields" data-product="closesimple" style="display:none;">
+          <div class="form-group">
+            <label>Τύπος επιχείρησης <span class="required">*</span></label>
+            <select name="businessType" class="form-control" required>
+              <option value="">— Επίλεξε —</option>
+              <option value="sole">Ατομική</option>
+              <option value="ike">ΙΚΕ</option>
+              <option value="oe_ee">ΟΕ / ΕΕ</option>
+              <option value="ae">ΑΕ</option>
+              <option value="other">Άλλο</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Έχει εργαζόμενους;</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="hasEmployees" value="yes" /> Ναι</label>
+              <label class="radio-label"><input type="radio" name="hasEmployees" value="no" /> Όχι</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Υπάρχουν οφειλές σε ΕΦΚΑ/εφορία;</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="hasDebts" value="yes" /> Ναι</label>
+              <label class="radio-label"><input type="radio" name="hasDebts" value="no" /> Όχι</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Λόγος κλεισίματος</label>
+            <select name="closeReason" class="form-control">
+              <option value="">— Επίλεξε —</option>
+              <option value="stop">Σταμάτημα δραστηριότητας</option>
+              <option value="retirement">Συνταξιοδότηση</option>
+              <option value="other">Άλλο</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- InvoiceSimple -->
+        <div class="product-fields" data-product="invoicesimple" style="display:none;">
+          <div class="form-group">
+            <label>Τύπος δραστηριότητας <span class="required">*</span></label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="activityType" value="services" required /> 💼 Παροχή υπηρεσιών</label>
+              <label class="radio-label"><input type="radio" name="activityType" value="goods" /> 📦 Πώληση αγαθών</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Είσαι υπόχρεος ΦΠΑ;</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="vatStatus" value="yes" /> Ναι</label>
+              <label class="radio-label"><input type="radio" name="vatStatus" value="no" /> Όχι</label>
+              <label class="radio-label"><input type="radio" name="vatStatus" value="unsure" /> Δεν ξέρω</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Χρησιμοποιείς λογισμικό τιμολόγησης;</label>
+            <div class="radio-group">
+              <label class="radio-label"><input type="radio" name="invoicingSoftware" value="yes" /> Ναι</label>
+              <label class="radio-label"><input type="radio" name="invoicingSoftware" value="no" /> Όχι</label>
+            </div>
+          </div>
+          <div class="form-group" id="softwareNameGroup" style="display:none;">
+            <label>Ποιο λογισμικό;</label>
+            <input type="text" name="softwareName" class="form-control" placeholder="π.χ. Elorus, Epsilonnet, TimologioOnline..." />
+          </div>
+        </div>
+
         <div id="formError" style="display:none;color:#c0392b;font-size:0.87rem;padding:0.6rem 0;"></div>
 
         <button type="submit" class="complete-btn" id="submitStep2Btn">
@@ -294,7 +838,7 @@
     </div>
   </div>
   <div class="footer-bottom-centered">
-    Το LifeSimple παρέχει ενημερωτικούς οδηγούς και δεν αποτελεί νομική συμβουλή.
+    Το LifeSimple παρέχει γενικές πληροφορίες και οδηγούς — όχι νομικές ή φορολογικές συμβουλές. Για πολύπλοκες υποθέσεις, ένας ειδικός αξίζει τα χρήματά του.
   </div>
 </footer>
 
