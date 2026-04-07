@@ -3530,11 +3530,25 @@ textarea.form-control {
 }
 
 .pgrid-card[data-live="false"] {
-  opacity: 0.7;
+  background: #f4f2ee;
+  border-color: #e3e0da;
+  border-style: dashed;
+}
+
+.pgrid-card[data-live="false"] .pgrid-card-name,
+.pgrid-card[data-live="false"] .pgrid-price {
+  color: #8a9bb8;
+}
+
+.pgrid-card[data-live="false"] .pgrid-card-desc {
+  color: #a0aec0;
 }
 
 .pgrid-card[data-live="false"]:hover {
-  opacity: 1;
+  border-color: #C9892A;
+  border-style: dashed;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(26,39,68,0.06);
 }
 
 .pgrid-card.hidden {
@@ -3545,13 +3559,13 @@ textarea.form-control {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: #f0ebe0;
-  color: #8a7640;
-  font-size: 0.72rem;
+  background: #1a2744;
+  color: #8fa3c8;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 3px 10px;
+  padding: 4px 12px;
   border-radius: 12px;
 }
 
