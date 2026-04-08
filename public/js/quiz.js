@@ -36,6 +36,7 @@ const quizData = {
       { text: 'ΕΝΦΙΑ / φόρος ακινήτου',            product: 'propertytaxsimple' },
       { text: 'Σύνταξη / ΕΦΚΑ',                    product: 'pensionsimple' },
       { text: 'Χρέη / ρύθμιση οφειλών',            product: 'debtsimple' },
+      { text: 'Γυρνάω από εξωτερικό (5Γ)',         product: 'expatsimple' },
     ]
   },
   nomika: {
@@ -83,6 +84,7 @@ const productInfo = {
   ikesimple:              { name: 'IKE<span>Simple</span>', desc: 'Σύσταση ΙΚΕ μέσω One Stop Shop, βήμα-βήμα.', price: '€25', live: true, url: '/ike' },
   closesimple:            { name: 'Close<span>Simple</span>', desc: 'Κλείσιμο επιχείρησης: λύση, εκκαθάριση, φορολογική ενημερότητα.', price: '€19', live: true, url: '/close' },
   invoicesimple:          { name: 'Invoice<span>Simple</span>', desc: 'Τιμολόγηση, myDATA, αποδείξεις — τα βασικά.', price: '€9', live: true, url: '/invoice' },
+  expatsimple:            { name: 'Expat<span>Simple</span>', desc: 'Φορολογική ελάφρυνση 5Γ — 50% μείωση φόρου για επιστροφή από εξωτερικό.', price: '€15', live: true, url: '/expat' },
 };
 
 // ── Quiz State ──────────────────────────────────────────────

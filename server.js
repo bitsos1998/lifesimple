@@ -58,7 +58,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // PRODUCT PAGE ROUTES  (clean URLs without .html)
 // ────────────────────────────────────────────────────────────
 
-const pages = ['will', 'divorce', 'marriage', 'inherit', 'separation', 'prenup', 'cohabit', 'custody', 'alimony', 'funeral', 'donation', 'tax', 'propertytax', 'pension', 'debt', 'powerattorney', 'contract', 'complaint', 'tenant', 'freelance', 'ike', 'close', 'invoice', 'success', 'complete', 'terms', 'privacy', 'about', 'faq', 'blog'];
+const pages = ['will', 'divorce', 'marriage', 'inherit', 'separation', 'prenup', 'cohabit', 'custody', 'alimony', 'funeral', 'donation', 'tax', 'propertytax', 'pension', 'debt', 'powerattorney', 'contract', 'complaint', 'tenant', 'freelance', 'ike', 'close', 'invoice', 'expat', 'success', 'complete', 'terms', 'privacy', 'about', 'faq', 'blog'];
 pages.forEach(page => {
   app.get(`/${page}`, (req, res) => {
     res.sendFile(path.join(__dirname, 'public', `${page}.html`));
@@ -852,6 +852,28 @@ e-ΥΜΣ (One Stop Shop). Πρότυπο vs μη πρότυπο καταστατ
 
 [ΕΝΟΤΗΤΑ_7] Ένα Μήνυμα
 Ζεστό κλείσιμο. Η τιμολόγηση γίνεται ρουτίνα σε λίγες μέρες. Τελειώνει με ευχές.`,
+    expatsimple: `ΥΦΟΣ: Ενθαρρυντικό, πρακτικό, ζεστό. Ο χρήστης γυρνάει (ή σκέφτεται να γυρίσει) στην Ελλάδα — τον βοηθάς να αξιοποιήσει τη φορολογική ελάφρυνση 5Γ.
+
+[ΕΝΟΤΗΤΑ_1] Καλώς Ήρθες Πίσω — Δικαιούσαι 50% Μείωση Φόρου
+Ζεστό άνοιγμα. Αναφέρσου: χώρα προέλευσης, χρόνια εξωτερικό, κατάσταση εργασίας, αν ήδη γύρισε ή σκοπεύει. Εξήγησε τι είναι το άρθρο 5Γ (Ν.4172/2013) — 50% απαλλαγή φόρου εισοδήματος + εισφοράς αλληλεγγύης για 7 χρόνια.
+
+[ΕΝΟΤΗΤΑ_2] Ποιος Δικαιούται — Προϋποθέσεις 5Γ
+Βασική προϋπόθεση: μη φορολογικός κάτοικος Ελλάδας τα 5 από τα 6 τελευταία χρόνια. Ανάληψη εργασίας ή έναρξη επιχείρησης στην Ελλάδα. Εξαιρέσεις. Βάσει κατάστασης χρήστη: αξιολόγηση αν πληροί.
+
+[ΕΝΟΤΗΤΑ_3] Τι Εξοικονομείς — Ρεαλιστικοί Υπολογισμοί
+Βάσει εισοδήματος χρήστη: παραδείγματα εξοικονόμησης. Σύγκριση: φόρος χωρίς 5Γ vs με 5Γ. Εισφορά αλληλεγγύης: πλήρης απαλλαγή. Τι ΔΕΝ καλύπτει (ΦΠΑ, ΕΝΦΙΑ, εισφορές ΕΦΚΑ).
+
+[ΕΝΟΤΗΤΑ_4] Διαδικασία Αίτησης — Βήμα-Βήμα
+1. Μεταφορά φορολογικής κατοικίας (Δ210). 2. Αίτηση 5Γ στη ΔΟΥ. 3. Έγγραφα: πιστοποιητικό φορολογικής κατοικίας εξωτερικού, σύμβαση εργασίας ή έναρξη, ταυτότητα/διαβατήριο. 4. Προθεσμίες. 5. Τι γίνεται αν η αίτηση απορριφθεί.
+
+[ΕΝΟΤΗΤΑ_5] Τι Πρέπει να Προσέξεις
+Πότε χάνεις το δικαίωμα. Υποχρέωση παραμονής. Φορολογική δήλωση κάθε χρόνο. Δηλώσεις παγκοσμίου εισοδήματος. Σχέση με ΣΑΔΦ (Σύμβαση Αποφυγής Διπλής Φορολογίας). Πότε χρειάζεσαι λογιστή.
+
+[ΕΝΟΤΗΤΑ_6] Επόμενα Βήματα
+Βάσει κατάστασης: 1. Συγκέντρωσε πιστοποιητικά εξωτερικού. 2. Υπόβαλε Δ210. 3. Κάνε αίτηση 5Γ. 4. Βρες λογιστή αν χρειαστεί. 5. Υπόβαλε δήλωση με κωδικό 5Γ. Χρονοδιάγραμμα.
+
+[ΕΝΟΤΗΤΑ_7] Ένα Μήνυμα
+Ζεστό κλείσιμο. Η επιστροφή στην Ελλάδα αξίζει — και ο νόμος σε ανταμείβει γι' αυτό. Τελειώνει με ευχές.`,
   };
 
   return base + '\n\n' + (productInstructions[product] || productInstructions['willsimple']);
@@ -932,6 +954,12 @@ function buildUserPrompt(product, formData, customerName) {
     vatStatus:        'Υπόχρεος ΦΠΑ',
     invoicingSoftware:'Λογισμικό τιμολόγησης',
     softwareName:     'Όνομα λογισμικού',
+    // ExpatSimple fields
+    countryAbroad:    'Χώρα εξωτερικού',
+    yearsAbroad:      'Χρόνια στο εξωτερικό',
+    returnStatus:     'Κατάσταση επιστροφής',
+    employmentStatus: 'Εργασιακή κατάσταση',
+    estimatedIncome:  'Εκτιμώμενο ετήσιο εισόδημα',
   };
 
   const valueLabels = {
@@ -965,6 +993,10 @@ function buildUserPrompt(product, formData, customerName) {
     stop: 'Σταμάτημα δραστηριότητας', retirement: 'Συνταξιοδότηση',
     goods: 'Πώληση αγαθών',
     threat: 'Υπάρχει απειλή',
+    // ExpatSimple values
+    already_returned: 'Έχω ήδη γυρίσει', planning: 'Σχεδιάζω να γυρίσω',
+    employed: 'Μισθωτός/ή', self_employed: 'Ελεύθερος/η επαγγελματίας',
+    job_seeking: 'Αναζητώ εργασία', remote: 'Τηλεργασία για εξωτερικό',
   };
 
   for (const [key, value] of Object.entries(formData)) {
