@@ -15,10 +15,11 @@
 
 require('dotenv').config();
 
-const express    = require('express');
-const path       = require('path');
-const bodyParser = require('body-parser');
-const cors       = require('cors');
+const express     = require('express');
+const path        = require('path');
+const bodyParser  = require('body-parser');
+const cors        = require('cors');
+const compression = require('compression');
 
 const app  = express();
 const PORT = process.env.PORT || 3000;
@@ -32,6 +33,9 @@ const pendingOrders = new Map();
 // ────────────────────────────────────────────────────────────
 
 app.use(cors());
+
+// ── Gzip/Brotli compression — reduces response size by 60-80%
+app.use(compression());
 
 // www → non-www redirect (301 permanent)
 // Handles SSL cert issues on www subdomain by redirecting to the bare domain
@@ -52,7 +56,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Serve static files (HTML, CSS, JS, images)
-app.use(express.static(path.join(__dirname, 'public')));
+// Cache static assets for 7 days — instant repeat visits
+app.use(express.static(path.join(__dirname, 'public'), {
+  maxAge: '7d',
+  etag: true,
+  lastModified: true,
+}));
 
 // ────────────────────────────────────────────────────────────
 // PRODUCT PAGE ROUTES  (clean URLs without .html)
