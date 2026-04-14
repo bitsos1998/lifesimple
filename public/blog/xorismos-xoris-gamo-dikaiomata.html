@@ -153,5 +153,57 @@
 </footer>
 
 <script src="/js/main.js" defer></script>
+
+<!-- ── Deferred Tracking Scripts (loaded after page is interactive) ── -->
+<script>
+(function() {
+  function loadTrackingScripts() {
+    // ── Google Analytics 4 ──────────────────────────────────────────
+    var gaScript = document.createElement('script');
+    gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-W9FQ1ZKB97';
+    gaScript.async = true;
+    gaScript.onload = function() {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', 'G-W9FQ1ZKB97');
+    };
+    document.head.appendChild(gaScript);
+
+    // ── Meta Pixel ───────────────────────────────────────────────────
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1479440620411330');
+    fbq('track', 'PageView');
+
+    // ── Bing UET ─────────────────────────────────────────────────────
+    var bingScript = document.createElement('script');
+    bingScript.src = 'https://bat.bing.com/bat.js';
+    bingScript.async = true;
+    bingScript.onload = function() {
+      var o = {ti: '97237269', q: window.uetq || []};
+      window.uetq = new UET(o);
+      window.uetq.push('pageLoad');
+    };
+    document.head.appendChild(bingScript);
+  }
+
+  if (window.requestIdleCallback) {
+    requestIdleCallback(loadTrackingScripts, {timeout: 3000});
+  } else {
+    window.addEventListener('load', function() {
+      setTimeout(loadTrackingScripts, 1000);
+    });
+  }
+})();
+</script>
+<!-- ── End Deferred Tracking ─────────────────────────────────────── -->
 </body>
 </html>

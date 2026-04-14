@@ -9,35 +9,6 @@
   <meta name="description" content="Πώς κάνεις καταγγελία στον σωστό φορέα. ΣΕΠΕ, Συνήγορος Καταναλωτή, ΑΠΔΠΧ. Μόνο €12." />
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="icon" href="/images/logo.png" type="image/png" />
-  <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1479440620411330');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1479440620411330&ev=PageView&noscript=1"/></noscript>
-  <!-- End Meta Pixel Code -->
-  <!-- Bing UET Tag -->
-  <script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"97237269"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script>
-  <noscript><img src="//bat.bing.com/action/0?ti=97237269&Ver=2" height="0" width="1" style="display:none; visibility: hidden;" /></noscript>
-  <!-- End Bing UET Tag -->
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W9FQ1ZKB97"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-W9FQ1ZKB97');
-  </script>
-  <!-- End Google Analytics 4 -->
 
   <!-- Open Graph / Social Sharing -->
   <meta property="og:type" content="product">
@@ -378,36 +349,36 @@
 <script src="/js/main.js" defer></script>
 
 <!-- ── GDPR Cookie Consent Banner ─────────────────────────── -->
-<div id="cookie-banner" style="
+<div id="cookie-banner" data-nosnippet style="
   display:none;
   position:fixed;
   bottom:0; left:0; right:0;
   background:#1a2744;
   color:#f7f5f0;
-  padding:1.2rem 1.5rem;
+  padding:1rem 1.5rem;
   z-index:9999;
   box-shadow:0 -4px 24px rgba(0,0,0,0.18);
   font-family:'Segoe UI','Helvetica Neue',Arial,sans-serif;
-  font-size:0.95rem;
+  font-size:0.9rem;
   line-height:1.5;
 ">
-  <div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:1rem;">
-    <p style="flex:1;min-width:220px;margin:0;">
-      Χρησιμοποιούμε cookies για τη σωστή λειτουργία του ιστότοπου και, εάν συναινέσεις, για ανάλυση επισκεψιμότητας.
-      <a href="/privacy" style="color:#C9892A;text-decoration:underline;">Πολιτική Απορρήτου</a>
+  <div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:0.75rem;">
+    <p style="flex:1;min-width:200px;margin:0;">
+      Χρησιμοποιούμε cookies για τη λειτουργία του ιστότοπου.
+      <a href="/privacy" style="color:#C9892A;text-decoration:underline;">Περισσότερα</a>
     </p>
-    <div style="display:flex;gap:0.75rem;flex-wrap:wrap;flex-shrink:0;">
+    <div style="display:flex;gap:0.6rem;flex-shrink:0;">
       <button onclick="acceptCookies()" style="
         background:#C9892A;color:#1a2744;border:none;
-        padding:0.6rem 1.4rem;border-radius:6px;
-        font-weight:700;font-size:0.95rem;cursor:pointer;
-      ">Αποδοχή όλων</button>
+        padding:0.5rem 1.2rem;border-radius:6px;
+        font-weight:700;font-size:0.9rem;cursor:pointer;
+      ">Αποδοχή</button>
       <button onclick="rejectCookies()" style="
         background:transparent;color:#f7f5f0;
         border:2px solid #C9892A;
-        padding:0.6rem 1.4rem;border-radius:6px;
-        font-weight:600;font-size:0.95rem;cursor:pointer;
-      ">Μόνο απαραίτητα</button>
+        padding:0.5rem 1.2rem;border-radius:6px;
+        font-weight:600;font-size:0.9rem;cursor:pointer;
+      ">Απόρριψη</button>
     </div>
   </div>
 </div>
@@ -415,7 +386,12 @@
 (function() {
   var consent = localStorage.getItem('ls_cookie_consent');
   if (!consent) {
-    document.getElementById('cookie-banner').style.display = 'block';
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        var b = document.getElementById('cookie-banner');
+        if (b) b.style.display = 'block';
+      }, 2000);
+    });
   }
 })();
 function acceptCookies() {
@@ -449,5 +425,57 @@ function rejectCookies() {
     })();
   </script>
   <script src="/js/multistep.js" defer></script>
+
+<!-- ── Deferred Tracking Scripts (loaded after page is interactive) ── -->
+<script>
+(function() {
+  function loadTrackingScripts() {
+    // ── Google Analytics 4 ──────────────────────────────────────────
+    var gaScript = document.createElement('script');
+    gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-W9FQ1ZKB97';
+    gaScript.async = true;
+    gaScript.onload = function() {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', 'G-W9FQ1ZKB97');
+    };
+    document.head.appendChild(gaScript);
+
+    // ── Meta Pixel ───────────────────────────────────────────────────
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1479440620411330');
+    fbq('track', 'PageView');
+
+    // ── Bing UET ─────────────────────────────────────────────────────
+    var bingScript = document.createElement('script');
+    bingScript.src = 'https://bat.bing.com/bat.js';
+    bingScript.async = true;
+    bingScript.onload = function() {
+      var o = {ti: '97237269', q: window.uetq || []};
+      window.uetq = new UET(o);
+      window.uetq.push('pageLoad');
+    };
+    document.head.appendChild(bingScript);
+  }
+
+  if (window.requestIdleCallback) {
+    requestIdleCallback(loadTrackingScripts, {timeout: 3000});
+  } else {
+    window.addEventListener('load', function() {
+      setTimeout(loadTrackingScripts, 1000);
+    });
+  }
+})();
+</script>
+<!-- ── End Deferred Tracking ─────────────────────────────────────── -->
 </body>
 </html>
